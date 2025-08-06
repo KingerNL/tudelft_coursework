@@ -1,0 +1,42 @@
+<!DOCTYPE module SYSTEM "module.dtd">
+
+<module name="radio_control_sbus_dual" dir="radio_control" task="radio_control">
+  <doc>
+    <description>
+      Radio control using two Futaba SBUS receivers
+    </description>
+    <configure name="SBUS1_PORT" value="UARTX" description="UART name where first SBUS receiver is plugged"/>
+    <configure name="SBUS2_PORT" value="UARTX" description="UART name where second SBUS receiver is plugged"/>
+  </doc>
+  <dep>
+    <depends>uart,radio_control_common</depends>
+    <provides>radio_control</provides>
+  </dep>
+  <header>
+    <file name="sbus_dual.h"/>
+  </header>
+  <init fun="sbus_dual_init()"/>
+  <event fun="sbus_dual_event()"/>
+  <makefile target="ap|fbw">
+    <configure name="SBUS1_UART" value="$(SBUS1_PORT)" case="upper|lower"/>
+    <configure name="SBUS2_UART" value="$(SBUS2_PORT)" case="upper|lower"/>
+    <define name="RADIO_CONTROL_TYPE_SBUS"/>
+    <define name="USE_$(SBUS1_UART_UPPER)"/>
+    <define name="USE_$(SBUS2_UART_UPPER)"/>
+    <define name="$(SBUS1_UART_UPPER)_BAUD" value="B100000"/>
+    <define name="$(SBUS2_UART_UPPER)_BAUD" value="B100000"/>
+    <define name="SBUS1_UART_DEV" value="$(SBUS1_UART_LOWER)"/>
+    <define name="SBUS2_UART_DEV" value="$(SBUS2_UART_LOWER)"/>
+    <file name="sbus_dual.c"/>
+    <file name="sbus_common.c"/>
+    <test>
+      <define name="RADIO_CONTROL"/>
+      <define name="RADIO_CONTROL_TYPE_SBUS"/>
+      <define name="SBUS1_UART_DEV" value="uart4"/>
+      <define name="SBUS2_UART_DEV" value="uart5"/>
+      <define name="USE_UART4"/>
+      <define name="USE_UART5"/>
+    </test>
+  </makefile>
+</module>
+

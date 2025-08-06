@@ -1,0 +1,20 @@
+<!DOCTYPE module SYSTEM "module.dtd">
+
+<module name="telemetry_transparent_usb" dir="datalink" task="datalink">
+  <doc>
+    <description>
+      DEPRECATED: Use telemetry_transparent with configure MODEM_PORT=usb_serial instead. 
+      Telemetry using PPRZ protocol over serial USB (e.g. /dev/ttyACM0)
+    </description>
+  </doc>
+  <dep>
+    <depends>telemetry_transparent</depends>
+  </dep>
+  <makefile target="!sim|nps">
+    <configure name="MODEM_PORT" value="usb_serial"/>
+    <raw>
+    $(warning Warning: telemetry_transparent_usb is deprecated. Use telemetry_transparent with configure MODEM_PORT=usb_serial instead.)
+    </raw>
+  </makefile>
+</module>
+

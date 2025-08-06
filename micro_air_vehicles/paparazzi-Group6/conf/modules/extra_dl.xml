@@ -1,0 +1,37 @@
+<!DOCTYPE module SYSTEM "module.dtd">
+
+<module name="extra_dl" dir="datalink" task="datalink">
+  <doc>
+    <description>Extra datalink (PPRZ transport)</description>
+    <configure name="EXTRA_DL_PORT" value="UARTX|UDPX|usb_serial" description="Select port for extra datalink"/>
+    <configure name="EXTRA_DL_BAUD" value="B57600" description="Baudrate for extra datalink if link device is UART"/>
+  </doc>
+  <dep>
+    <depends>uart|udp</depends>
+  </dep>
+  <header>
+    <file name="extra_pprz_dl.h"/>
+  </header>
+  <init fun="extra_pprz_dl_init()"/>
+  <periodic fun="extra_pprz_dl_periodic()" autorun="TRUE"/>
+
+  <!--
+  The event function listens on the extra telemetry port (from the payload computer for example)
+  and parses the received "datalink" messages, such as MOVE_WP.
+  We need this function to be able to listen to the extra telemetry port  
+
+  As a result all messages normally handled by the autopilot (such as MOVE_WP) are processed.
+  -->
+  <event fun="extra_pprz_dl_event()"/>
+
+  <makefile>
+    <configure name="EXTRA_DL_PORT" default="uart1" case="upper|lower"/>
+    <define name="EXTRA_DOWNLINK_DEVICE" value="$(EXTRA_DL_PORT_LOWER)"/>
+    <define name="USE_$(EXTRA_DL_PORT_UPPER)"/>
+    <define name="$(EXTRA_DL_PORT_UPPER)_BAUD" value="$(EXTRA_DL_BAUD)"/>
+    <configure name="TELEMETRY_FREQUENCY" default="$(PERIODIC_FREQUENCY)"/>
+    <define name="TELEMETRY_FREQUENCY" value="$(TELEMETRY_FREQUENCY)"/>
+    <file name="extra_pprz_dl.c"/>
+    <file name="pprz_transport.c" dir="pprzlink/src"/>
+  </makefile>
+</module>

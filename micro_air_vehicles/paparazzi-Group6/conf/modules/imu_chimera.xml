@@ -1,0 +1,23 @@
+<!DOCTYPE module SYSTEM "module.dtd">
+
+<module name="imu_chimera" dir="imu" task="sensors">
+  <doc>
+    <description>
+      MPU9250 IMU via I2C.
+      Basically the same as imu_mpu9250_i2c, only changed axes assignment for Chimera.
+    </description>
+  </doc>
+  <dep>
+    <depends>imu_mpu9250_i2c</depends>
+    <provides>imu</provides>
+  </dep>
+  <makefile target="!sim|nps|fbw">
+    <configure name="IMU_MPU9250_I2C_DEV" value="i2c1" case="upper|lower"/>
+    <define name="IMU_MPU9250_CHAN_X" value="1"/>
+    <define name="IMU_MPU9250_CHAN_Y" value="0"/>
+    <define name="IMU_MPU9250_CHAN_Z" value="2"/>
+    <define name="IMU_MPU9250_X_SIGN" value="-1"/>
+    <define name="IMU_MPU9250_Y_SIGN" value="-1"/>
+    <define name="IMU_MPU9250_Z_SIGN" value="-1"/>
+  </makefile>
+</module>

@@ -1,0 +1,22 @@
+<!DOCTYPE module SYSTEM "../module.dtd">
+
+<module name="hitl" dir="targets" task="core">
+  <doc>
+    <description>
+      Hardware In The Loop simulation
+      Based on NPS simulator
+    </description>
+  </doc>
+  <dep>
+    <depends>math,targets/nps_common</depends>
+  </dep>
+  <makefile target="hitl">
+    <configure name="SRC_FIRMWARE" default="firmwares/fixedwing"/>
+    <configure name="PERIODIC_FREQUENCY" default="60"/>
+    <define name="PERIODIC_FREQUENCY" value="$(PERIODIC_FREQUENCY)"/>
+    <define name="HITL"/>
+    <include name="$(SRC_FIRMWARE)"/>
+    <file name="nps_main_hitl.c" dir="$(NPS_DIR)"/>
+  </makefile>
+</module>
+

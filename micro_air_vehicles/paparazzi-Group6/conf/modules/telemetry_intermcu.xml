@@ -1,0 +1,27 @@
+<!DOCTYPE module SYSTEM "module.dtd">
+
+<module name="telemetry_intermcu" dir="datalink" task="datalink">
+  <doc>
+    <description>
+      Telemetry bridge over InterMCU for FBW
+      This module transmits datalink of the process "InterMCU" from AP to FBW. The FBW then transmits this telemetry further through PPRZ over an UART.
+    </description>
+    <configure name="TELEMETRY_INTERMCU_DEV" value="$(DOWNLINK_DEVICE)" description="Device used to communicate the telemetry over on the FBW side"/>
+  </doc>
+  <dep>
+    <depends>uart,@intermcu</depends>
+    <provides>datalink,telemetry</provides>
+  </dep>
+  <header>
+    <file name="intermcu_dl.h"/>
+  </header>
+  <init fun="intermcu_dl_init()"/>
+  <makefile target="ap|fbw">
+    <configure name="TELEMETRY_INTERMCU_DEV" default="$(MODEM_PORT)" case="upper|lower"/>
+    <define name="TELEMETRY_INTERMCU"/>
+    <define name="TELEMETRY_INTERMCU_DEV" value="$(TELEMETRY_INTERMCU_DEV_LOWER)" cond="ifneq ($(TELEMETRY_INTERMCU_DEV),)"/>
+    <file name="intermcu_dl.c"/>
+    <test/>
+  </makefile>
+</module>
+

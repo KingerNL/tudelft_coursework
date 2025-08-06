@@ -1,0 +1,20 @@
+<layout width="1024" height="693">
+  <rows>
+    <widget NAME="map2d" SIZE="462">
+      <papget type="message_field" display="text" x="921" y="373">
+        <property name="field" value="SHT_STATUS:temp"/>
+        <property name="scale" value="1"/>
+        <property name="format" value="%.2f"/>
+        <property name="size" value="19."/>
+        <property name="color" value="blue"/>
+      </papget>
+    </widget>
+    <columns>
+      <rows SIZE="422">
+        <widget NAME="strips" SIZE="300"/>
+      </rows>
+      <widget NAME="aircraft" SIZE="400"/>
+      <widget NAME="alarms"/>
+    </columns>
+  </rows>
+</layout>

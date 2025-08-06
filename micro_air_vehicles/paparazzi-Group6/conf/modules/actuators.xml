@@ -1,0 +1,24 @@
+<!DOCTYPE module SYSTEM "module.dtd">
+
+<module name="actuators" dir="actuators" task="actuators">
+  <doc>
+    <description>
+      Common actuators interface
+    </description>
+  </doc>
+  <dep>
+  </dep>
+  <header>
+    <file name="actuators.h"/>
+  </header>
+  <init fun="actuators_init()"/>
+  <periodic fun="actuators_periodic()"/>
+  <makefile>
+    <define name="ACTUATORS"/>
+    <file name="actuators.c"/>
+    <test/>
+  </makefile>
+</module>
+
+
+

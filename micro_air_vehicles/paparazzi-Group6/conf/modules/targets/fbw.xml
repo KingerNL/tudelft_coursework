@@ -1,0 +1,20 @@
+<!DOCTYPE module SYSTEM "../module.dtd">
+
+<module name="fbw" dir="targets" task="core">
+  <doc>
+    <description>FBW target specific module</description>
+  </doc>
+  <dep>
+    <depends>electrical,@intermcu</depends>
+    <provides>no_settings</provides>
+  </dep>
+  <header>
+    <file name="main_fbw.h" dir="."/>
+  </header>
+  <datalink message="EMERGENCY_CMD" fun="main_fbw_parse_EMERGENCY_CMD(buf)"/>
+  <makefile target="fbw">
+    <define name="FBW"/>
+    <file name="main_fbw.c" dir="."/>
+  </makefile>
+</module>
+

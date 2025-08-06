@@ -1,0 +1,13 @@
+<!DOCTYPE settings SYSTEM "settings.dtd">
+
+<settings target="ap">
+  <dl_settings>
+
+    <dl_settings NAME="System">
+      <dl_setting var="autopilot.kill_throttle" min="0" step="1" max="1" module="autopilot" values="Resurrect|Kill" handler="KillThrottle"/>
+      <dl_setting var="autopilot.mode" min="0" step="1" max="19" module="autopilot" shortname="mode" handler="SetModeHandler"/>
+      <dl_setting var="mcu_reboot" shortname="reboot" min="0" step="1" max="3" values="NORMAL|POWEROFF|FAST|BOOTLOADER" handler="reboot" module="mcu" type="fun"/>
+    </dl_settings>
+
+  </dl_settings>
+</settings>

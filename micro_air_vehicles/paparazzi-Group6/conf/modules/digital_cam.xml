@@ -1,0 +1,20 @@
+<!DOCTYPE module SYSTEM "./module.dtd">
+
+<module name="digital_cam" dir="digital_cam">
+  <doc>
+    <description>
+      Digital Photo Camera Triggering (using a GPIO pin)
+
+      Deprecated, use digital_cam_gpio module instead
+    </description>
+  </doc>
+  <dep>
+    <depends>digital_cam_gpio</depends>
+  </dep>
+  <makefile>
+    <raw>
+      $(warning Warning: digital_cam is deprecated. Use digital_cam_gpio instead.)
+    </raw>
+  </makefile>
+
+</module>

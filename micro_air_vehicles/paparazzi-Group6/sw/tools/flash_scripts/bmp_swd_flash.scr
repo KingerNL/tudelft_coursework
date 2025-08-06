@@ -1,0 +1,17 @@
+# Print BMPM version
+monitor version
+# Set higher timeout for large compare-sections
+set remotetimeout 30
+# To make sure the target is not in a "strange" mode we tell BMPM to reset the
+# target using the reset pin.
+monitor connect en
+# Scan for devices using SWD interface
+monitor swdp_scan
+# Attach to the first device
+attach 1
+# Load the binary into the flash
+load
+# Check if the flash matches the binary
+compare-sections
+# Reset and exit
+kill

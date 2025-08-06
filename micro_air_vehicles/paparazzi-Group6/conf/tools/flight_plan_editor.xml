@@ -1,0 +1,5 @@
+<program command="sw/tools/gcs_launch.py" name="Flight Plan Editor">
+  <arg flag="--" />
+  <arg flag="-f" />
+</program>
+

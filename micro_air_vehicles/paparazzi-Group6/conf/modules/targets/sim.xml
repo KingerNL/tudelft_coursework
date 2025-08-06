@@ -1,0 +1,19 @@
+<!DOCTYPE module SYSTEM "../module.dtd">
+
+<module name="sim" dir="targets" task="core">
+  <doc>
+    <description>
+      Basic Simulator (SIM)
+
+      Bindings between embedded autopilot code and a flight dynamic model (FDM).
+      FDM and low level code is written in OCaml.
+      Only for fixed-wing.
+    </description>
+  </doc>
+  <dep>
+    <depends>targets/nps,fdm_fixedwing_sim</depends>
+  </dep>
+  <makefile target="sim">
+  </makefile>
+</module>
+

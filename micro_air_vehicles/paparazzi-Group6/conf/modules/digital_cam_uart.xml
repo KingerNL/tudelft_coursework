@@ -1,0 +1,61 @@
+<!DOCTYPE module SYSTEM "module.dtd">
+<module name="digital_cam_uart" dir="digital_cam">
+  <doc>
+    <description>
+      Digital Photo Camera Triggering (using a UART link)
+
+      This module controls triggering of an attached external digital camera via UART commands.
+
+      This module fullfills 4 functions:
+      1) send shoot commands over UART
+      2) Besides triggering the shooting of images, the module also sends attitude and other relevant data.
+      Typically an external linux camera or linux computer will receive the attitude and position data and add
+      it to the photos.
+      3) The module will also parse the replies received over the UART. This contains status but can also
+      contain computer vision results to able to interact with the flightplan.
+      4) Finally, the module will also relay over telemetry all data it receives from the attached computer
+      or camera using the PAYLOAD message. This can for instance be used to downlink thumbnails.
+
+      The linux program used to parse the UART command is given in the subdirectory.
+    </description>
+  </doc>
+  <settings>
+    <dl_settings name="control">
+      <dl_settings name="tb">
+        <dl_setting max="2" min="0" step="1" var="digital_cam_uart_thumbnails" shortname="thumbs">
+          <strip_button name="DL Thumbs High" icon="on.png" value="2" group="ticket"/>
+          <strip_button name="DL Thumbs Low" icon="on.png" value="1" group="ticket"/>
+          <strip_button name="DL Thumbs STOP" icon="off.png" value="0" group="ticket"/>
+        </dl_setting>
+        <dl_setting max="2" min="0" step="1" var="digital_cam_uart_status" shortname="status" />
+      </dl_settings>
+    </dl_settings>
+  </settings>
+  <dep>
+    <depends>digital_cam_common</depends>
+    <conflicts>digital_cam_gpio,digital_cam_servo,digital_cam_i2c,digital_cam_pprzlink</conflicts>
+  </dep>
+  <header>
+    <file name="uart_cam_ctrl.h"/>
+  </header>
+  <init fun="digital_cam_uart_init()"/>
+  <periodic fun="digital_cam_uart_periodic()" freq="10" autorun="TRUE"/>
+  <event fun="digital_cam_uart_event()"/>
+  <makefile target="sim|nps">
+    <file name="catia/serial.c"/>
+    <define name="UART5_DEV" value="ttyUSB0"/>
+  </makefile>
+  <makefile target="ap|sim|nps">
+    <file name="uart_cam_ctrl.c"/>
+    <file name="catia/protocol.c"/>
+    <configure name="CAMERA_PORT" case="upper|lower"/>
+    <define name="USE_$(CAMERA_PORT_UPPER)"/>
+    <define name="CAMERA_LINK" value="$(CAMERA_PORT_LOWER)"/>
+    <define name="$(CAMERA_PORT_UPPER)_BAUD" value="B115200"/>
+    <test>
+      <define name="CAMERA_LINK" value="uart0"/>
+      <define name="USE_UART0"/>
+    </test>
+  </makefile>
+</module>
+

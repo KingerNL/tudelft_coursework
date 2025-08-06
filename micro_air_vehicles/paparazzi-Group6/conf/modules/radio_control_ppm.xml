@@ -1,0 +1,35 @@
+<!DOCTYPE module SYSTEM "module.dtd">
+
+<module name="radio_control_ppm" dir="radio_control" task="radio_control">
+  <doc>
+    <description>
+      Radio control based on PPM input
+
+      Some STM32 boards have the option to configure RADIO_CONTROL_PPM_PIN.
+      See the board makefile for configure options of the pins.
+      If they set the PPM_CONFIG makefile variable, add it to the target.
+      The PPM_CONFIG define is then used in the _board_.h file to set the configuration.
+    </description>
+    <configure name="PPM_CONFIG" value="num" description="Select PPM config, as some boards can used different mapping for the ppm input pin"/>
+  </doc>
+  <dep>
+    <depends>radio_control_common</depends>
+    <provides>radio_control</provides>
+  </dep>
+  <header>
+    <file name="ppm.h"/>
+  </header>
+  <init fun="ppm_init()"/>
+  <event fun="ppm_event()"/>
+  <makefile target="ap|fbw|sim|nps">
+    <define name="USE_PPM" value="TRUE"/>
+    <define name="PPM_CONFIG" value="$(PPM_CONFIG)" cond="ifdef PPM_CONFIG"/>
+    <define name="RADIO_CONTROL_TYPE_PPM"/>
+    <file name="ppm.c"/>
+    <file_arch name="ppm_arch.c"/>
+    <test>
+      <define name="RADIO_CONTROL_TYPE_PPM"/>
+    </test>
+  </makefile>
+</module>
+

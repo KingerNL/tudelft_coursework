@@ -1,0 +1,34 @@
+<!DOCTYPE module SYSTEM "module.dtd">
+
+<module name="radio_control_hott" dir="radio_control" task="radio_control">
+  <doc>
+    <description>
+      Radio control based on Graupner HOTT SUMD
+    </description>
+    <configure name="HOTT_PORT" value="UARTX" description="UART name where HOTT receiver is plugged"/>
+  </doc>
+  <dep>
+    <depends>uart,radio_control_common</depends>
+    <provides>radio_control</provides>
+  </dep>
+  <header>
+    <file name="hott.h"/>
+  </header>
+  <init fun="hott_init()"/>
+  <event fun="hott_event()"/>
+  <makefile target="ap|fbw">
+    <configure name="HOTT_UART" value="$(HOTT_PORT)" case="upper|lower"/>
+    <define name="RADIO_CONTROL_TYPE_HOTT"/>
+    <define name="USE_$(HOTT_UART_UPPER)"/>
+    <define name="$(HOTT_UART_UPPER)_BAUD" value="B115200"/>
+    <define name="HOTT_UART_DEV" value="$(HOTT_UART_LOWER)"/>
+    <file name="hott.c"/>
+    <file name="hott_common.c"/>
+    <test>
+      <define name="RADIO_CONTROL_TYPE_HOTT"/>
+      <define name="HOTT_UART_DEV" value="uart5"/>
+      <define name="USE_UART5"/>
+    </test>
+  </makefile>
+</module>
+

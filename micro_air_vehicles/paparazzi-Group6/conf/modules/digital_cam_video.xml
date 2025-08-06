@@ -1,0 +1,24 @@
+<!DOCTYPE module SYSTEM "module.dtd">
+<module name="digital_cam_video" dir="digital_cam">
+  <doc>
+    <description>
+      Digital Photo Camera Triggering (using embedded video)
+
+      This module controls triggering of an embedded digital camera on a linux based autopilot. This particular version triggers the video_rtp_stream.xml module to store jpeg images.
+    </description>
+  </doc>
+  <dep>
+    <depends>digital_cam_common,video_capture</depends>
+    <conflicts>digital_cam_gpio,digital_cam_servo,digital_cam_i2c,digital_cam_uart,digital_cam_pprzlink</conflicts>
+  </dep>
+  <header>
+    <file name="video_cam_ctrl.h"/>
+  </header>
+  <init fun="digital_cam_video_init()"/>
+  <periodic fun="digital_cam_video_periodic()" freq="10" autorun="TRUE"/>
+  <makefile target="ap">
+    <file name="video_cam_ctrl.c"/>
+    <test/>
+  </makefile>
+</module>
+

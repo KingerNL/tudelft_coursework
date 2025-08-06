@@ -1,0 +1,48 @@
+<!DOCTYPE module SYSTEM "module.dtd">
+
+<module name="guidance_rotorcraft" dir="guidance" task="control">
+  <doc>
+    <description>
+      Base guidance code for rotorcraft
+      It provides:
+      - horizontal guidance with reference
+      - vertical guidance with reference and adaptive control
+      - flip mode
+    </description>
+  </doc>
+  <settings target="ap|nps">
+    <dl_settings>
+      <dl_settings NAME="Vert Loop">
+        <dl_setting var="guidance_v.nominal_throttle" min="0.2" step="0.01" max="0.8" shortname="nominal_throttle" param="GUIDANCE_V_NOMINAL_HOVER_THROTTLE" persistent="true"/>
+        <dl_setting var="guidance_v.z_sp" min="-5" step="0.5" max="3" shortname="sp" unit="2e-8m" alt_unit="m" alt_unit_coef="0.00390625"/>
+      </dl_settings>
+      <dl_settings NAME="Horiz ref">
+        <dl_setting var="guidance_h.use_ref" min="0" step="1" max="1" shortname="use_ref" values="FALSE|TRUE" handler="SetUseRef" param="GUIDANCE_H_USE_REF" persistent="true" module="guidance/guidance_h"/>
+        <dl_setting var="gh_ref.max_speed" min="0.1" step="0.1" max="15.0" shortname="max_speed" handler="SetMaxSpeed" param="GUIDANCE_H_REF_MAX_SPEED" type="float" persistent="true" module="guidance/guidance_h"/>
+        <dl_setting var="gh_ref.tau" min="0.1" step="0.1" max="1.0" shortname="tau" handler="SetTau" param="GUIDANCE_H_REF_TAU" type="float" persistent="true" module="guidance/guidance_h"/>
+        <dl_setting var="gh_ref.omega" min="0.1" step="0.1" max="3.0" shortname="omega" handler="SetOmega" param="GUIDANCE_H_REF_OMEGA" type="float" persistent="true" module="guidance/guidance_h"/>
+        <dl_setting var="gh_ref.zeta" min="0.7" step="0.05" max="1.0" shortname="zeta" handler="SetZeta" param="GUIDANCE_H_REF_ZETA" type="float" persistent="true" module="guidance/guidance_h"/>
+        <dl_setting var="guidance_h.sp.pos.x" MIN="-10" MAX="10" STEP="1" shortname="sp_x_ned" unit="1/2^8m" alt_unit="m" alt_unit_coef="0.00390625"/>
+        <dl_setting var="guidance_h.sp.pos.y" MIN="-10" MAX="10" STEP="1" shortname="sp_y_ned" unit="1/2^8m" alt_unit="m" alt_unit_coef="0.00390625"/>
+      </dl_settings>
+    </dl_settings>
+  </settings>
+  <dep>
+    <depends>@navigation,@stabilization</depends>
+    <provides>guidance,attitude_command</provides>
+  </dep>
+  <header>
+    <file name="guidance_h.h"/>
+    <file name="guidance_v.h"/>
+  </header>
+  <init fun="guidance_h_init()"/>
+  <init fun="guidance_v_init()"/>
+  <makefile target="ap|nps" firmware="rotorcraft">
+    <file name="guidance_h.c" dir="$(SRC_FIRMWARE)/guidance"/>
+    <file name="guidance_h_ref.c" dir="$(SRC_FIRMWARE)/guidance"/>
+    <file name="guidance_v.c" dir="$(SRC_FIRMWARE)/guidance"/>
+    <file name="guidance_v_ref.c" dir="$(SRC_FIRMWARE)/guidance"/>
+    <file name="guidance_v_adapt.c" dir="$(SRC_FIRMWARE)/guidance"/>
+    <file name="guidance_flip.c" dir="$(SRC_FIRMWARE)/guidance"/>
+  </makefile>
+</module>

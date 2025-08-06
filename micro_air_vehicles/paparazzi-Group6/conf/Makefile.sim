@@ -1,0 +1,1 @@
+include $(PAPARAZZI_SRC)/conf/Makefile.nps

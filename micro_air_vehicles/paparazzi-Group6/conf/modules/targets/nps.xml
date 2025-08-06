@@ -1,0 +1,28 @@
+<!DOCTYPE module SYSTEM "../module.dtd">
+
+<module name="nps" dir="targets" task="core">
+  <doc>
+    <description>
+      New Paparazzi Simulator (NPS)
+
+      Bindings between embedded autopilot code and a flight dynamic model (FDM).
+      Possible FDM are: JSBSim, CRRCSIM, GAZEBO or PYBULLET, see corresponding modules.
+      Can run Software In The Loop (SITL) simulations.
+    </description>
+  </doc>
+  <dep>
+    <depends>system_core,electrical,settings,@ins|@ahrs,targets/nps_common</depends>
+    <provides>baro,airspeed,sonar,incidence,temperature</provides>
+    <suggests>gps_nps,imu_nps,ins_nps,actuators_nps,telemetry_nps</suggests>
+  </dep>
+  <makefile target="sim|nps">
+    <define name="AP"/>
+    <define name="SITL"/>
+    <file name="nps_electrical.c" dir="$(NPS_DIR)"/>
+    <file name="nps_radio_control.c" dir="$(NPS_DIR)"/>
+    <file name="nps_radio_control_joystick.c" dir="$(NPS_DIR)"/>
+    <file name="nps_radio_control_spektrum.c" dir="$(NPS_DIR)"/>
+    <file name="nps_main_sitl.c" dir="$(NPS_DIR)"/>
+  </makefile>
+</module>
+
