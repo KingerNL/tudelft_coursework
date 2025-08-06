@@ -1,0 +1,32 @@
+!
+! road data file for TNO_sine_road_Adams
+!
+! single sine (wavelength: 2 m, height: 0.1 m)
+! 0 deg. angle with respect to the driving direction 
+!
+$---------------------------------------------------------------------mdi_header
+[MDI_HEADER]
+FILE_TYPE          = 'rdf'
+FILE_VERSION       = 5.0
+FILE_FORMAT        = 'ASCII'
+$--------------------------------------------------------------------------UNITS
+[UNITS]
+LENGTH                  = 'meter'
+FORCE                   = 'newton'
+ANGLE                   = 'degree'
+MASS                    = 'kg'
+TIME                    = 'sec'
+$--------------------------------------------------------------------------MODEL
+[MODEL]
+METHOD                  = '2D'
+ROAD_TYPE               = 'sine'
+$---------------------------------------------------------------------PARAMETERS
+[PARAMETERS]
+MU                      =     1    $ peak friction scaling coefficient
+OFFSET                  =     0    $ vertical offset of the ground wrt inertial frame
+ROTATION_ANGLE_XY_PLANE =     0    $ definition of the positive X-axis of the road wrt inertial frame
+HEIGHT                  =     0.1  $ height of the sinewave
+START                   =    20    $ distance along the X-axis of the road to the start of the sine wave
+LENGTH                  =     2    $ wavelength of the sine wave along X-axis of the road
+DIRECTION               =     0    $ rotation of the bump about the Z-axis wrt to the X-axis of the road
+N_BUMPS                 =     1    $ number of consecutive sine bumps

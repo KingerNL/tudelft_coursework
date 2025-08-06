@@ -1,0 +1,24 @@
+!
+! road data file for TNO_flat_road_Adams
+!
+$---------------------------------------------------------------------mdi_header
+[MDI_HEADER]
+FILE_TYPE          = 'rdf'
+FILE_VERSION       = 5.0
+FILE_FORMAT        = 'ASCII'
+$--------------------------------------------------------------------------units
+[UNITS]
+LENGTH             = 'meter'
+FORCE              = 'newton'
+ANGLE              = 'radians'
+MASS               = 'kg'
+TIME               = 'sec'
+$---------------------------------------------------------------------definition
+[MODEL]
+METHOD             = '2D'
+ROAD_TYPE          = 'flat'
+$---------------------------------------------------------------------parameters
+[PARAMETERS]
+MU                 =   1.0      $ peak friction scaling coefficient
+OFFSET             =     0      $ vertical offset of the ground wrt inertial frame
+

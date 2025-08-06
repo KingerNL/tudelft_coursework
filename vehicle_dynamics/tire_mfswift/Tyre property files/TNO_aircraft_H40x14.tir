@@ -1,0 +1,91 @@
+[MDI_HEADER]
+FILE_TYPE                ='tir'
+FILE_VERSION             =3.0
+FILE_FORMAT              ='ASCII'
+!
+! MF-Tyre/MF-Swift 6.2 Limited parameter sample tyre property file
+! Aircraft Tyre H40x14
+!
+! Copyright TNO 2013
+!
+$----------------------------------------------------------------units
+[UNITS]
+LENGTH                   ='meter'
+FORCE                    ='newton'
+ANGLE                    ='radians'
+MASS                     ='kg'
+TIME                     ='second'
+$----------------------------------------------------------------model
+[MODEL]
+FITTYP                   = 62                $Magic Formula Version number             
+TYRESIDE                 ='Left'
+LONGVL                   = 16.7              $Nominal speed         
+VXLOW                    = 1                 $Lower boundary of slip calculation      
+ROAD_INCREMENT           = 0.01              $Increment in road sampling
+ROAD_DIRECTION           = 1                 $Direction of travelled distance
+!
+! The next lines are only used by ADAMS and ignored by other MBS codes
+!
+! USE_MODE specifies the type of calculation performed:
+!       0: Fz only, no Magic Formula evaluation
+!       1: Fx,My only
+!       2: Fy,Mx,Mz only
+!       3: Fx,Fy,Mx,My,Mz uncombined force/moment calculation
+!       4: Fx,Fy,Mx,My,Mz combined force/moment calculation
+!       5: Fx,Fy,Mx,My,Mz combined force/moment calculation + turnslip
+!      +0: steady state behaviour
+!     +10: including relaxation behaviour
+!     +20: including relaxation behaviour (nonlinear)
+!     +30: including rigid ring dynamics
+!    +100: smooth road contact
+!    +200: smooth road contact (circular cross section, motorcycles)
+!    +400: road contact for 2D roads (using travelled distance)
+!    +500: road contact for 3D roads
+!
+!  example: USE_MODE = 434 implies:
+!    -combined slip 
+!    -rigid ring dynamics
+!    -road contact for 2D roads
+!
+PROPERTY_FILE_FORMAT     ='USER'
+FUNCTION_NAME            = 'TNO_DelftTyre_Adams_interface::TYR815'
+N_TIRE_STATES            = 5
+USE_MODE                 = 114               $Tyre use mode switch (ADAMS only)
+HMAX_LOCAL               = 2.5E-4            $Local integration time step (ADAMS only)
+SWITCH_INTEG             = 0.1               $Overrule local integrator when set to 0 (ADAMS only)
+$-----------------------------------------------------------dimensions
+[DIMENSION]
+UNLOADED_RADIUS          = 0.50              $Free tyre radius  
+WIDTH                    = 0.35              $Nominal section width of the tyre 
+$--------------------------------------------------------------inertia
+[INERTIA]
+MASS                     = 50                $Tyre Mass
+IXX                      =  6                $Tyre diametral moment of inertia 
+IYY                      =  9                $Tyre polar moment of inertia
+$-------------------------------------------------------------vertical
+[VERTICAL]
+FNOMIN                   = 1e5               $Nominal wheel load
+VERTICAL_STIFFNESS       = 1.7e6             $Tyre vertical stiffness
+VERTICAL_DAMPING         = 500               $Tyre vertical damping        
+$---------------------------------------------------------longitudinal
+[LONGITUDINAL_COEFFICIENTS]
+PDX1                     =  0.8              $Longitudinal friction Mux at Fznom    
+PDX2                     = -0.05             $Variation of friction Mux with load
+PKX1                     = 14                $Longitudinal slip stiffness Kfx/Fz at Fznom
+PTX1                     =  1.6              $Relaxation length SigKap0/Fz at Fznom
+$--------------------------------------------------------------lateral
+[LATERAL_COEFFICIENTS]
+PDY1                     =  0.65             $Lateral friction Muy
+PDY2                     = -0.15             $Lateral friction Muy
+PKY1                     = -4                $Maximum value of stiffness Kfy/Fznom
+PKY2                     =  0.8              $Load at which Kfy reaches maximum value
+PTY1                     =  1.2              $Peak value of relaxation length SigAlp0/R0
+PTY2                     =  1.2              $Value of Fz/Fznom where SigAlp0 is extreme 
+$---------------------------------------------------rolling resistance
+[ROLLING_COEFFICIENTS]
+QSY1                     =  0.01             $Rolling resistance torque coefficient
+$-------------------------------------------------------------aligning
+[ALIGNING_COEFFICIENTS]
+QBZ1                     =  6.5              $Trail slope factor for trail Bpt at Fznom
+QCZ1                     =  1.1              $Shape factor Cpt for pneumatic trail            
+QDZ1                     =  0.3              $Peak trail Dpt = Dpt*(Fz/Fznom*R0)

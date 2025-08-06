@@ -1,0 +1,45 @@
+$CT
+Delft-Tyre Split-Mu
+$
+$ROAD_CRG
+reference_line_start_u   =  0.0000000000000000e+000
+reference_line_end_u     =  1.5000000000000000e+002
+reference_line_increment =  5.0000000000000000e+001
+long_section_v_right     = -2.0000000000000000e+000
+long_section_v_left      =  2.0000000000000000e+000
+reference_line_start_s   =  0.0000000000000000e+000
+reference_line_end_s     =  0.0000000000000000e+000
+reference_line_start_b   =  0.0000000000000000e+000
+reference_line_end_b     =  0.0000000000000000e+000
+reference_line_start_x   =  0.0000000000000000e+000
+reference_line_start_y   =  0.0000000000000000e+000
+reference_line_end_x     =  1.5000000000000000e+002
+reference_line_end_y     =  0.0000000000000000e+000
+reference_line_start_phi =  0.0000000000000000e+000
+reference_line_end_phi   =  0.0000000000000000e+000
+reference_line_start_z   =  0.0000000000000000e+000
+reference_line_end_z     =  0.0000000000000000e+000
+$
+$ROAD_CRG_OPTS
+border_mode_u = 2              ! keep
+border_mode_v = 2              ! keep
+check_eps     = 1e-6           ! expected min. accuracy (default: 1e-6)
+check_inc     = 1e-3           ! expected min. increment (default: 1e-3)
+$
+$ROAD_CRG_MODS
+$
+* written by crg_write at 2009-12-10 10:25:35
+* written by ipl_write at 2009-12-10 10:25:35
+$KD_DEFINITION
+#:LRFI
+U:reference line u,m,0.000,50.000
+D:long section at v = -2.000,m
+D:long section at v = -0.100,m
+D:long section at v = 0.100,m
+D:long section at v = 2.000,m
+$
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+ 1.0000000 1.0000000 .20000000 .20000000
+ 1.0000000 1.0000000 .20000000 .20000000
+ 1.0000000 1.0000000 .20000000 .20000000
+ 1.0000000 1.0000000 .20000000 .20000000

@@ -1,0 +1,19 @@
+!
+! CRG description of flat road with different friction left and right
+!
+$--------------------------------------------------------------------------units
+[UNITS]
+LENGTH             = 'meter'
+FORCE              = 'newton'
+ANGLE              = 'radians'
+MASS               = 'kg'
+TIME               = 'sec'
+$--------------------------------------------------------------------------MODEL
+[MODEL]
+ METHOD             = '3D'
+ ROAD_TYPE          = 'crg'
+$---------------------------------------------------------------------PARAMETERS
+[PARAMETERS]
+ MU                 =  1
+ CRG_ROADFILE       = 'Uneven_road.crg'
+ CRG_FRICTIONFILE   = 'SplitMU.crg'

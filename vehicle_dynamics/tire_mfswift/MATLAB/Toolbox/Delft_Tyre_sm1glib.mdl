@@ -1,0 +1,2782 @@
+Library {
+  Name			  "Delft_Tyre_sm1glib"
+  Version		  6.4
+  MdlSubVersion		  0
+  SavedCharacterEncoding  "windows-1252"
+  LibraryType		  "BlockLibrary"
+  SaveDefaultBlockParams  on
+  SampleTimeColors	  off
+  LibraryLinkDisplay	  "none"
+  WideLines		  off
+  ShowLineDimensions	  off
+  ShowPortDataTypes	  off
+  ShowLoopsOnError	  on
+  IgnoreBidirectionalLines off
+  ShowStorageClass	  off
+  ShowTestPointIcons	  on
+  ShowViewerIcons	  on
+  SortedOrder		  off
+  ExecutionContextIcon	  off
+  ShowLinearizationAnnotations on
+  ScopeRefreshTime	  0.035000
+  OverrideScopeRefreshTime on
+  DisableAllScopes	  off
+  BlockNameDataTip	  off
+  BlockParametersDataTip  on
+  BlockDescriptionStringDataTip	off
+  ToolBar		  on
+  StatusBar		  on
+  BrowserShowLibraryLinks off
+  BrowserLookUnderMasks	  off
+  Created		  "Fri Dec 15 17:51:17 2000"
+  Creator		  "kozlowskimk"
+  UpdateHistory		  "UpdateHistoryNever"
+  ModifiedByFormat	  "%<Auto>"
+  LastModifiedBy	  "hofstadrhmtvd"
+  ModifiedDateFormat	  "%<Auto>"
+  LastModifiedDate	  "Tue Dec 10 16:25:20 2013"
+  ModelVersionFormat	  "1.%<AutoIncrement:583>"
+  ConfigurationManager	  "none"
+  LinearizationMsg	  "none"
+  Profile		  off
+  ParamWorkspaceSource	  "MATLABWorkspace"
+  CovSaveName		  "covdata"
+  CovMetricSettings	  "dw"
+  CovNameIncrementing	  off
+  CovHtmlReporting	  on
+  covSaveCumulativeToWorkspaceVar on
+  CovSaveSingleToWorkspaceVar on
+  CovCumulativeReport	  off
+  CovReportOnPause	  on
+  ExtModeBatchMode	  off
+  ExtModeEnableFloating	  on
+  ExtModeTrigType	  "manual"
+  ExtModeTrigMode	  "normal"
+  ExtModeTrigPort	  "1"
+  ExtModeTrigElement	  "any"
+  ExtModeTrigDuration	  1000
+  ExtModeTrigDurationFloating "auto"
+  ExtModeTrigHoldOff	  0
+  ExtModeTrigDelay	  0
+  ExtModeTrigDirection	  "rising"
+  ExtModeTrigLevel	  0
+  ExtModeArchiveMode	  "off"
+  ExtModeAutoIncOneShot	  off
+  ExtModeIncDirWhenArm	  off
+  ExtModeAddSuffixToVar	  off
+  ExtModeWriteAllDataToWs off
+  ExtModeArmWhenConnect	  on
+  ExtModeSkipDownloadWhenConnect off
+  ExtModeLogAll		  on
+  ExtModeAutoUpdateStatusClock on
+  ProdHWDeviceType	  "32-bit Generic"
+  ShowModelReferenceBlockVersion off
+  ShowModelReferenceBlockIO off
+  BlockDefaults {
+    Orientation		    "right"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    NamePlacement	    "normal"
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    ShowName		    on
+  }
+  BlockParameterDefaults {
+    Block {
+      BlockType		      BusCreator
+      Inputs		      "4"
+      DisplayOption	      "none"
+      UseBusObject	      off
+      BusObject		      "BusObject"
+      NonVirtualBus	      off
+    }
+    Block {
+      BlockType		      Constant
+    }
+    Block {
+      BlockType		      Demux
+      Outputs		      "4"
+      DisplayOption	      "none"
+      BusSelectionMode	      off
+    }
+    Block {
+      BlockType		      Gain
+      Gain		      "1"
+      Multiplication	      "Element-wise(K.*u)"
+      ParameterDataTypeMode   "Same as input"
+      ParameterDataType	      "sfix(16)"
+      ParameterScalingMode    "Best Precision: Matrix-wise"
+      ParameterScaling	      "2^0"
+      OutDataTypeMode	      "Same as input"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Inport
+      Port		      "1"
+      UseBusObject	      off
+      BusObject		      "BusObject"
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      SampleTime	      "-1"
+      DataType		      "auto"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      LatchByDelayingOutsideSignal off
+      LatchByCopyingInsideSignal off
+      Interpolate	      on
+    }
+    Block {
+      BlockType		      Integrator
+      ExternalReset	      "none"
+      InitialConditionSource  "internal"
+      InitialCondition	      "0"
+      LimitOutput	      off
+      UpperSaturationLimit    "inf"
+      LowerSaturationLimit    "-inf"
+      ShowSaturationPort      off
+      ShowStatePort	      off
+      AbsoluteTolerance	      "auto"
+      IgnoreLimit	      off
+      ZeroCross		      on
+    }
+    Block {
+      BlockType		      "M-S-Function"
+      FunctionName	      "mlfile"
+    }
+    Block {
+      BlockType		      Mux
+      Inputs		      "4"
+      DisplayOption	      "none"
+      UseBusObject	      off
+      BusObject		      "BusObject"
+      NonVirtualBus	      off
+    }
+    Block {
+      BlockType		      Outport
+      Port		      "1"
+      UseBusObject	      off
+      BusObject		      "BusObject"
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      SampleTime	      "-1"
+      DataType		      "auto"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      OutputWhenDisabled      "held"
+      InitialOutput	      "[]"
+    }
+    Block {
+      BlockType		      PMIOPort
+    }
+    Block {
+      BlockType		      Reference
+    }
+    Block {
+      BlockType		      "S-Function"
+      FunctionName	      "system"
+      SFunctionModules	      "''"
+      PortCounts	      "[]"
+    }
+    Block {
+      BlockType		      SubSystem
+      ShowPortLabels	      on
+      Permissions	      "ReadWrite"
+      PermitHierarchicalResolution "All"
+      TreatAsAtomicUnit	      off
+      SystemSampleTime	      "-1"
+      RTWFcnNameOpts	      "Auto"
+      RTWFileNameOpts	      "Auto"
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      SimViewingDevice	      off
+      DataTypeOverride	      "UseLocalSettings"
+      MinMaxOverflowLogging   "UseLocalSettings"
+    }
+    Block {
+      BlockType		      Sum
+      IconShape		      "rectangular"
+      Inputs		      "++"
+      InputSameDT	      on
+      OutDataTypeMode	      "Same as first input"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Terminator
+    }
+  }
+  AnnotationDefaults {
+    HorizontalAlignment	    "center"
+    VerticalAlignment	    "middle"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+  }
+  LineDefaults {
+    FontName		    "Helvetica"
+    FontSize		    9
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+  }
+  System {
+    Name		    "Delft_Tyre_sm1glib"
+    Location		    [524, 309, 1005, 559]
+    Open		    on
+    ModelBrowserVisibility  off
+    ModelBrowserWidth	    200
+    ScreenColor		    "white"
+    PaperOrientation	    "landscape"
+    PaperPositionMode	    "auto"
+    PaperType		    "usletter"
+    PaperUnits		    "inches"
+    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+    TiledPageScale	    1
+    ShowPageBoundaries	    off
+    ZoomFactor		    "100"
+    ReportName		    "simulink-default.rpt"
+    Block {
+      BlockType		      SubSystem
+      Name		      "SimMechanics 1G"
+      Ports		      []
+      Position		      [146, 111, 240, 172]
+      MinAlgLoopOccurrences   off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      MaskHideContents	      off
+      System {
+	Name			"SimMechanics 1G"
+	Location		[671, 392, 1147, 595]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Moving road"
+	  Tag			  "Moving road"
+	  Ports			  [1, 1]
+	  Position		  [80, 25, 160, 45]
+	  MinAlgLoopOccurrences	  off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  MaskHideContents	  off
+	  MaskPromptString	  "response time [s]"
+	  MaskStyleString	  "edit"
+	  MaskTunableValueString  "on"
+	  MaskEnableString	  "on"
+	  MaskVisibilityString	  "on"
+	  MaskToolTipString	  "on"
+	  MaskVariables		  "response_time=@1;"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  on
+	  MaskIconRotate	  "none"
+	  MaskIconUnits		  "autoscale"
+	  MaskValueString	  "0.05"
+	  System {
+	    Name		    "Moving road"
+	    Location		    [183, 344, 748, 495]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "z-position"
+	      Position		      [510, 93, 540, 107]
+	      Orientation	      "left"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Body Sensor2"
+	      Ports		      [0, 1, 0, 0, 0, 1]
+	      Position		      [115, 30, 155, 70]
+	      Orientation	      "left"
+	      NamePlacement	      "alternate"
+	      DialogController	      "MECH.DynMechDlgSource"
+	      SourceBlock	      "mblibv1/Sensors & \nActuators/Body Sens"
+"or"
+	      SourceType	      "Body Sensor"
+	      ShowPortLabels	      "on"
+	      SystemSampleTime	      "-1"
+	      PhysicalDomain	      "Mechanical"
+	      PortType		      "blob"
+	      Muxed		      "on"
+	      Pose		      "on"
+	      Angle		      "on"
+	      AngleUnits	      "deg"
+	      ArcVelocity	      "off"
+	      ArcVelocityUnits	      "rad/s"
+	      ArcAcceleration	      "off"
+	      ArcAccelerationUnits    "deg/s^2"
+	      CoordPosition	      "on"
+	      CoordPositionUnits      "m"
+	      Velocity		      "off"
+	      VelocityUnits	      "m/s"
+	      Acceleration	      "off"
+	      AccelerationUnits	      "m/s^2"
+	      Quaternion	      "on"
+	      QuaternionDT	      "off"
+	      QuaternionDDT	      "off"
+	      QuaternionUnits	      "off"
+	      OutputVector	      "[ 3 9 ]"
+	      ActiveIO		      "off"
+	      Width		      "12"
+	      ClassName		      "BodySensor"
+	      DialogClass	      "MechanicalSensorBlock"
+	      ReferenceFrame	      "Absolute (World)"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Body Sensor3"
+	      Ports		      [0, 1, 0, 0, 0, 1]
+	      Position		      [115, 75, 155, 115]
+	      Orientation	      "left"
+	      DialogController	      "MECH.DynMechDlgSource"
+	      SourceBlock	      "mblibv1/Sensors & \nActuators/Body Sens"
+"or"
+	      SourceType	      "Body Sensor"
+	      ShowPortLabels	      "on"
+	      SystemSampleTime	      "-1"
+	      PhysicalDomain	      "Mechanical"
+	      PortType		      "blob"
+	      Muxed		      "on"
+	      Pose		      "off"
+	      Angle		      "on"
+	      AngleUnits	      "deg"
+	      ArcVelocity	      "on"
+	      ArcVelocityUnits	      "rad/s"
+	      ArcAcceleration	      "off"
+	      ArcAccelerationUnits    "deg/s^2"
+	      CoordPosition	      "off"
+	      CoordPositionUnits      "m"
+	      Velocity		      "on"
+	      VelocityUnits	      "m/s"
+	      Acceleration	      "off"
+	      AccelerationUnits	      "m/s^2"
+	      Quaternion	      "on"
+	      QuaternionDT	      "off"
+	      QuaternionDDT	      "off"
+	      QuaternionUnits	      "off"
+	      OutputVector	      "[ 3 3 ]"
+	      ActiveIO		      "off"
+	      Width		      "6"
+	      ClassName		      "BodySensor"
+	      DialogClass	      "MechanicalSensorBlock"
+	      ReferenceFrame	      "Absolute (World)"
+	    }
+	    Block {
+	      BlockType		      SubSystem
+	      Name		      "Differentiator/filter1"
+	      Ports		      [1, 1]
+	      Position		      [435, 82, 485, 118]
+	      Orientation	      "left"
+	      MinAlgLoopOccurrences   off
+	      RTWSystemCode	      "Auto"
+	      FunctionWithSeparateData off
+	      MaskHideContents	      off
+	      MaskPromptString	      "response_time"
+	      MaskStyleString	      "edit"
+	      MaskTunableValueString  "on"
+	      MaskEnableString	      "on"
+	      MaskVisibilityString    "on"
+	      MaskToolTipString	      "on"
+	      MaskVariables	      "ts=@1;"
+	      MaskInitialization      "c=(3*pi/ts)^2;"
+	      MaskIconFrame	      on
+	      MaskIconOpaque	      on
+	      MaskIconRotate	      "none"
+	      MaskIconUnits	      "autoscale"
+	      MaskValueString	      "response_time"
+	      System {
+		Name			"Differentiator/filter1"
+		Location		[142, 400, 725, 605]
+		Open			off
+		ModelBrowserVisibility	off
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"usletter"
+		PaperUnits		"inches"
+		TiledPaperMargins	"[0.500000, 0.500000, 0.500000, 0.5000"
+"00]"
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"100"
+		Block {
+		  BlockType		  Inport
+		  Name			  "In1"
+		  Position		  [40, 78, 70, 92]
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Gain
+		  Name			  "Gain"
+		  Position		  [150, 70, 180, 100]
+		  Gain			  "c"
+		}
+		Block {
+		  BlockType		  Gain
+		  Name			  "Gain1"
+		  Position		  [225, 29, 310, 61]
+		  Orientation		  "left"
+		  ShowName		  off
+		  Gain			  "2*sqrt(c)"
+		}
+		Block {
+		  BlockType		  Integrator
+		  Name			  "Integrator2"
+		  Ports			  [1, 1]
+		  Position		  [280, 70, 310, 100]
+		  IgnoreLimit		  off
+		}
+		Block {
+		  BlockType		  Integrator
+		  Name			  "Integrator3"
+		  Ports			  [1, 1]
+		  Position		  [355, 70, 385, 100]
+		  IgnoreLimit		  off
+		}
+		Block {
+		  BlockType		  Mux
+		  Name			  "Mux"
+		  Ports			  [3, 1]
+		  Position		  [425, 67, 430, 173]
+		  ShowName		  off
+		  Inputs		  "3"
+		  DisplayOption		  "bar"
+		}
+		Block {
+		  BlockType		  Sum
+		  Name			  "Sum1"
+		  Ports			  [2, 1]
+		  Position		  [210, 75, 230, 95]
+		  ShowName		  off
+		  IconShape		  "round"
+		  Inputs		  "-+|"
+		  InputSameDT		  off
+		  OutDataTypeMode	  "Inherit via internal rule"
+		}
+		Block {
+		  BlockType		  Sum
+		  Name			  "Sum2"
+		  Ports			  [2, 1]
+		  Position		  [110, 75, 130, 95]
+		  ShowName		  off
+		  IconShape		  "round"
+		  Inputs		  "-+|"
+		  InputSameDT		  off
+		  OutDataTypeMode	  "Inherit via internal rule"
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "Out1"
+		  Position		  [460, 113, 490, 127]
+		  IconDisplay		  "Port number"
+		  BusOutputAsStruct	  off
+		}
+		Line {
+		  SrcBlock		  "Integrator2"
+		  SrcPort		  1
+		  Points		  [5, 0; 10, 0]
+		  Branch {
+		    DstBlock		    "Integrator3"
+		    DstPort		    1
+		  }
+		  Branch {
+		    Points		    [0, 35]
+		    DstBlock		    "Mux"
+		    DstPort		    2
+		  }
+		  Branch {
+		    Points		    [0, -40]
+		    DstBlock		    "Gain1"
+		    DstPort		    1
+		  }
+		}
+		Line {
+		  SrcBlock		  "Integrator3"
+		  SrcPort		  1
+		  Points		  [0, 0; 5, 0]
+		  Branch {
+		    DstBlock		    "Mux"
+		    DstPort		    1
+		  }
+		  Branch {
+		    Points		    [0, -65; -275, 0]
+		    DstBlock		    "Sum2"
+		    DstPort		    1
+		  }
+		}
+		Line {
+		  SrcBlock		  "Mux"
+		  SrcPort		  1
+		  DstBlock		  "Out1"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Sum1"
+		  SrcPort		  1
+		  Points		  [0, 0; 15, 0]
+		  Branch {
+		    Points		    [0, 70]
+		    DstBlock		    "Mux"
+		    DstPort		    3
+		  }
+		  Branch {
+		    DstBlock		    "Integrator2"
+		    DstPort		    1
+		  }
+		}
+		Line {
+		  SrcBlock		  "Sum2"
+		  SrcPort		  1
+		  DstBlock		  "Gain"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "In1"
+		  SrcPort		  1
+		  DstBlock		  "Sum2"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "Gain1"
+		  SrcPort		  1
+		  DstBlock		  "Sum1"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Gain"
+		  SrcPort		  1
+		  DstBlock		  "Sum1"
+		  DstPort		  2
+		}
+	      }
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Ground1"
+	      Ports		      [0, 0, 0, 0, 0, 1, 1]
+	      Position		      [350, 30, 390, 70]
+	      Orientation	      "left"
+	      NamePlacement	      "alternate"
+	      UserDataPersistent      on
+	      UserData		      "DataTag0"
+	      DialogController	      "MECH.DynMechDlgSource"
+	      SourceBlock	      "mblibv1/Bodies/Ground"
+	      SourceType	      "Ground"
+	      ShowPortLabels	      "on"
+	      SystemSampleTime	      "-1"
+	      LeftPortType	      "env"
+	      RightPortType	      "workingframe"
+	      PhysicalDomain	      "Mechanical"
+	      DialogClass	      "GroundBlock"
+	      ClassName		      "Ground"
+	      CoordPosition	      "[0 -0.80 0]"
+	      CoordPositionUnits      "m"
+	      StateVectorMgrId	      "-1"
+	      MachineId		      "[0 0]"
+	      ShowEnvPort	      "on"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Joint Actuator2"
+	      Ports		      [1, 0, 0, 0, 0, 0, 1]
+	      Position		      [350, 80, 390, 120]
+	      Orientation	      "left"
+	      DialogController	      "MECH.DynMechDlgSource"
+	      SourceBlock	      "mblibv1/Sensors & \nActuators/Joint Act"
+"uator"
+	      SourceType	      "Joint Actuator"
+	      ShowPortLabels	      "on"
+	      SystemSampleTime	      "-1"
+	      PhysicalDomain	      "Mechanical"
+	      PortType		      "blob"
+	      ActuationStyle	      "Motion"
+	      AngleUnits	      "deg"
+	      ArcVelocityUnits	      "deg/s"
+	      ArcAccelerationUnits    "deg/s^2"
+	      CoordPositionUnits      "m"
+	      VelocityUnits	      "m/s"
+	      AccelerationUnits	      "m/s^2"
+	      ForceUnits	      "N"
+	      TorqueUnits	      "N-m"
+	      ActiveIO		      "off"
+	      Width		      "3"
+	      ClassName		      "JointActuator"
+	      DialogClass	      "MechanicalActuatorBlock"
+	      Primitive		      "P1"
+	      ReferenceFrame	      "Absolute (INERTIAL)"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Machine\nEnvironment"
+	      Tag		      "Factory ground"
+	      Ports		      [0, 0, 0, 0, 0, 0, 1]
+	      Position		      [435, 40, 475, 60]
+	      Orientation	      "left"
+	      NamePlacement	      "alternate"
+	      DialogController	      "MECH.DialogSource"
+	      SourceBlock	      "mblibv1/Bodies/Machine\nEnvironment"
+	      SourceType	      "Machine Environment"
+	      ShowPortLabels	      "on"
+	      SystemSampleTime	      "-1"
+	      PortType		      "env"
+	      PhysicalDomain	      "Mechanical"
+	      ClassName		      "Environment"
+	      DialogTemplateClass     "MECH.MachineEnvironment"
+	      SyncWhenCopied	      "off"
+	      Gravity		      "[0 0 -10]"
+	      GravityUnits	      "m/s^2"
+	      GravityAsSignal	      "off"
+	      Dimensionality	      "Auto-detect"
+	      AnalysisType	      "Forward dynamics"
+	      LinearAssemblyTolerance "1e-3"
+	      LinearAssemblyToleranceUnits "m"
+	      AngularAssemblyTolerance "1e-3"
+	      AngularAssemblyToleranceUnits "rad"
+	      ConstraintSolverType    "Stabilizing"
+	      ConstraintRelTolerance  "1e-4"
+	      ConstraintAbsTolerance  "1e-4"
+	      UseRobustSingularityHandling "off"
+	      RedundancyAnalysisToleranceType "Automatically select tolerance"
+	      RedundancyAnalysisTolerance "1e-14"
+	      StatePerturbationType   "Fixed"
+	      PerturbationSize	      "1e-5"
+	      VisualizeMachine	      "off"
+	    }
+	    Block {
+	      BlockType		      Mux
+	      Name		      "Mux"
+	      Ports		      [2, 1]
+	      Position		      [80, 27, 85, 118]
+	      Orientation	      "left"
+	      NamePlacement	      "alternate"
+	      ShowName		      off
+	      Inputs		      "2"
+	      DisplayOption	      "bar"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Prismatic"
+	      Ports		      [0, 0, 0, 0, 0, 2, 1]
+	      Position		      [270, 26, 325, 124]
+	      Orientation	      "left"
+	      DialogController	      "MECH.DynMechDlgSource"
+	      SourceBlock	      "mblibv1/Joints/Prismatic"
+	      SourceType	      "Prismatic"
+	      PhysicalDomain	      "mechanical"
+	      SubClassName	      "Unknown"
+	      LeftPortType	      "blob"
+	      RightPortType	      "blob"
+	      LConnTagsString	      "__newl0|SA1"
+	      RConnTagsString	      "__newr0"
+	      NumSAPorts	      "1"
+	      CutJoint		      "off"
+	      MarkAsCut		      "off"
+	      Primitives	      "prismatic"
+	      PrimitiveProps	      "P1$WORLD$[0 0 1]$prismatic"
+	      ClassName		      "Joint"
+	      DialogClass	      "JointBlock"
+	      P1Axis		      "[0 0 1]"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "left front hub1"
+	      Ports		      [0, 0, 0, 0, 0, 1, 2]
+	      Position		      [190, 27, 245, 118]
+	      Orientation	      "left"
+	      DialogController	      "MECH.DynMechDlgSource"
+	      SourceBlock	      "mblibv1/Bodies/Body"
+	      SourceType	      "Body"
+	      PhysicalDomain	      "mechanical"
+	      SubClassName	      "Unknown"
+	      LeftPortType	      "workingframe"
+	      RightPortType	      "workingframe"
+	      LConnTagsString	      "CS1"
+	      RConnTagsString	      "CS2|CS3"
+	      ClassName		      "Body"
+	      DialogClass	      "MechanicalBodyBlock"
+	      Mass		      "1"
+	      MassUnits		      "kg"
+	      InertiaUnits	      "kg*m^2"
+	      Inertia		      "eye(3)"
+	      Shape		      "Cylinder"
+	      ShapeDims		      "[1 1]"
+	      ShapeUnits	      "m"
+	      ShapeUse		      "false"
+	      Density		      "1"
+	      DensityUnits	      "kg/m^3"
+	      DensityUse	      "false"
+	      GraphicsMode	      "1"
+	      BodyColor		      "[0.5 0.5 0.5]"
+	      AttachedToCS	      "1"
+	      CG		      "Left$CG$[0 0 0]$CS1$CS1$m$[0 0 0]$Euler"
+" X-Y-Z$deg$WORLD$false"
+	      WorkingFrames	      "Left$CS1$[0 0 0]$ADJOINING$ADJOINING$m$"
+"[0 0 0]$Euler X-Y-Z$deg$WORLD$true#Right$CS2$[0 0 0]$CS1$CS1$m$[0 0 0]$Euler "
+"X-Y-Z$deg$WORLD$true#Right$CS3$[0 0 0]$CS1$CS1$m$[0 0 0]$Euler X-Y-Z$deg$WORL"
+"D$true"
+	      CGPos		      "[0 0 0]"
+	      CGRot		      "[0 0 0]"
+	      CS0Pos		      "[]"
+	      CS0Rot		      "[]"
+	      CS1Pos		      "[0 0 0]"
+	      CS1Rot		      "[0 0 0]"
+	      CS2Pos		      "[0 0 0]"
+	      CS2Rot		      "[0 0 0]"
+	      CS3Pos		      "[0 0 0]"
+	      CS3Rot		      "[0 0 0]"
+	      CS4Pos		      "[]"
+	      CS4Rot		      "[]"
+	      CS5Pos		      "[]"
+	      CS5Rot		      "[]"
+	      CS6Pos		      "[]"
+	      CS6Rot		      "[]"
+	      CS7Pos		      "[]"
+	      CS7Rot		      "[]"
+	      CS8Pos		      "[]"
+	      CS8Rot		      "[]"
+	      CS9Pos		      "[]"
+	      CS9Rot		      "[]"
+	      CS10Pos		      "[]"
+	      CS10Rot		      "[]"
+	      CS11Pos		      "[]"
+	      CS11Rot		      "[]"
+	      CS12Pos		      "[]"
+	      CS12Rot		      "[]"
+	      CS13Pos		      "[]"
+	      CS13Rot		      "[]"
+	      CS14Pos		      "[]"
+	      CS14Rot		      "[]"
+	      CS15Pos		      "[]"
+	      CS15Rot		      "[]"
+	      CS16Pos		      "[]"
+	      CS16Rot		      "[]"
+	      CS17Pos		      "[]"
+	      CS17Rot		      "[]"
+	      CS18Pos		      "[]"
+	      CS18Rot		      "[]"
+	      CS19Pos		      "[]"
+	      CS19Rot		      "[]"
+	      CS20Pos		      "[]"
+	      CS20Rot		      "[]"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "road"
+	      Position		      [25, 68, 55, 82]
+	      Orientation	      "left"
+	      IconDisplay	      "Port number"
+	      BusOutputAsStruct	      off
+	    }
+	    Line {
+	      LineType		      "Connection"
+	      SrcBlock		      "left front hub1"
+	      SrcPort		      RConn1
+	      Points		      [0, 0]
+	      DstBlock		      "Body Sensor2"
+	      DstPort		      LConn1
+	    }
+	    Line {
+	      LineType		      "Connection"
+	      SrcBlock		      "Body Sensor3"
+	      SrcPort		      LConn1
+	      Points		      [0, 0]
+	      DstBlock		      "left front hub1"
+	      DstPort		      RConn2
+	    }
+	    Line {
+	      LineType		      "Connection"
+	      SrcBlock		      "Ground1"
+	      SrcPort		      RConn1
+	      Points		      [0, 0]
+	      DstBlock		      "Prismatic"
+	      DstPort		      LConn1
+	    }
+	    Line {
+	      LineType		      "Connection"
+	      SrcBlock		      "Joint Actuator2"
+	      SrcPort		      RConn1
+	      Points		      [0, 0]
+	      DstBlock		      "Prismatic"
+	      DstPort		      LConn2
+	    }
+	    Line {
+	      LineType		      "Connection"
+	      SrcBlock		      "Prismatic"
+	      SrcPort		      RConn1
+	      Points		      [0, 0]
+	      DstBlock		      "left front hub1"
+	      DstPort		      LConn1
+	    }
+	    Line {
+	      SrcBlock		      "Body Sensor3"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Mux"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Body Sensor2"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Mux"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Differentiator/filter1"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Joint Actuator2"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Mux"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "road"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "z-position"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Differentiator/filter1"
+	      DstPort		      1
+	    }
+	    Line {
+	      LineType		      "Connection"
+	      SrcBlock		      "Machine\nEnvironment"
+	      SrcPort		      RConn1
+	      Points		      [0, 0]
+	      DstBlock		      "Ground1"
+	      DstPort		      LConn1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Non-moving road"
+	  Tag			  "Non-moving road"
+	  Ports			  [0, 1]
+	  Position		  [80, 66, 160, 84]
+	  MinAlgLoopOccurrences	  off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  MaskHideContents	  off
+	  MaskPromptString	  "dummy"
+	  MaskStyleString	  "checkbox"
+	  MaskTunableValueString  "on"
+	  MaskEnableString	  "on"
+	  MaskVisibilityString	  "on"
+	  MaskToolTipString	  "on"
+	  MaskVariables		  "dummy=@1;"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  on
+	  MaskIconRotate	  "none"
+	  MaskIconUnits		  "autoscale"
+	  MaskValueString	  "off"
+	  System {
+	    Name		    "Non-moving road"
+	    Location		    [856, 523, 1064, 592]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Constant
+	      Name		      "omega2"
+	      Position		      [20, 23, 105, 47]
+	      ShowName		      off
+	      Value		      "zeros(18,1)"
+	      VectorParams1D	      on
+	      SamplingMode	      "Sample based"
+	      OutDataTypeMode	      "Inherit from 'Constant value'"
+	      OutDataType	      "sfix(16)"
+	      ConRadixGroup	      "Use specified scaling"
+	      OutScaling	      "2^0"
+	      SampleTime	      "inf"
+	      FramePeriod	      "inf"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "road"
+	      Position		      [135, 28, 165, 42]
+	      IconDisplay	      "Port number"
+	      BusOutputAsStruct	      off
+	    }
+	    Line {
+	      SrcBlock		      "omega2"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "road"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Scaling factors"
+	  Tag			  "Scaling factors"
+	  Ports			  [0, 1]
+	  Position		  [80, 106, 160, 124]
+	  MinAlgLoopOccurrences	  off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  MaskHideContents	  off
+	  MaskPromptString	  "longitudinal friction|longitudinal slip sti"
+"ffness|lateral fiction|cornering stiffness|camber stiffness|pneumatic trail|c"
+"amber torque stiffness"
+	  MaskStyleString	  "edit,edit,edit,edit,edit,edit,edit"
+	  MaskTunableValueString  "on,on,on,on,on,on,on"
+	  MaskCallbackString	  "||||||"
+	  MaskEnableString	  "on,on,on,on,on,on,on"
+	  MaskVisibilityString	  "on,on,on,on,on,on,on"
+	  MaskToolTipString	  "on,on,on,on,on,on,on"
+	  MaskVarAliasString	  ",,,,,,"
+	  MaskVariables		  "LMUX=@1;LKX=@2;LMUY=@3;LKY=@4;LKYC=@5;LTR=@"
+"6;LKZC=@7;"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  on
+	  MaskIconRotate	  "none"
+	  MaskIconUnits		  "autoscale"
+	  MaskValueString	  "1|1|1|1|1|1|1"
+	  MaskTabNameString	  ",,,,,,"
+	  System {
+	    Name		    "Scaling factors"
+	    Location		    [856, 523, 1068, 879]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Constant
+	      Name		      "s_LKX"
+	      Position		      [25, 74, 75, 96]
+	      ShowName		      off
+	      Value		      "LKX"
+	      VectorParams1D	      on
+	      SamplingMode	      "Sample based"
+	      OutDataTypeMode	      "Inherit from 'Constant value'"
+	      OutDataType	      "sfix(16)"
+	      ConRadixGroup	      "Use specified scaling"
+	      OutScaling	      "2^0"
+	      SampleTime	      "inf"
+	      FramePeriod	      "inf"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "s_LKY"
+	      Position		      [25, 154, 75, 176]
+	      ShowName		      off
+	      Value		      "LKY"
+	      VectorParams1D	      on
+	      SamplingMode	      "Sample based"
+	      OutDataTypeMode	      "Inherit from 'Constant value'"
+	      OutDataType	      "sfix(16)"
+	      ConRadixGroup	      "Use specified scaling"
+	      OutScaling	      "2^0"
+	      SampleTime	      "inf"
+	      FramePeriod	      "inf"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "s_LKYC"
+	      Position		      [25, 194, 75, 216]
+	      ShowName		      off
+	      Value		      "LKYC"
+	      VectorParams1D	      on
+	      SamplingMode	      "Sample based"
+	      OutDataTypeMode	      "Inherit from 'Constant value'"
+	      OutDataType	      "sfix(16)"
+	      ConRadixGroup	      "Use specified scaling"
+	      OutScaling	      "2^0"
+	      SampleTime	      "inf"
+	      FramePeriod	      "inf"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "s_LKZC"
+	      Position		      [25, 274, 75, 296]
+	      ShowName		      off
+	      Value		      "LKZC"
+	      VectorParams1D	      on
+	      SamplingMode	      "Sample based"
+	      OutDataTypeMode	      "Inherit from 'Constant value'"
+	      OutDataType	      "sfix(16)"
+	      ConRadixGroup	      "Use specified scaling"
+	      OutScaling	      "2^0"
+	      SampleTime	      "inf"
+	      FramePeriod	      "inf"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "s_LMUX"
+	      Position		      [25, 34, 75, 56]
+	      ShowName		      off
+	      Value		      "LMUX"
+	      VectorParams1D	      on
+	      SamplingMode	      "Sample based"
+	      OutDataTypeMode	      "Inherit from 'Constant value'"
+	      OutDataType	      "sfix(16)"
+	      ConRadixGroup	      "Use specified scaling"
+	      OutScaling	      "2^0"
+	      SampleTime	      "inf"
+	      FramePeriod	      "inf"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "s_LMUY"
+	      Position		      [25, 114, 75, 136]
+	      ShowName		      off
+	      Value		      "LMUY"
+	      VectorParams1D	      on
+	      SamplingMode	      "Sample based"
+	      OutDataTypeMode	      "Inherit from 'Constant value'"
+	      OutDataType	      "sfix(16)"
+	      ConRadixGroup	      "Use specified scaling"
+	      OutScaling	      "2^0"
+	      SampleTime	      "inf"
+	      FramePeriod	      "inf"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "s_LTR"
+	      Position		      [25, 234, 75, 256]
+	      ShowName		      off
+	      Value		      "LTR"
+	      VectorParams1D	      on
+	      SamplingMode	      "Sample based"
+	      OutDataTypeMode	      "Inherit from 'Constant value'"
+	      OutDataType	      "sfix(16)"
+	      ConRadixGroup	      "Use specified scaling"
+	      OutScaling	      "2^0"
+	      SampleTime	      "inf"
+	      FramePeriod	      "inf"
+	    }
+	    Block {
+	      BlockType		      Mux
+	      Name		      "scaling_vector"
+	      Ports		      [7, 1]
+	      Position		      [110, 29, 115, 301]
+	      ShowName		      off
+	      Inputs		      "7"
+	      DisplayOption	      "bar"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "scaling"
+	      Position		      [140, 158, 170, 172]
+	      IconDisplay	      "Port number"
+	      BusOutputAsStruct	      off
+	    }
+	    Line {
+	      SrcBlock		      "s_LMUX"
+	      SrcPort		      1
+	      DstBlock		      "scaling_vector"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "s_LKX"
+	      SrcPort		      1
+	      DstBlock		      "scaling_vector"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "s_LMUY"
+	      SrcPort		      1
+	      DstBlock		      "scaling_vector"
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "s_LKY"
+	      SrcPort		      1
+	      DstBlock		      "scaling_vector"
+	      DstPort		      4
+	    }
+	    Line {
+	      SrcBlock		      "s_LKYC"
+	      SrcPort		      1
+	      DstBlock		      "scaling_vector"
+	      DstPort		      5
+	    }
+	    Line {
+	      SrcBlock		      "s_LTR"
+	      SrcPort		      1
+	      DstBlock		      "scaling_vector"
+	      DstPort		      6
+	    }
+	    Line {
+	      SrcBlock		      "s_LKZC"
+	      SrcPort		      1
+	      DstBlock		      "scaling_vector"
+	      DstPort		      7
+	    }
+	    Line {
+	      SrcBlock		      "scaling_vector"
+	      SrcPort		      1
+	      DstBlock		      "scaling"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "SimMechanics\nWheel + tyre"
+	  Tag			  "SimMechanics Wheel + tyre"
+	  Ports			  [2, 2, 0, 0, 0, 1]
+	  Position		  [200, 25, 295, 145]
+	  BackgroundColor	  "lightBlue"
+	  FontName		  "Arial"
+	  MinAlgLoopOccurrences	  off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  MaskHideContents	  off
+	  MaskType		  "SimMechanics_tyre"
+	  MaskDescription	  "Wheel + tyre model to be used in combinatio"
+"n with the SimMechanics multibody toolbox.\n\nTyre model version: MF-Tyre/MF-"
+"Swift 6.2\n© 1996-2013 TNO, Helmond, The Netherlands"
+	  MaskHelp		  "eval('DTOpenHelp(506)')"
+	  MaskPromptString	  "Tyre ID [integer]|Rim inertia [3x real] mas"
+"s (kg) Ixx Iyy (kgm2)|Tyre properties [string or struct]|Road data file [stri"
+"ng]|Tyre side            :|Contact method :|Dynamics           :|Slip forces "
+"         :|Optional: use mode (overrides pop-up) [integer]|Display debug mess"
+"ages"
+	  MaskStyleString	  "edit,edit,edit,edit,popup((1xxx) left|(2xxx"
+") right|(3xxx) symmetric),popup((x1xx) smooth road|(x2xx) smooth road (motorc"
+"ycle: circular cross section)|(x3xx) moving road|(x4xx) 2D short wavelength r"
+"oad contact|(x5xx) 3D short wavelength road contact),popup((xx0x) steady-stat"
+"e|(xx1x) relaxation behaviour|(xx2x) relaxation behaviour - non-linear|(xx3x)"
+" rigid ring|(xx4x) rigid ring + initial statics),popup((xxx0) none|(xxx1) lon"
+"gitudinal|(xxx2) lateral|(xxx3) uncombined|(xxx4) combined|(xxx5) combined+tu"
+"rnslip),edit,checkbox"
+	  MaskTunableValueString  "on,on,on,on,on,on,on,on,on,on"
+	  MaskCallbackString	  "||||promtstr = get_param(gcb,'MaskPromptStr"
+"ing'); \nindex = find(double(promtstr)==124);\nmaskval = get_param(gcb,'MaskV"
+"alues');\nnew_mode = [maskval{5}(2) maskval{6}(3) maskval{7}(4) maskval{8}(5)"
+"];\nnewpromtstr = [promtstr(1:index(8)) ['Optional: use mode (overrides pop-u"
+"p) [current selection: ' new_mode ']'] promtstr(index(9):end)];\nset_param(gc"
+"b,'MaskPromptString',newpromtstr);|promtstr = get_param(gcb,'MaskPromptString"
+"'); \nindex = find(double(promtstr)==124);\nmaskval = get_param(gcb,'MaskValu"
+"es');\nnew_mode = [maskval{5}(2) maskval{6}(3) maskval{7}(4) maskval{8}(5)];"
+"\nnewpromtstr = [promtstr(1:index(8)) ['Optional: use mode (overrides pop-up)"
+" [current selection: ' new_mode ']'] promtstr(index(9):end)];\nset_param(gcb,"
+"'MaskPromptString',newpromtstr);|promtstr = get_param(gcb,'MaskPromptString')"
+"; \nindex = find(double(promtstr)==124);\nmaskval = get_param(gcb,'MaskValues"
+"');\nnew_mode = [maskval{5}(2) maskval{6}(3) maskval{7}(4) maskval{8}(5)];\nn"
+"ewpromtstr = [promtstr(1:index(8)) ['Optional: use mode (overrides pop-up) [c"
+"urrent selection: ' new_mode ']'] promtstr(index(9):end)];\nset_param(gcb,'Ma"
+"skPromptString',newpromtstr);|promtstr = get_param(gcb,'MaskPromptString'); "
+"\nindex = find(double(promtstr)==124);\nmaskval = get_param(gcb,'MaskValues')"
+";\nnew_mode = [maskval{5}(2) maskval{6}(3) maskval{7}(4) maskval{8}(5)];\nnew"
+"promtstr = [promtstr(1:index(8)) ['Optional: use mode (overrides pop-up) [cur"
+"rent selection: ' new_mode ']'] promtstr(index(9):end)];\nset_param(gcb,'Mask"
+"PromptString',newpromtstr);||"
+	  MaskEnableString	  "on,on,on,on,on,on,on,on,on,on"
+	  MaskVisibilityString	  "on,on,on,on,on,on,on,on,on,on"
+	  MaskToolTipString	  "on,on,on,on,on,on,on,on,on,on"
+	  MaskVarAliasString	  ",,,,,,,,,"
+	  MaskVariables		  "idtyre=@1;inertia=@2;tpfname=@3;rdfname=@4;"
+"side_mode=@5;cnt_mode=@6;dyn_mode=@7;mf_mode=@8;use_mode=@9;disp_debug=@10;"
+	  MaskInitialization	  "% initialize parameters\n% (required to ove"
+"rcome a bug in MATLAB 2006a: errors in a mask are not displayed,\n%  and simu"
+"lation is not ended. This check is carried out in s-function \n%  'chech_iner"
+"tia_parameters' in the subsystem)\nradius     = 1;\nwidth      = 1;\nbelt_mas"
+"s  = 1;\nbelt_Ixx   = 1;\nbelt_Iyy   = 1;\ntyre_mass  = 1;\ntyre_Ixx   = 1;\n"
+"tyre_Iyy   = 1;\nmass = 1;\nImat = [1 0 0; 0 1 0; 0 0 1];\n\n% switch between"
+" tpf file or struct\nif ischar(tpfname)\n    typarr=zeros(300,1);\n    tpfnam"
+"e_dummy=tpfname;\n    if ~exist(tpfname_dummy)\n        error('Tyre property "
+"file does not exist')\n    end\nelseif isstruct(tpfname)\n    typarr=tno_tpf_"
+"struct2array(tpfname,idtyre);\n    tpfname_dummy='';\nelse\n    typarr=zeros("
+"300,1);\n    tpfname_dummy='';\n    error(['Mask parameter ''Tyre property fi"
+"le'' should be supplied as string or structure for tyre ' num2str(idtyre)])\n"
+"end\nif ~exist(rdfname) && ~strcmp(rdfname,'')\n    error('Road data file doe"
+"s not exist')\nend\n\n%initialisation script for SimMechanics\nidroad=1;\n\n%"
+"rim inertia as specified by the user in the GUI\nrim_mass = inertia(1);\nrim_"
+"Ixx  = inertia(2);\nrim_Iyy  = inertia(3);\n\n% check the use_mode of the mod"
+"el\nif (abs(use_mode) > 4535 )\n  iswtch=1000*side_mode+100*cnt_mode+10*(dyn_"
+"mode-1)+(mf_mode-1);\nelse\n  iswtch=use_mode;\nend\n\n%get tyre inertia para"
+"meters from the tyre property file\nif ischar(tpfname)\n    [x,typarr]=dteval"
+"(tpfname_dummy,[1 2 3 4 5 6],1);\nend\nradius     = typarr(7);\nwidth      = "
+"typarr(8);\nbelt_mass  = typarr(164);\nbelt_Ixx   = typarr(195);\nbelt_Iyy   "
+"= typarr(162);\ntyre_mass  = typarr(190);\ntyre_Ixx   = typarr(191);\ntyre_Iy"
+"y   = typarr(192);\n\n% display the use_mode of the model\nif (disp_debug) di"
+"sp(['Delft-Tyre ' num2str(idtyre) ' -> use_mode=' num2str(iswtch) ]); end\n\n"
+"% check and calculate inertia of the rim_body\nif  ( rim_mass <= 0 | rim_Ixx "
+"<= 0 | rim_Iyy <= 0 | tyre_mass <= 0 | tyre_Ixx <= 0 | tyre_Iyy <= 0 | belt_m"
+"ass <= 0 | belt_Ixx <= 0 | belt_Iyy <= 0 )\n  error('initialisation calculati"
+"on results in a negative mass and/or inertia!') \n  disp_debug=1;\nend\nif  ("
+" tyre_mass <= belt_mass | tyre_Ixx <= belt_Ixx | tyre_Iyy <= belt_Iyy  )\n  e"
+"rror('initialisation calculation error: tyre belt mass/inertia > tyre mass/in"
+"ertia!') \n  disp_debug=1;\nend\n\nif (disp_debug) \n  msg=[' wheel mass = ',"
+"num2str(rim_mass+tyre_mass),' kg'];\n  disp(msg);\n  msg=[' wheel Ixx  = ',nu"
+"m2str(rim_Ixx+tyre_Ixx),' kgm2'];\n  disp(msg);\n  msg=[' wheel Iyy  = ',num2"
+"str(rim_Iyy+tyre_Iyy),' kgm2'];\n  disp(msg);\n  msg=[' tyre mass  = ',num2st"
+"r(tyre_mass),' kg (belt mass = ',num2str(belt_mass),' kg)' ];\n  disp(msg);\n"
+"  msg=[' tyre Ixx   = ',num2str(tyre_Ixx) ,' kgm2 (belt Ixx  = ',num2str(belt"
+"_Ixx) ,' kgm2)'];\n  disp(msg);\n  msg=[' tyre Iyy   = ',num2str(tyre_Iyy) ,'"
+" kgm2 (belt Iyy  = ',num2str(belt_Iyy) ,' kgm2)'];\n  disp(msg);\nend\n\n% ca"
+"lculate the mass of the wheelbody in the MBS environment \n%   normally      "
+"     : rim + tyre\n%   rigid ring dynamics: rim + part of tyre (and separate "
+"rigid body inside tyre model)\ndynmod=iswtch-100*floor(iswtch/100);\nif (dynm"
+"od/10 >= 3) \n  %rigid ring dynamics switched on\n  wheelbody_mass = rim_mass"
+" + tyre_mass - belt_mass;\n  wheelbody_Ixx  = rim_Ixx  + tyre_Ixx  - belt_Ixx"
+";\n  wheelbody_Iyy  = rim_Iyy  + tyre_Iyy  - belt_Iyy;\nelse\n  %rigid ring d"
+"ynamics switched off\n  wheelbody_mass = rim_mass + tyre_mass;\n  wheelbody_I"
+"xx  = rim_Ixx  + tyre_Ixx;\n  wheelbody_Iyy  = rim_Iyy  + tyre_Iyy;\nend\n\nm"
+"ass = wheelbody_mass;\nImat = [wheelbody_Ixx 0 0; 0 wheelbody_Iyy 0; 0 0 whee"
+"lbody_Ixx];"
+	  MaskSelfModifiable	  on
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  off
+	  MaskIconRotate	  "none"
+	  MaskIconUnits		  "pixels"
+	  MaskValueString	  "1|[10 1 2]||''|(1xxx) left|(x1xx) smooth ro"
+"ad|(xx0x) steady-state|(xxx0) none|1e8|off"
+	  MaskTabNameString	  ",,,,,,,,,"
+	  System {
+	    Name		    "SimMechanics\nWheel + tyre"
+	    Location		    [383, 150, 1025, 742]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "road"
+	      Position		      [250, 358, 280, 372]
+	      BackgroundColor	      "red"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "scaling"
+	      Position		      [250, 408, 280, 422]
+	      BackgroundColor	      "red"
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "         wheel force "
+	      Ports		      [1, 0, 0, 0, 0, 0, 1]
+	      Position		      [475, 80, 540, 120]
+	      NamePlacement	      "alternate"
+	      DialogController	      "MECH.DynMechDlgSource"
+	      SourceBlock	      "mblibv1/Sensors & \nActuators/Body Actu"
+"ator"
+	      SourceType	      "Body Actuator"
+	      ShowPortLabels	      "on"
+	      SystemSampleTime	      "-1"
+	      PhysicalDomain	      "Mechanical"
+	      PortType		      "blob"
+	      ActuationStyle	      "Force"
+	      AngleUnits	      "deg"
+	      ArcVelocityUnits	      "deg/s"
+	      ArcAccelerationUnits    "deg/s^2"
+	      CoordPositionUnits      "m"
+	      VelocityUnits	      "m/s"
+	      AccelerationUnits	      "m/s^2"
+	      ForceUnits	      "N"
+	      TorqueUnits	      "N-m"
+	      ActiveIO		      "off"
+	      Width		      "3"
+	      ClassName		      "BodyActuatorForceTorque"
+	      DialogClass	      "MechanicalActuatorBlock"
+	      ReferenceFrame	      "Local (Body CS)"
+	      Angle		      "off"
+	      CoordPosition	      "on"
+	      Force		      "on"
+	      Torque		      "off"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "       wheel torque "
+	      Ports		      [1, 0, 0, 0, 0, 0, 1]
+	      Position		      [475, 189, 540, 231]
+	      DialogController	      "MECH.DynMechDlgSource"
+	      SourceBlock	      "mblibv1/Sensors & \nActuators/Body Actu"
+"ator"
+	      SourceType	      "Body Actuator"
+	      ShowPortLabels	      "on"
+	      SystemSampleTime	      "-1"
+	      PhysicalDomain	      "Mechanical"
+	      PortType		      "blob"
+	      ActuationStyle	      "Force"
+	      AngleUnits	      "deg"
+	      ArcVelocityUnits	      "deg/s"
+	      ArcAccelerationUnits    "deg/s^2"
+	      CoordPositionUnits      "m"
+	      VelocityUnits	      "m/s"
+	      AccelerationUnits	      "m/s^2"
+	      ForceUnits	      "N"
+	      TorqueUnits	      "N-m"
+	      ActiveIO		      "off"
+	      Width		      "3"
+	      ClassName		      "BodyActuatorForceTorque"
+	      DialogClass	      "MechanicalActuatorBlock"
+	      ReferenceFrame	      "Local (Body CS)"
+	      Angle		      "off"
+	      CoordPosition	      "on"
+	      Force		      "off"
+	      Torque		      "on"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "      wheel Sensor"
+	      Ports		      [0, 2, 0, 0, 0, 1]
+	      Position		      [240, 40, 290, 140]
+	      DialogController	      "MECH.DynMechDlgSource"
+	      SourceBlock	      "mblibv1/Sensors & \nActuators/Body Sens"
+"or"
+	      SourceType	      "Body Sensor"
+	      ShowPortLabels	      "on"
+	      SystemSampleTime	      "-1"
+	      PhysicalDomain	      "Mechanical"
+	      PortType		      "blob"
+	      Muxed		      "off"
+	      Pose		      "on"
+	      Angle		      "on"
+	      AngleUnits	      "deg"
+	      ArcVelocity	      "off"
+	      ArcVelocityUnits	      "deg/s"
+	      ArcAcceleration	      "off"
+	      ArcAccelerationUnits    "deg/s^2"
+	      CoordPosition	      "on"
+	      CoordPositionUnits      "m"
+	      Velocity		      "off"
+	      VelocityUnits	      "m/s"
+	      Acceleration	      "off"
+	      AccelerationUnits	      "m/s^2"
+	      Quaternion	      "on"
+	      QuaternionDT	      "off"
+	      QuaternionDDT	      "off"
+	      QuaternionUnits	      "off"
+	      OutputVector	      "[ 3 9 ]"
+	      ActiveIO		      "off"
+	      Width		      "12"
+	      ClassName		      "BodySensor"
+	      DialogClass	      "MechanicalSensorBlock"
+	      ReferenceFrame	      "Absolute (World)"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Body Sensor"
+	      Ports		      [0, 1, 0, 0, 0, 1]
+	      Position		      [90, 165, 130, 205]
+	      DialogController	      "MECH.DynMechDlgSource"
+	      SourceBlock	      "mblibv1/Sensors & \nActuators/Body Sens"
+"or"
+	      SourceType	      "Body Sensor"
+	      ShowPortLabels	      "on"
+	      SystemSampleTime	      "-1"
+	      PhysicalDomain	      "Mechanical"
+	      PortType		      "blob"
+	      Muxed		      "on"
+	      Pose		      "on"
+	      Angle		      "on"
+	      AngleUnits	      "deg"
+	      ArcVelocity	      "off"
+	      ArcVelocityUnits	      "deg/s"
+	      ArcAcceleration	      "off"
+	      ArcAccelerationUnits    "deg/s^2"
+	      CoordPosition	      "on"
+	      CoordPositionUnits      "m"
+	      Velocity		      "off"
+	      VelocityUnits	      "m/s"
+	      Acceleration	      "off"
+	      AccelerationUnits	      "m/s^2"
+	      Quaternion	      "on"
+	      QuaternionDT	      "off"
+	      QuaternionDDT	      "off"
+	      QuaternionUnits	      "off"
+	      OutputVector	      "[ 3 9 ]"
+	      ActiveIO		      "off"
+	      Width		      "12"
+	      ClassName		      "BodySensor"
+	      DialogClass	      "MechanicalSensorBlock"
+	      ReferenceFrame	      "Absolute (World)"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "Constant"
+	      Position		      [240, 154, 265, 176]
+	      ShowName		      off
+	      Value		      "0"
+	      VectorParams1D	      on
+	      SamplingMode	      "Sample based"
+	      OutDataTypeMode	      "Inherit from 'Constant value'"
+	      OutDataType	      "sfix(16)"
+	      ConRadixGroup	      "Use specified scaling"
+	      OutScaling	      "2^0"
+	      SampleTime	      "inf"
+	      FramePeriod	      "inf"
+	    }
+	    Block {
+	      BlockType		      Integrator
+	      Name		      "Integrator"
+	      Ports		      [1, 1]
+	      Position		      [370, 507, 405, 543]
+	      Orientation	      "left"
+	      InitialCondition	      "zeros(1,40)"
+	      IgnoreLimit	      off
+	    }
+	    Block {
+	      BlockType		      "S-Function"
+	      Name		      "S-Function"
+	      Ports		      [9, 4]
+	      Position		      [340, 45, 440, 485]
+	      BackgroundColor	      "cyan"
+	      FunctionName	      "s_delfttyre_sti"
+	      Parameters	      "iswtch idtyre idroad tpfname_dummy rdfn"
+"ame typarr"
+	    }
+	    Block {
+	      BlockType		      SubSystem
+	      Name		      "add signal names"
+	      Ports		      [1, 1]
+	      Position		      [460, 303, 540, 337]
+	      MinAlgLoopOccurrences   off
+	      RTWSystemCode	      "Auto"
+	      FunctionWithSeparateData off
+	      MaskHideContents	      off
+	      Port {
+		PortNumber		1
+		Name			"varinf"
+		PropagatedSignals	"varinf"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      System {
+		Name			"add signal names"
+		Location		[108, 91, 468, 961]
+		Open			off
+		ModelBrowserVisibility	off
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"usletter"
+		PaperUnits		"inches"
+		TiledPaperMargins	"[0.500000, 0.500000, 0.500000, 0.5000"
+"00]"
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"100"
+		Block {
+		  BlockType		  Inport
+		  Name			  "In1"
+		  Position		  [25, 438, 55, 452]
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Terminator
+		  Name			  "Added for future extension"
+		  Position		  [190, 837, 205, 853]
+		}
+		Block {
+		  BlockType		  BusCreator
+		  Name			  "Bus\nCreator"
+		  Ports			  [40, 1]
+		  Position		  [225, 26, 230, 844]
+		  ShowName		  off
+		  Inputs		  "40"
+		  DisplayOption		  "bar"
+		  Port {
+		    PortNumber		    1
+		    Name		    "varinf"
+		    PropagatedSignals	    "Fx, Fy, Fz, Mx, My, Mz, longitudi"
+"nal_slip, side_slip_angle, inclination_angle, turn_slip, Vx, _e12, effective_"
+"rolling_radius, vertical_deflection, contact_length, pneumatic_trail, mu_x, m"
+"u_y, relaxation_length_x, relaxation_length_y, Vsx, Vsy, Vz, psidot, _e25, _e"
+"26, _e27, travelled_distance, _e29, _e30, xcp, ycp, zcp, nx, ny, nz, eff_plan"
+"e_height, eff_plane_angle, eff_plane_curvature, eff_plane_banking"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		}
+		Block {
+		  BlockType		  Demux
+		  Name			  "Demux1"
+		  Ports			  [1, 41]
+		  Position		  [85, 36, 90, 854]
+		  BackgroundColor	  "black"
+		  ShowName		  off
+		  Outputs		  "[ones(1,40) -1]"
+		  Port {
+		    PortNumber		    1
+		    Name		    "Fx"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    2
+		    Name		    "Fy"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    3
+		    Name		    "Fz"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    4
+		    Name		    "Mx"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    5
+		    Name		    "My"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    6
+		    Name		    "Mz"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    7
+		    Name		    "longitudinal_slip"
+		    PropagatedSignals	    "longitudinal_slip"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    8
+		    Name		    "side_slip_angle"
+		    PropagatedSignals	    "side_slip_angle"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    9
+		    Name		    "inclination_angle"
+		    PropagatedSignals	    "inclination_angle"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    10
+		    Name		    "turn_slip"
+		    PropagatedSignals	    "turn_slip"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    11
+		    Name		    "Vx"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    12
+		    Name		    "_e12"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    13
+		    Name		    "effective_rolling_radius"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    14
+		    Name		    "vertical_deflection"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    15
+		    Name		    "contact_length"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    16
+		    Name		    "pneumatic_trail"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    17
+		    Name		    "mu_x"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    18
+		    Name		    "mu_y"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    19
+		    Name		    "relaxation_length_x"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    20
+		    Name		    "relaxation_length_y"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    21
+		    Name		    "Vsx"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    22
+		    Name		    "Vsy"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    23
+		    Name		    "Vz"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    24
+		    Name		    "psidot"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    25
+		    Name		    "_e25"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    26
+		    Name		    "_e26"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    27
+		    Name		    "_e27"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    28
+		    Name		    "travelled_distance"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    29
+		    Name		    "_e29"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    30
+		    Name		    "_e30"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    31
+		    Name		    "xcp"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    32
+		    Name		    "ycp"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    33
+		    Name		    "zcp"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    34
+		    Name		    "nx"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    35
+		    Name		    "ny"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    36
+		    Name		    "nz"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    37
+		    Name		    "eff_plane_height"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    38
+		    Name		    "eff_plane_angle"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    39
+		    Name		    "eff_plane_curvature"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    40
+		    Name		    "eff_plane_banking"
+		    PropagatedSignals	    "eff_plane_banking"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "Out1"
+		  Position		  [285, 428, 315, 442]
+		  IconDisplay		  "Port number"
+		  BusOutputAsStruct	  off
+		}
+		Line {
+		  SrcBlock		  "In1"
+		  SrcPort		  1
+		  DstBlock		  "Demux1"
+		  DstPort		  1
+		}
+		Line {
+		  Name			  "varinf"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Bus\nCreator"
+		  SrcPort		  1
+		  DstBlock		  "Out1"
+		  DstPort		  1
+		}
+		Line {
+		  Name			  "Fx"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  1
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  1
+		}
+		Line {
+		  Name			  "Fy"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  2
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  2
+		}
+		Line {
+		  Name			  "Fz"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  3
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  3
+		}
+		Line {
+		  Name			  "Mx"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  4
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  4
+		}
+		Line {
+		  Name			  "My"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  5
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  5
+		}
+		Line {
+		  Name			  "Mz"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  6
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  6
+		}
+		Line {
+		  Name			  "longitudinal_slip"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  7
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  7
+		}
+		Line {
+		  Name			  "side_slip_angle"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  8
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  8
+		}
+		Line {
+		  Name			  "inclination_angle"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  9
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  9
+		}
+		Line {
+		  Name			  "turn_slip"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  10
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  10
+		}
+		Line {
+		  Name			  "Vx"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  11
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  11
+		}
+		Line {
+		  Name			  "_e12"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  12
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  12
+		}
+		Line {
+		  Name			  "effective_rolling_radius"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  13
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  13
+		}
+		Line {
+		  Name			  "vertical_deflection"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  14
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  14
+		}
+		Line {
+		  Name			  "contact_length"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  15
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  15
+		}
+		Line {
+		  Name			  "pneumatic_trail"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  16
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  16
+		}
+		Line {
+		  Name			  "mu_x"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  17
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  17
+		}
+		Line {
+		  Name			  "mu_y"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  18
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  18
+		}
+		Line {
+		  Name			  "relaxation_length_x"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  19
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  19
+		}
+		Line {
+		  Name			  "relaxation_length_y"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  20
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  20
+		}
+		Line {
+		  Name			  "Vsx"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  21
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  21
+		}
+		Line {
+		  Name			  "Vsy"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  22
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  22
+		}
+		Line {
+		  Name			  "Vz"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  23
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  23
+		}
+		Line {
+		  Name			  "psidot"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  24
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  24
+		}
+		Line {
+		  Name			  "_e25"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  25
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  25
+		}
+		Line {
+		  Name			  "_e26"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  26
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  26
+		}
+		Line {
+		  Name			  "_e27"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  27
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  27
+		}
+		Line {
+		  Name			  "travelled_distance"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  28
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  28
+		}
+		Line {
+		  Name			  "_e29"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  29
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  29
+		}
+		Line {
+		  Name			  "_e30"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  30
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  30
+		}
+		Line {
+		  Name			  "xcp"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  31
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  31
+		}
+		Line {
+		  Name			  "ycp"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  32
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  32
+		}
+		Line {
+		  Name			  "zcp"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  33
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  33
+		}
+		Line {
+		  Name			  "nx"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  34
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  34
+		}
+		Line {
+		  Name			  "ny"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  35
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  35
+		}
+		Line {
+		  Name			  "nz"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  36
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  36
+		}
+		Line {
+		  Name			  "eff_plane_height"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  37
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  37
+		}
+		Line {
+		  Name			  "eff_plane_angle"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  38
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  38
+		}
+		Line {
+		  Name			  "eff_plane_curvature"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  39
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  39
+		}
+		Line {
+		  Name			  "eff_plane_banking"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  40
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  40
+		}
+		Line {
+		  SrcBlock		  "Demux1"
+		  SrcPort		  41
+		  DstBlock		  "Added for future extension"
+		  DstPort		  1
+		}
+	      }
+	    }
+	    Block {
+	      BlockType		      "M-S-Function"
+	      Name		      "check inertia parameters"
+	      Ports		      []
+	      Position		      [38, 379, 190, 408]
+	      Priority		      "1"
+	      FunctionName	      "check_inertia_parameters"
+	      Parameters	      "tpfname1, rdfname1, typarr1"
+	      MaskDescription	      "Checks Inertia parameters as calculated"
+" in mask"
+	      MaskPromptString	      "Tyre Property File|Road Data File|typar"
+"r"
+	      MaskStyleString	      "edit,edit,edit"
+	      MaskTunableValueString  "on,on,on"
+	      MaskCallbackString      "||"
+	      MaskEnableString	      "off,off,off"
+	      MaskVisibilityString    "on,on,off"
+	      MaskToolTipString	      "on,on,on"
+	      MaskVarAliasString      ",,"
+	      MaskVariables	      "tpfname1=@1;rdfname1=@2;typarr1=@3;"
+	      MaskIconFrame	      on
+	      MaskIconOpaque	      on
+	      MaskIconRotate	      "none"
+	      MaskIconUnits	      "autoscale"
+	      MaskValueString	      "tpfname_dummy|rdfname|typarr"
+	      MaskTabNameString	      ",,"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "wheel  body"
+	      Ports		      [0, 0, 0, 0, 0, 2, 4]
+	      Position		      [90, 67, 190, 153]
+	      Orientation	      "left"
+	      BackgroundColor	      "gray"
+	      NamePlacement	      "alternate"
+	      DialogController	      "MECH.DynMechDlgSource"
+	      SourceBlock	      "mblibv1/Bodies/Body"
+	      SourceType	      "Body"
+	      PhysicalDomain	      "mechanical"
+	      SubClassName	      "Unknown"
+	      LeftPortType	      "workingframe"
+	      RightPortType	      "workingframe"
+	      LConnTagsString	      "CS3|CS4"
+	      RConnTagsString	      "CG|CS1|CS2|CS5"
+	      ClassName		      "Body"
+	      DialogClass	      "MechanicalBodyBlock"
+	      Mass		      "mass"
+	      MassUnits		      "kg"
+	      InertiaUnits	      "kg*m^2"
+	      Inertia		      "Imat"
+	      Shape		      "Cylinder"
+	      ShapeDims		      "[1 1]"
+	      ShapeUnits	      "m"
+	      ShapeUse		      "false"
+	      Density		      "1"
+	      DensityUnits	      "kg/m^3"
+	      DensityUse	      "false"
+	      GraphicsMode	      "1"
+	      BodyColor		      "[0.5 0.5 0.5]"
+	      AttachedToCS	      "1"
+	      CG		      "Right$CG$[0 0 0]$ADJOINING$ADJOINING$m$"
+"[0 0 0]$EULER X-Y-Z$deg$ADJOINING$true"
+	      WorkingFrames	      "Right$CS1$[0 0 0]$CG$CG$m$[0 0 0]$EULER"
+" X-Y-Z$deg$CG$true#Right$CS2$[0 0 0]$CG$CG$m$[0 0 0]$EULER X-Y-Z$deg$CG$true#"
+"Left$CS3$[0 0 0]$CG$CG$m$[0 0 0]$EULER X-Y-Z$deg$CG$true#Left$CS4$[0 0 0]$CG$"
+"CG$m$[0 0 0]$EULER X-Y-Z$deg$CG$true#Right$CS5$[0 0 0]$CG$CG$m$[90 0 0]$EULER"
+" X-Y-Z$deg$CG$true#Right$CS7$[radius*cos(0) -0.5*width radius*sin(0)]$CG$CG$m"
+"$[0 0 0]$EULER X-Y-Z$deg$CG$false#Right$CS17$[radius*cos(0) 0.5*width radius*"
+"sin(0)]$CG$CG$m$[0 0 0]$EULER X-Y-Z$deg$CG$false#Right$CS8$[radius*cos(0.2*pi"
+") -0.5*width radius*sin(0.2*pi)]$CG$CG$m$[0 0 0]$EULER X-Y-Z$deg$CG$false#Rig"
+"ht$CS18$[radius*cos(0.2*pi) 0.5*width radius*sin(0.2*pi)]$CG$CG$m$[0 0 0]$EUL"
+"ER X-Y-Z$deg$CG$false#Right$CS9$[radius*cos(0.4*pi) -0.5*width radius*sin(0.4"
+"*pi)]$CG$CG$m$[0 0 0]$EULER X-Y-Z$deg$CG$false#Right$CS19$[radius*cos(0.4*pi)"
+" 0.5*width radius*sin(0.4*pi)]$CG$CG$m$[0 0 0]$EULER X-Y-Z$deg$CG$false#Right"
+"$CS10$[radius*cos(0.6*pi) -0.5*width radius*sin(0.6*pi)]$CG$CG$m$[0 0 0]$EULE"
+"R X-Y-Z$deg$CG$false#Right$CS20$[radius*cos(0.6*pi) 0.5*width radius*sin(0.6*"
+"pi)]$CG$CG$m$[0 0 0]$EULER X-Y-Z$deg$CG$false#Right$CS11$[radius*cos(0.8*pi) "
+"-0.5*width radius*sin(0.8*pi)]$CG$CG$m$[0 0 0]$EULER X-Y-Z$deg$CG$false#Right"
+"$CS21$[radius*cos(0.8*pi) 0.5*width radius*sin(0.8*pi)]$CG$CG$m$[0 0 0]$EULER"
+" X-Y-Z$deg$CG$false#Right$CS12$[radius*cos(1.0*pi) -0.5*width radius*sin(1.0*"
+"pi)]$CG$CG$m$[0 0 0]$EULER X-Y-Z$deg$CG$false#Right$CS22$[radius*cos(1.0*pi) "
+"0.5*width radius*sin(1.0*pi)]$CG$CG$m$[0 0 0]$EULER X-Y-Z$deg$CG$false#Right$"
+"CS13$[radius*cos(1.2*pi) -0.5*width radius*sin(1.2*pi)]$CG$CG$m$[0 0 0]$EULER"
+" X-Y-Z$deg$CG$false#Right$CS23$[radius*cos(1.2*pi) 0.5*width radius*sin(1.2*p"
+"i)]$CG$CG$m$[0 0 0]$EULER X-Y-Z$deg$CG$false#Right$CS14$[radius*cos(1.4*pi) -"
+"0.5*width radius*sin(1.4*pi)]$CG$CG$m$[0 0 0]$EULER X-Y-Z$deg$CG$false#Right$"
+"CS24$[radius*cos(1.4*pi) 0.5*width radius*sin(1.4*pi)]$CG$CG$m$[0 0 0]$EULER "
+"X-Y-Z$deg$CG$false#Right$CS15$[radius*cos(1.6*pi) -0.5*width radius*sin(1.6*p"
+"i)]$CG$CG$m$[0 0 0]$EULER X-Y-Z$deg$CG$false#Right$CS25$[radius*cos(1.6*pi) 0"
+".5*width radius*sin(1.6*pi)]$CG$CG$m$[0 0 0]$EULER X-Y-Z$deg$CG$false#Right$C"
+"S16$[radius*cos(1.8*pi) -0.5*width radius*sin(1.8*pi)]$CG$CG$m$[0 0 0]$EULER "
+"X-Y-Z$deg$CG$false#Right$CS26$[radius*cos(1.8*pi) 0.5*width radius*sin(1.8*pi"
+")]$CG$CG$m$[0 0 0]$EULER X-Y-Z$deg$CG$false"
+	      CGPos		      "[0 0 0]"
+	      CGRot		      "[0 0 0]"
+	      CS0Pos		      "[]"
+	      CS0Rot		      "[]"
+	      CS1Pos		      "[0 0 0]"
+	      CS1Rot		      "[0 0 0]"
+	      CS2Pos		      "[0 0 0]"
+	      CS2Rot		      "[0 0 0]"
+	      CS3Pos		      "[0 0 0]"
+	      CS3Rot		      "[0 0 0]"
+	      CS4Pos		      "[0 0 0]"
+	      CS4Rot		      "[0 0 0]"
+	      CS5Pos		      "[0 0 0]"
+	      CS5Rot		      "[90 0 0]"
+	      CS6Pos		      "[]"
+	      CS6Rot		      "[]"
+	      CS7Pos		      "[radius*cos(0) -0.5*width radius*sin(0)"
+"]"
+	      CS7Rot		      "[0 0 0]"
+	      CS8Pos		      "[radius*cos(0.2*pi) -0.5*width radius*s"
+"in(0.2*pi)]"
+	      CS8Rot		      "[0 0 0]"
+	      CS9Pos		      "[radius*cos(0.4*pi) -0.5*width radius*s"
+"in(0.4*pi)]"
+	      CS9Rot		      "[0 0 0]"
+	      CS10Pos		      "[radius*cos(0.6*pi) -0.5*width radius*s"
+"in(0.6*pi)]"
+	      CS10Rot		      "[0 0 0]"
+	      CS11Pos		      "[radius*cos(0.8*pi) -0.5*width radius*s"
+"in(0.8*pi)]"
+	      CS11Rot		      "[0 0 0]"
+	      CS12Pos		      "[radius*cos(1.0*pi) -0.5*width radius*s"
+"in(1.0*pi)]"
+	      CS12Rot		      "[0 0 0]"
+	      CS13Pos		      "[radius*cos(1.2*pi) -0.5*width radius*s"
+"in(1.2*pi)]"
+	      CS13Rot		      "[0 0 0]"
+	      CS14Pos		      "[radius*cos(1.4*pi) -0.5*width radius*s"
+"in(1.4*pi)]"
+	      CS14Rot		      "[0 0 0]"
+	      CS15Pos		      "[radius*cos(1.6*pi) -0.5*width radius*s"
+"in(1.6*pi)]"
+	      CS15Rot		      "[0 0 0]"
+	      CS16Pos		      "[radius*cos(1.8*pi) -0.5*width radius*s"
+"in(1.8*pi)]"
+	      CS16Rot		      "[0 0 0]"
+	      CS17Pos		      "[radius*cos(0) 0.5*width radius*sin(0)]"
+	      CS17Rot		      "[0 0 0]"
+	      CS18Pos		      "[radius*cos(0.2*pi) 0.5*width radius*si"
+"n(0.2*pi)]"
+	      CS18Rot		      "[0 0 0]"
+	      CS19Pos		      "[radius*cos(0.4*pi) 0.5*width radius*si"
+"n(0.4*pi)]"
+	      CS19Rot		      "[0 0 0]"
+	      CS20Pos		      "[radius*cos(0.6*pi) 0.5*width radius*si"
+"n(0.6*pi)]"
+	      CS20Rot		      "[0 0 0]"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "wheel Sensor"
+	      Ports		      [0, 2, 0, 0, 0, 1]
+	      Position		      [240, 191, 290, 289]
+	      DialogController	      "MECH.DynMechDlgSource"
+	      SourceBlock	      "mblibv1/Sensors & \nActuators/Body Sens"
+"or"
+	      SourceType	      "Body Sensor"
+	      ShowPortLabels	      "on"
+	      SystemSampleTime	      "-1"
+	      PhysicalDomain	      "Mechanical"
+	      PortType		      "blob"
+	      Muxed		      "off"
+	      Pose		      "off"
+	      Angle		      "on"
+	      AngleUnits	      "deg"
+	      ArcVelocity	      "on"
+	      ArcVelocityUnits	      "rad/s"
+	      ArcAcceleration	      "off"
+	      ArcAccelerationUnits    "deg/s^2"
+	      CoordPosition	      "off"
+	      CoordPositionUnits      "m"
+	      Velocity		      "on"
+	      VelocityUnits	      "m/s"
+	      Acceleration	      "off"
+	      AccelerationUnits	      "m/s^2"
+	      Quaternion	      "on"
+	      QuaternionDT	      "off"
+	      QuaternionDDT	      "off"
+	      QuaternionUnits	      "off"
+	      OutputVector	      "[ 3 3 ]"
+	      ActiveIO		      "off"
+	      Width		      "6"
+	      ClassName		      "BodySensor"
+	      DialogClass	      "MechanicalSensorBlock"
+	      ReferenceFrame	      "Local (Body CS)"
+	    }
+	    Block {
+	      BlockType		      PMIOPort
+	      Name		      "wheel"
+	      Position		      [15, 70, 45, 90]
+	      BackgroundColor	      "red"
+	      Port		      "1"
+	      Side		      "Left"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "varinf"
+	      Position		      [585, 313, 615, 327]
+	      BackgroundColor	      "red"
+	      IconDisplay	      "Port number"
+	      BusOutputAsStruct	      off
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "body\nsensor"
+	      Position		      [160, 178, 190, 192]
+	      BackgroundColor	      "red"
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	      BusOutputAsStruct	      off
+	    }
+	    Line {
+	      SrcBlock		      "wheel Sensor"
+	      SrcPort		      2
+	      DstBlock		      "S-Function"
+	      DstPort		      5
+	    }
+	    Line {
+	      SrcBlock		      "wheel Sensor"
+	      SrcPort		      1
+	      DstBlock		      "S-Function"
+	      DstPort		      4
+	    }
+	    Line {
+	      SrcBlock		      "      wheel Sensor"
+	      SrcPort		      2
+	      Points		      [0, 0]
+	      DstBlock		      "S-Function"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "      wheel Sensor"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "S-Function"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "S-Function"
+	      SrcPort		      2
+	      DstBlock		      "       wheel torque "
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "S-Function"
+	      SrcPort		      1
+	      DstBlock		      "         wheel force "
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Constant"
+	      SrcPort		      1
+	      Points		      [0, 0; 45, 0]
+	      Branch {
+		Points			[0, 150]
+		DstBlock		"S-Function"
+		DstPort			6
+	      }
+	      Branch {
+		DstBlock		"S-Function"
+		DstPort			3
+	      }
+	    }
+	    Line {
+	      Name		      "varinf"
+	      Labels		      [0, 0]
+	      SrcBlock		      "add signal names"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "varinf"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "S-Function"
+	      SrcPort		      3
+	      DstBlock		      "add signal names"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "scaling"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "S-Function"
+	      DstPort		      8
+	    }
+	    Line {
+	      SrcBlock		      "Integrator"
+	      SrcPort		      1
+	      Points		      [-60, 0; 0, -60]
+	      DstBlock		      "S-Function"
+	      DstPort		      9
+	    }
+	    Line {
+	      SrcBlock		      "S-Function"
+	      SrcPort		      4
+	      Points		      [25, 0; 0, 95]
+	      DstBlock		      "Integrator"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Body Sensor"
+	      SrcPort		      1
+	      DstBlock		      "body\nsensor"
+	      DstPort		      1
+	    }
+	    Line {
+	      LineType		      "Connection"
+	      SrcBlock		      "wheel"
+	      SrcPort		      RConn1
+	      DstBlock		      "wheel  body"
+	      DstPort		      RConn1
+	    }
+	    Line {
+	      LineType		      "Connection"
+	      SrcBlock		      "Body Sensor"
+	      SrcPort		      LConn1
+	      Points		      [-5, 0; 0, -45]
+	      DstBlock		      "wheel  body"
+	      DstPort		      RConn4
+	    }
+	    Line {
+	      LineType		      "Connection"
+	      SrcBlock		      "         wheel force "
+	      SrcPort		      RConn1
+	      Points		      [25, 0; 0, -80; -510, 0; 0, 80]
+	      DstBlock		      "wheel  body"
+	      DstPort		      RConn2
+	    }
+	    Line {
+	      LineType		      "Connection"
+	      SrcBlock		      "       wheel torque "
+	      SrcPort		      RConn1
+	      Points		      [35, 0; 0, -195; -525, 0; 0, 105]
+	      DstBlock		      "wheel  body"
+	      DstPort		      RConn3
+	    }
+	    Line {
+	      LineType		      "Connection"
+	      SrcBlock		      "wheel  body"
+	      SrcPort		      LConn1
+	      DstBlock		      "      wheel Sensor"
+	      DstPort		      LConn1
+	    }
+	    Line {
+	      LineType		      "Connection"
+	      SrcBlock		      "wheel  body"
+	      SrcPort		      LConn2
+	      Points		      [20, 0]
+	      DstBlock		      "wheel Sensor"
+	      DstPort		      LConn1
+	    }
+	    Line {
+	      SrcBlock		      "road"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "S-Function"
+	      DstPort		      7
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "VR sensor"
+	  Tag			  "VR sensor"
+	  Ports			  [1, 1]
+	  Position		  [355, 111, 435, 139]
+	  MinAlgLoopOccurrences	  off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "VR sensor"
+	    Location		    [20, 300, 666, 712]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "A4"
+	    PaperUnits		    "centimeters"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "body sensor"
+	      Position		      [15, 63, 45, 77]
+	      IconDisplay	      "Port number"
+	      OutDataType	      "fixdt(1,16,0)"
+	      OutScaling	      "[]"
+	    }
+	    Block {
+	      BlockType		      BusCreator
+	      Name		      "Bus\nCreator"
+	      Ports		      [2, 1]
+	      Position		      [460, 53, 465, 182]
+	      ShowName		      off
+	      Inputs		      "2"
+	      DisplayOption	      "bar"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Convert from Rotation Matrix to\nVirtua"
+"l Reality Toolbox"
+	      Tag		      "Pose2VR"
+	      Ports		      [1, 1]
+	      Position		      [225, 66, 365, 104]
+	      SourceBlock	      "mblibv1/Utilities/Convert from Rotation"
+" Matrix to\nSimulink 3D Animation format"
+	      SourceType	      "Convert from Rotation Matrix to Simulin"
+"k 3D Animation format"
+	      Port {
+		PortNumber		1
+		Name			"VR_rotation"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Demux
+	      Name		      "Demux1"
+	      Ports		      [1, 4]
+	      Position		      [75, 12, 80, 128]
+	      BackgroundColor	      "black"
+	      ShowName		      off
+	      Outputs		      "[3 3 3 3]"
+	      DisplayOption	      "bar"
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "Gain1"
+	      Position		      [120, 135, 170, 165]
+	      ShowName		      off
+	      Gain		      "[1 0 0; 0 0 1; 0  -1 0]"
+	      Multiplication	      "Matrix(K*u)"
+	      ParameterDataType	      "fixdt(1,16,0)"
+	      ParameterScaling	      "[]"
+	      OutDataType	      "fixdt(1,16,0)"
+	      OutScaling	      "[]"
+	      Port {
+		PortNumber		1
+		Name			"VR_translation"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "Gain2"
+	      Position		      [120, 40, 170, 70]
+	      ShowName		      off
+	      Gain		      "[1 0 0; 0 0 1; 0  -1 0]"
+	      Multiplication	      "Matrix(K*u)"
+	      ParameterDataType	      "fixdt(1,16,0)"
+	      ParameterScaling	      "[]"
+	      OutDataType	      "fixdt(1,16,0)"
+	      OutScaling	      "[]"
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "Gain3"
+	      Position		      [120, 70, 170, 100]
+	      ShowName		      off
+	      Gain		      "[1 0 0; 0 0 1; 0  -1 0]"
+	      Multiplication	      "Matrix(K*u)"
+	      ParameterDataType	      "fixdt(1,16,0)"
+	      ParameterScaling	      "[]"
+	      OutDataType	      "fixdt(1,16,0)"
+	      OutScaling	      "[]"
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "Gain4"
+	      Position		      [120, 100, 170, 130]
+	      ShowName		      off
+	      Gain		      "[1 0 0; 0 0 1; 0  -1 0]"
+	      Multiplication	      "Matrix(K*u)"
+	      ParameterDataType	      "fixdt(1,16,0)"
+	      ParameterScaling	      "[]"
+	      OutDataType	      "fixdt(1,16,0)"
+	      OutScaling	      "[]"
+	    }
+	    Block {
+	      BlockType		      Mux
+	      Name		      "Mux"
+	      Ports		      [3, 1]
+	      Position		      [190, 39, 195, 131]
+	      ShowName		      off
+	      Inputs		      "3"
+	      DisplayOption	      "bar"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "VR"
+	      Position		      [500, 113, 530, 127]
+	      IconDisplay	      "Port number"
+	      BusOutputAsStruct	      off
+	      OutDataType	      "fixdt(1,16,0)"
+	      OutScaling	      "[]"
+	    }
+	    Line {
+	      SrcBlock		      "Bus\nCreator"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "VR"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Demux1"
+	      SrcPort		      2
+	      Points		      [0, 0]
+	      DstBlock		      "Gain2"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Demux1"
+	      SrcPort		      3
+	      Points		      [0, 0]
+	      DstBlock		      "Gain3"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Demux1"
+	      SrcPort		      4
+	      Points		      [0, 0]
+	      DstBlock		      "Gain4"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Mux"
+	      SrcPort		      1
+	      DstBlock		      "Convert from Rotation Matrix to\nVirtua"
+"l Reality Toolbox"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Gain2"
+	      SrcPort		      1
+	      DstBlock		      "Mux"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Gain3"
+	      SrcPort		      1
+	      DstBlock		      "Mux"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Gain4"
+	      SrcPort		      1
+	      DstBlock		      "Mux"
+	      DstPort		      3
+	    }
+	    Line {
+	      Name		      "VR_rotation"
+	      Labels		      [1, 1]
+	      SrcBlock		      "Convert from Rotation Matrix to\nVirtua"
+"l Reality Toolbox"
+	      SrcPort		      1
+	      DstBlock		      "Bus\nCreator"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "VR_translation"
+	      Labels		      [1, 1]
+	      SrcBlock		      "Gain1"
+	      SrcPort		      1
+	      DstBlock		      "Bus\nCreator"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Demux1"
+	      SrcPort		      1
+	      Points		      [15, 0; 0, 125]
+	      DstBlock		      "Gain1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "body sensor"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Demux1"
+	      DstPort		      1
+	    }
+	  }
+	}
+      }
+    }
+    Annotation {
+      Name		      "Delft-Tyre library for SimMechanics \nfirst gen"
+"eration (version 2008a and up)"
+      Position		      [231, 48]
+      UseDisplayTextAsClickCallback off
+      FontName		      "Arial"
+      FontSize		      18
+    }
+    Annotation {
+      Position		      [466, 221]
+      UseDisplayTextAsClickCallback off
+    }
+  }
+}
+MatData {
+  NumRecords		  1
+  DataRecord {
+    Tag			    DataTag0
+    Data		    "  %)30     .    @     8    (    !          %    "
+"\"     $   !*     0         0    2@   '1P,C=A861C,C!?,#DY95\\T-&4R7V$T,S=?,30"
+"V-3(U8V1C-6,W+U-I;4UE8VAA;FEC<R Q1R]-;W9I;F<@<F]A9\"]'<F]U;F0Q        "
+  }
+}

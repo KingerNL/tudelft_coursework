@@ -1,0 +1,27 @@
+!
+! road data file for TNO_plank_road
+!
+! single cleat (length: 50 mm, height: 10 mm)
+!
+$--------------------------------------------------------------------------UNITS
+[UNITS]
+LENGTH                  = 'mm'
+FORCE                   = 'newton'
+ANGLE                   = 'degree'
+MASS                    = 'kg'
+TIME                    = 'sec'
+$--------------------------------------------------------------------------MODEL
+[MODEL]
+METHOD                  = '2D'
+ROAD_TYPE               = 'plank'
+$---------------------------------------------------------------------PARAMETERS
+[PARAMETERS]
+MU                      =   1.0    $ peak friction scaling coefficient
+OFFSET                  =     0    $ vertical offset of the ground wrt inertial frame
+ROTATION_ANGLE_XY_PLANE =     0    $ definition of the positive X-axis of the road wrt inertial frame
+HEIGHT                  =    10    $ height of the cleat
+START                   =  1500    $ distance along the X-axis of the road to the start of the cleat
+LENGTH                  =    50    $ length of the cleat (including bevel) along X-axis of the road
+BEVEL_EDGE_LENGTH       =     0    $ length of the 45 deg. bevel edge of the cleat 
+DIRECTION               =     0    $ rotation of the cleat about the Z-axis wrt to the X-axis of the road
+DRUM_RADIUS             =     0    $ drum radius 

@@ -1,0 +1,2666 @@
+Library {
+  Name			  "Delft_Tyre_dtlib"
+  Version		  6.4
+  MdlSubVersion		  0
+  SavedCharacterEncoding  "windows-1252"
+  LibraryType		  "BlockLibrary"
+  SaveDefaultBlockParams  on
+  SampleTimeColors	  off
+  LibraryLinkDisplay	  "none"
+  WideLines		  off
+  ShowLineDimensions	  off
+  ShowPortDataTypes	  off
+  ShowLoopsOnError	  on
+  IgnoreBidirectionalLines off
+  ShowStorageClass	  off
+  ShowTestPointIcons	  on
+  ShowViewerIcons	  on
+  SortedOrder		  off
+  ExecutionContextIcon	  off
+  ShowLinearizationAnnotations on
+  ScopeRefreshTime	  0.035000
+  OverrideScopeRefreshTime on
+  DisableAllScopes	  off
+  BlockNameDataTip	  off
+  BlockParametersDataTip  on
+  BlockDescriptionStringDataTip	off
+  ToolBar		  on
+  StatusBar		  on
+  BrowserShowLibraryLinks off
+  BrowserLookUnderMasks	  off
+  Created		  "Fri Dec 15 17:51:17 2000"
+  Creator		  "kozlowskimk"
+  UpdateHistory		  "UpdateHistoryNever"
+  ModifiedByFormat	  "%<Auto>"
+  LastModifiedBy	  "hofstadrhmtvd"
+  ModifiedDateFormat	  "%<Auto>"
+  LastModifiedDate	  "Wed Dec 18 14:37:16 2013"
+  ModelVersionFormat	  "1.%<AutoIncrement:588>"
+  ConfigurationManager	  "none"
+  LinearizationMsg	  "none"
+  Profile		  off
+  ParamWorkspaceSource	  "MATLABWorkspace"
+  CovSaveName		  "covdata"
+  CovMetricSettings	  "dw"
+  CovNameIncrementing	  off
+  CovHtmlReporting	  on
+  covSaveCumulativeToWorkspaceVar on
+  CovSaveSingleToWorkspaceVar on
+  CovCumulativeReport	  off
+  CovReportOnPause	  on
+  ExtModeBatchMode	  off
+  ExtModeEnableFloating	  on
+  ExtModeTrigType	  "manual"
+  ExtModeTrigMode	  "normal"
+  ExtModeTrigPort	  "1"
+  ExtModeTrigElement	  "any"
+  ExtModeTrigDuration	  1000
+  ExtModeTrigDurationFloating "auto"
+  ExtModeTrigHoldOff	  0
+  ExtModeTrigDelay	  0
+  ExtModeTrigDirection	  "rising"
+  ExtModeTrigLevel	  0
+  ExtModeArchiveMode	  "off"
+  ExtModeAutoIncOneShot	  off
+  ExtModeIncDirWhenArm	  off
+  ExtModeAddSuffixToVar	  off
+  ExtModeWriteAllDataToWs off
+  ExtModeArmWhenConnect	  on
+  ExtModeSkipDownloadWhenConnect off
+  ExtModeLogAll		  on
+  ExtModeAutoUpdateStatusClock on
+  ProdHWDeviceType	  "32-bit Generic"
+  ShowModelReferenceBlockVersion off
+  ShowModelReferenceBlockIO off
+  BlockDefaults {
+    Orientation		    "right"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    NamePlacement	    "normal"
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    ShowName		    on
+  }
+  BlockParameterDefaults {
+    Block {
+      BlockType		      BusCreator
+      Inputs		      "4"
+      DisplayOption	      "none"
+      UseBusObject	      off
+      BusObject		      "BusObject"
+      NonVirtualBus	      off
+    }
+    Block {
+      BlockType		      Constant
+    }
+    Block {
+      BlockType		      Demux
+      Outputs		      "4"
+      DisplayOption	      "none"
+      BusSelectionMode	      off
+    }
+    Block {
+      BlockType		      Inport
+      Port		      "1"
+      UseBusObject	      off
+      BusObject		      "BusObject"
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      SampleTime	      "-1"
+      DataType		      "auto"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      LatchByDelayingOutsideSignal off
+      LatchByCopyingInsideSignal off
+      Interpolate	      on
+    }
+    Block {
+      BlockType		      Integrator
+      ExternalReset	      "none"
+      InitialConditionSource  "internal"
+      InitialCondition	      "0"
+      LimitOutput	      off
+      UpperSaturationLimit    "inf"
+      LowerSaturationLimit    "-inf"
+      ShowSaturationPort      off
+      ShowStatePort	      off
+      AbsoluteTolerance	      "auto"
+      IgnoreLimit	      off
+      ZeroCross		      on
+    }
+    Block {
+      BlockType		      Mux
+      Inputs		      "4"
+      DisplayOption	      "none"
+      UseBusObject	      off
+      BusObject		      "BusObject"
+      NonVirtualBus	      off
+    }
+    Block {
+      BlockType		      Outport
+      Port		      "1"
+      UseBusObject	      off
+      BusObject		      "BusObject"
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      SampleTime	      "-1"
+      DataType		      "auto"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      OutputWhenDisabled      "held"
+      InitialOutput	      "[]"
+    }
+    Block {
+      BlockType		      "S-Function"
+      FunctionName	      "system"
+      SFunctionModules	      "''"
+      PortCounts	      "[]"
+    }
+    Block {
+      BlockType		      SubSystem
+      ShowPortLabels	      on
+      Permissions	      "ReadWrite"
+      PermitHierarchicalResolution "All"
+      TreatAsAtomicUnit	      off
+      SystemSampleTime	      "-1"
+      RTWFcnNameOpts	      "Auto"
+      RTWFileNameOpts	      "Auto"
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      SimViewingDevice	      off
+      DataTypeOverride	      "UseLocalSettings"
+      MinMaxOverflowLogging   "UseLocalSettings"
+    }
+    Block {
+      BlockType		      Terminator
+    }
+  }
+  AnnotationDefaults {
+    HorizontalAlignment	    "center"
+    VerticalAlignment	    "middle"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+  }
+  LineDefaults {
+    FontName		    "Helvetica"
+    FontSize		    9
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+  }
+  System {
+    Name		    "Delft_Tyre_dtlib"
+    Location		    [467, 350, 942, 603]
+    Open		    on
+    ModelBrowserVisibility  off
+    ModelBrowserWidth	    200
+    ScreenColor		    "white"
+    PaperOrientation	    "landscape"
+    PaperPositionMode	    "auto"
+    PaperType		    "usletter"
+    PaperUnits		    "inches"
+    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+    TiledPageScale	    1
+    ShowPageBoundaries	    off
+    ZoomFactor		    "100"
+    ReportName		    "simulink-default.rpt"
+    Block {
+      BlockType		      SubSystem
+      Name		      "Simulink"
+      Ports		      []
+      Position		      [150, 97, 240, 153]
+      MinAlgLoopOccurrences   off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      MaskHideContents	      off
+      System {
+	Name			"Simulink"
+	Location		[612, 393, 1307, 686]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "CPI tyre"
+	  Tag			  "CPI tyre"
+	  Ports			  [7, 7]
+	  Position		  [70, 21, 230, 199]
+	  BackgroundColor	  "lightBlue"
+	  FontName		  "Arial"
+	  MinAlgLoopOccurrences	  off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  MaskHideContents	  off
+	  MaskType		  "CPI_tyre"
+	  MaskDescription	  "Tyre model using the contact point interfac"
+"e (CPI). Inputs to the tyre model are the sliding velocities at the tyre-road"
+" contact point.\n\nTyre model version: MF-Tyre/MF-Swift 6.2\n© 1996-2013 TNO,"
+" Helmond, The Netherlands"
+	  MaskHelp		  "eval('DTOpenHelp(504)')"
+	  MaskPromptString	  "Tyre ID [integer]|Tyre property file [strin"
+"g]|Tyre side            :|Dynamics           :|Slip forces          :|Optiona"
+"l: use mode (overrides pop-up) [integer]|Display debug messages"
+	  MaskStyleString	  "edit,edit,popup((1xxx) left|(2xxx) right|(3"
+"xxx) symmetric),popup((xx0x) steady-state|(xx1x) relaxation behaviour|(xx2x) "
+"relaxation behaviour - non-linear),popup((xxx0) none|(xxx1) longitudinal|(xxx"
+"2) lateral|(xxx3) uncombined|(xxx4) combined|(xxx5) combined+turnslip),edit,c"
+"heckbox"
+	  MaskTunableValueString  "on,on,on,on,on,on,on"
+	  MaskCallbackString	  "||promtstr = get_param(gcb,'MaskPromptStrin"
+"g');\nindex = find(double(promtstr)==124);\nmaskval = get_param(gcb,'MaskValu"
+"es');\nnew_mode = [maskval{3}(2) '0' maskval{4}(4) maskval{5}(5)];\nnewpromts"
+"tr = [promtstr(1:index(5)) ['Optional: use mode (overrides pop-up) [current s"
+"election: ' new_mode ']'] promtstr(index(6):end)];\nset_param(gcb,'MaskPrompt"
+"String',newpromtstr);|promtstr = get_param(gcb,'MaskPromptString');\nindex = "
+"find(double(promtstr)==124);\nmaskval = get_param(gcb,'MaskValues');\nnew_mod"
+"e = [maskval{3}(2) '0' maskval{4}(4) maskval{5}(5)];\nnewpromtstr = [promtstr"
+"(1:index(5)) ['Optional: use mode (overrides pop-up) [current selection: ' ne"
+"w_mode ']'] promtstr(index(6):end)];\nset_param(gcb,'MaskPromptString',newpro"
+"mtstr);|promtstr = get_param(gcb,'MaskPromptString');\nindex = find(double(pr"
+"omtstr)==124);\nmaskval = get_param(gcb,'MaskValues');\nnew_mode = [maskval{3"
+"}(2) '0' maskval{4}(4) maskval{5}(5)];\nnewpromtstr = [promtstr(1:index(5)) ["
+"'Optional: use mode (overrides pop-up) [current selection: ' new_mode ']'] pr"
+"omtstr(index(6):end)];\nset_param(gcb,'MaskPromptString',newpromtstr);||"
+	  MaskEnableString	  "on,on,on,on,on,on,on"
+	  MaskVisibilityString	  "on,on,on,on,on,on,on"
+	  MaskToolTipString	  "on,on,on,on,on,on,on"
+	  MaskVarAliasString	  ",,,,,,"
+	  MaskVariables		  "idtyre=@1;tpfname=@2;side_mode=@3;dyn_mode="
+"@4;mf_mode=@5;use_mode=@6;disp_debug=@7;"
+	  MaskInitialization	  "if (abs(use_mode) > 4535 )\n  iswtch=1000*s"
+"ide_mode+10*(dyn_mode-1)+(mf_mode-1);\n  if (disp_debug) disp(['Delft-Tyre ' "
+"num2str(idtyre) ' -> use_mode=' num2str(iswtch) ]); end\nelse\n  iswtch=use_m"
+"ode;\nend\n\n\nif ~exist(tpfname)\n    error('Tyre property file does not exi"
+"st') \nend"
+	  MaskDisplay		  "text(0.3*160,0.7*178,'TNO Delft-Tyre')\nplo"
+"t(89.*[0.8828 0.8769 0.8597 0.7299 0.7043 0.6745 0.6443 0.6195 0.5884 0.5712 "
+"0.5653 0.5573 0.5346 0.4985 0.4515 0.3965 0.3373 ]+160/2-0.43*89,89.*[0.3654 "
+"0.3482 0.3335 0.2583 0.2486 0.2453 0.2486 0.2583 0.2764 0.2911 0.3083 0.2449 "
+"0.1945 0.1609 0.1462 0.1520 0.1768 ]+0.3*89)\nplot(89.*[0.3255 0.3889 0.3965 "
+"0.4112 0.4313 0.3767 ]+160/2-0.43*89,89.*[0.1491 0.1222 0.1520 0.1777 0.1949 "
+"0.2184 ]+0.3*89)\nplot(89.*[0.3553 0.4112 0.4633 0.4826 0.5464 ]+160/2-0.43*8"
+"9,89.*[0.2012 0.1777 0.1722 0.1898 0.2268 ]+0.3*89)\nplot(89.*[0.5426 0.5262 "
+"0.4826 0.4313 0.5603 0.5603 0.5065 ]+160/2-0.43*89,89.*[0.2184 0.2037 0.1898 "
+"0.1949 0.2692 0.2701 0.2932 ]+0.3*89)\nplot(89.*[0.5279 0.5460 0.4868 ]+160/2"
+"-0.43*89,89.*[0.3007 0.2969 0.3402 ]+0.3*89)\nplot(89.*[0.5279 0.5624 ]+160/2"
+"-0.43*89,89.*[0.3007 0.2856 ]+0.3*89)\nplot(89.*[0.5628 0.5460 ]+160/2-0.43*8"
+"9,89.*[0.2898 0.2969 ]+0.3*89)\nplot(89.*[0.5712 0.5628 0.5573 ]+160/2-0.43*8"
+"9,89.*[0.2911 0.2222 0.2449 ]+0.3*89)\nplot(89.*[0.5586 0.5422 0.5082 0.4633 "
+"0.4515 0.4481 0.3889 0.3902 0.4544 0.5099 0.5523 0.5792 0.5884 ]+160/2-0.43*8"
+"9,89.*[0.2541 0.2180 0.1861 0.1722 0.1462 0.1163 0.1222 0.0928 0.0865 0.1033 "
+"0.1428 0.2016 0.2764 ]+0.3*89)\nplot(89.*[0.6195 0.6090 0.5792 0.5628 0.5380 "
+"0.5346 0.5422 ]+160/2-0.43*89,89.*[0.2583 0.1751 0.2016 0.2222 0.1680 0.1945 "
+"0.2180 ]+0.3*89)\nplot(89.*[0.5262 0.5082 0.4985 0.4994 0.5380 0.5523 0.5792 "
+"0.6090 0.6333 0.6443 ]+160/2-0.43*89,89.*[0.2037 0.1861 0.1609 0.1319 0.1680 "
+"0.1428 0.1092 0.1751 0.1596 0.2486 ]+0.3*89)\nplot(89.*[0.6745 0.6627 0.6333 "
+"0.6018 0.5792 0.5317 0.5099 0.4994 0.4481 0.4544 0.4700 0.5317 0.5510 0.6018 "
+"0.6291 0.6627 0.6926 0.7043 ]+160/2-0.43*89,89.*[0.2453 0.1508 0.1596 0.0890 "
+"0.1092 0.0655 0.1033 0.1319 0.1163 0.0865 0.0462 0.0655 0.0416 0.0890 0.0764 "
+"0.1508 0.1508 0.2486 ]+0.3*89)\nplot(89.*[0.7299 0.7178 0.6926 0.6577 0.6291 "
+"0.5758 0.5510 0.4851 0.4700 0.3986 0.3213 0.2440 0.1718 0.1100 0.0626 ]+160/2"
+"-0.43*89,89.*[0.2583 0.1596 0.1508 0.0739 0.0764 0.0269 0.0416 0.0210 0.0462 "
+"0.0533 0.0861 0.1424 0.2184 0.3087 0.4074 ]+0.3*89)\nplot(89.*[0.0487 0.0995 "
+"0.1100 0.1323 0.1516 0.1760 0.1399 ]+160/2-0.43*89,89.*[0.4082 0.3028 0.3087 "
+"0.3213 0.3326 0.3469 0.4221 ]+0.3*89)\nplot(89.*[0.1126 0.1516 0.2024 0.2234 "
+"0.2474 0.2709 0.4011 0.4200 0.4322 0.3847 0.3486 0.3255 ]+160/2-0.43*89,89.*["
+"0.4141 0.3326 0.2579 0.2776 0.2969 0.3121 0.3872 0.3965 0.3982 0.4670 0.5426 "
+"0.6191 ]+0.3*89)\nplot(89.*[0.3486 0.3410 0.3755 0.3847 ]+160/2-0.43*89,89.*["
+"0.5426 0.5330 0.4616 0.4670 ]+0.3*89)\nplot(89.*[0.3755 0.3570 0.3234 ]+160/2"
+"-0.43*89,89.*[0.4616 0.4511 0.5212 ]+0.3*89)\nplot(89.*[0.3570 0.2272 0.1936 "
+"]+160/2-0.43*89,89.*[0.4511 0.3759 0.4460 ]+0.3*89)\nplot(89.*[0.1684 0.2029 "
+"0.2272 0.2709 0.3217 0.4519 0.4721 0.4868 0.4322 ]+160/2-0.43*89,89.*[0.4334 "
+"0.3625 0.3759 0.3121 0.2583 0.3331 0.3415 0.3402 0.3982 ]+0.3*89)\nplot(89.*["
+"0.4200 0.3755 ]+160/2-0.43*89,89.*[0.3965 0.4616 ]+0.3*89)\nplot(89.*[0.3570 "
+"0.4011 0.4519 0.5065 0.5279 0.4721 0.4200 ]+160/2-0.43*89,89.*[0.4511 0.3872 "
+"0.3331 0.2932 0.3007 0.3415 0.3965 ]+0.3*89)\nplot(89.*[0.5065 0.3767 0.3217 "
+"0.2995 0.2474 0.2029 0.1760 0.2234 0.2785 0.2995 0.3553 0.3767 ]+160/2-0.43*8"
+"9,89.*[0.2932 0.2184 0.2583 0.2419 0.2969 0.3625 0.3469 0.2776 0.2197 0.2419 "
+"0.2012 0.2184 ]+0.3*89)\nplot(89.*[0.3553 0.3373 0.2785 0.2617 0.2024 0.1873 "
+"0.1323 0.0899 0.0630 0.0542 0.0231 0.0059 0.0000 0.0113 0.0168 0.0332 0.0630 "
+"0.0878 0.1172 0.1470 0.1722 0.3024 0.3192 0.3255 0.3179 0.3121 0.2948 0.1651 "
+"0.1394 0.1470 0.1172 0.0878 0.0630 0.0332 0.0168 0.0113 0.0000 ]+160/2-0.43*8"
+"9,89.*[0.2012 0.1768 0.2197 0.1957 0.2579 0.2402 0.3213 0.4099 0.4994 0.5846 "
+"0.6027 0.6174 0.6346 0.5271 0.5157 0.5078 0.4994 0.4964 0.4990 0.5061 0.5174 "
+"0.5922 0.6056 0.6191 0.6917 0.6745 0.6598 0.5846 0.5745 0.6350 0.6350 0.6434 "
+"0.6594 0.6858 0.7064 0.7291 0.6346 ]+0.3*89)\nplot(89.*[0.0059 0.0168 ]+160/2"
+"-0.43*89,89.*[0.6174 0.7064 ]+0.3*89)\nplot(89.*[0.0113 0.0454 0.0529 0.0181 "
+"0.0113 ]+160/2-0.43*89,89.*[0.7291 0.8034 0.8270 0.7497 0.7291 ]+0.3*89)\nplo"
+"t(89.*[0.0168 0.0487 0.0454 ]+160/2-0.43*89,89.*[0.7064 0.7770 0.8034 ]+0.3*8"
+"9)\nplot(89.*[0.0487 0.0626 0.0899 0.0630 0.0542 0.0794 0.0878 0.1126 0.0899 "
+"]+160/2-0.43*89,89.*[0.7770 0.7518 0.7182 0.6594 0.5846 0.5745 0.6434 0.6976 "
+"0.7182 ]+0.3*89)\nplot(89.*[0.1126 0.1399 0.1684 0.1936 0.2570 ]+160/2-0.43*8"
+"9,89.*[0.6976 0.6854 0.6829 0.6905 0.7274 ]+0.3*89)\nplot(89.*[0.3011 0.1722 "
+"0.1936 ]+160/2-0.43*89,89.*[0.7182 0.6438 0.6905 ]+0.3*89)\nplot(89.*[0.1684 "
+"0.1470 0.1722 0.1651 0.1722 0.1936 0.3234 0.3410 0.3192 0.3121 0.3163 ]+160/2"
+"-0.43*89,89.*[0.6829 0.6350 0.6438 0.5846 0.5174 0.4460 0.5212 0.5330 0.6056 "
+"0.6745 0.7119 ]+0.3*89)\nplot(89.*[0.3200 0.3179 ]+160/2-0.43*89,89.*[0.7102 "
+"0.6917 ]+0.3*89)\nplot(89.*[0.3020 0.2948 0.3024 0.3234 ]+160/2-0.43*89,89.*["
+"0.7178 0.6598 0.5922 0.5212 ]+0.3*89)\nplot(89.*[0.1470 0.1394 0.1096 0.1172 "
+"0.1399 0.1760 0.1516 0.1323 0.1100 0.0995 0.0987 0.1688 0.1806 0.1999 0.3297 "
+"0.2566 0.1264 0.0701 0.0529 0.1084 0.1264 0.1999 ]+160/2-0.43*89,89.*[0.5061 "
+"0.5745 0.5716 0.6350 0.6854 0.7190 0.7341 0.7577 0.7959 0.8240 0.8530 0.8748 "
+"0.9005 0.9185 0.9933 0.9706 0.8958 0.8438 0.8270 0.8782 0.8958 0.9185 ]+0.3*8"
+"9)\nplot(89.*[0.1806 0.1084 0.0987 0.0454 ]+160/2-0.43*89,89.*[0.9005 0.8782 "
+"0.8530 0.8034 ]+0.3*89)\nplot(89.*[0.0487 0.0995 0.1655 0.1688 ]+160/2-0.43*8"
+"9,89.*[0.7770 0.8240 0.8446 0.8748 ]+0.3*89)\nplot(89.*[0.1655 0.1718 0.1873 "
+"0.2024 0.2234 0.2474 0.2029 0.1760 0.2234 ]+160/2-0.43*89,89.*[0.8446 0.8148 "
+"0.7745 0.7497 0.7333 0.7283 0.7144 0.7190 0.7333 ]+0.3*89)\nplot(89.*[0.2272 "
+"0.2478 ]+160/2-0.43*89,89.*[0.7215 0.7278 ]+0.3*89)\nplot(89.*[0.2272 0.2029 "
+"0.1684 ]+160/2-0.43*89,89.*[0.7215 0.7144 0.6829 ]+0.3*89)\nplot(89.*[0.1936 "
+"0.2272 ]+160/2-0.43*89,89.*[0.6905 0.7215 ]+0.3*89)\nplot(89.*[0.2024 0.1516 "
+"0.1126 ]+160/2-0.43*89,89.*[0.7497 0.7341 0.6976 ]+0.3*89)\nplot(89.*[0.0899 "
+"0.1323 0.1873 0.2520 0.2440 0.2428 0.2499 0.2650 0.2852 0.4150 0.4372 0.3528 "
+"0.3297 0.4150 0.5065 0.5279 0.5460 0.4586 0.4372 0.5279 ]+160/2-0.43*89,89.*["
+"0.7182 0.7577 0.7745 0.7686 0.8076 0.8370 0.8669 0.8925 0.9097 0.9849 0.9920 "
+"1.0000 0.9933 0.9849 0.9458 0.9534 0.9500 0.9870 0.9920 0.9534 ]+0.3*89)\nplo"
+"t(89.*[0.5065 0.3767 0.2852 0.1999 ]+160/2-0.43*89,89.*[0.9458 0.8711 0.9097 "
+"0.9185 ]+0.3*89)\nplot(89.*[0.1806 0.2650 0.3553 0.3767 ]+160/2-0.43*89,89.*["
+"0.9005 0.8925 0.8538 0.8711 ]+0.3*89)\nplot(89.*[0.3553 0.3373 0.2499 0.1688 "
+"]+160/2-0.43*89,89.*[0.8538 0.8295 0.8669 0.8748 ]+0.3*89)\nplot(89.*[0.1655 "
+"0.2428 0.3255 0.3373 ]+160/2-0.43*89,89.*[0.8446 0.8370 0.8018 0.8295 ]+0.3*8"
+"9)\nplot(89.*[0.3255 0.3213 0.3213 0.3255 0.3373 0.2785 0.2617 0.3255 ]+160/2"
+"-0.43*89,89.*[0.8018 0.7749 0.7388 0.7165 0.7031 0.7278 0.7438 0.7165 ]+0.3*8"
+"9)\nplot(89.*[0.3213 0.2520 0.2617 0.2024 ]+160/2-0.43*89,89.*[0.7388 0.7686 "
+"0.7438 0.7497 ]+0.3*89)\nplot(89.*[0.2234 0.2785 ]+160/2-0.43*89,89.*[0.7333 "
+"0.7278 ]+0.3*89)\nplot(89.*[0.2869 0.2474 ]+160/2-0.43*89,89.*[0.7241 0.7283 "
+"]+0.3*89)\nplot(89.*[0.2440 0.3213 0.3986 0.4078 0.4246 0.4456 0.4683 0.5981 "
+"0.6182 0.6329 0.5460 ]+160/2-0.43*89,89.*[0.8076 0.7749 0.7186 0.7417 0.7661 "
+"0.7879 0.8043 0.8790 0.8874 0.8862 0.9500 ]+0.3*89)\nplot(89.*[0.5279 0.6182 "
+"0.7022 0.7140 0.6329 ]+160/2-0.43*89,89.*[0.9534 0.8874 0.7984 0.8001 0.8862 "
+"]+0.3*89)\nplot(89.*[0.5981 0.5065 ]+160/2-0.43*89,89.*[0.8790 0.9458 ]+0.3*8"
+"9)\nplot(89.*[0.5981 0.6829 0.7022 ]+160/2-0.43*89,89.*[0.8790 0.7892 0.7984 "
+"]+0.3*89)\nplot(89.*[0.6829 0.5535 0.4683 0.3767 ]+160/2-0.43*89,89.*[0.7892 "
+"0.7144 0.8043 0.8711 ]+0.3*89)\nplot(89.*[0.3553 0.4456 0.5300 0.5535 ]+160/2"
+"-0.43*89,89.*[0.8538 0.7879 0.6989 0.7144 ]+0.3*89)\nplot(89.*[0.5300 0.5061 "
+"0.4246 0.3373 ]+160/2-0.43*89,89.*[0.6989 0.6800 0.7661 0.8295 ]+0.3*89)\nplo"
+"t(89.*[0.3255 0.4078 0.4851 0.5061 ]+160/2-0.43*89,89.*[0.8018 0.7417 0.6602 "
+"0.6800 ]+0.3*89)\nplot(89.*[0.4851 0.4700 0.3986 0.3902 0.3889 0.4481 0.4544 "
+"0.4700 ]+160/2-0.43*89,89.*[0.6602 0.6426 0.7186 0.6884 0.6703 0.6077 0.6203 "
+"0.6426 ]+0.3*89)\nplot(89.*[0.4851 0.5510 0.5758 0.6027 0.6262 0.7560 0.7745 "
+"0.7841 0.7140 ]+160/2-0.43*89,89.*[0.6602 0.5632 0.5779 0.5930 0.6069 0.6816 "
+"0.6926 0.6980 0.8001 ]+0.3*89)\nplot(89.*[0.7022 0.7745 ]+160/2-0.43*89,89.*["
+"0.7984 0.6926 ]+0.3*89)\nplot(89.*[0.7841 0.8375 0.8303 0.7745 ]+160/2-0.43*8"
+"9,89.*[0.6980 0.5863 0.5766 0.6926 ]+0.3*89)\nplot(89.*[0.7560 0.6829 ]+160/2"
+"-0.43*89,89.*[0.6816 0.7892 ]+0.3*89)\nplot(89.*[0.7560 0.8123 0.8303 ]+160/2"
+"-0.43*89,89.*[0.6816 0.5649 0.5766 ]+0.3*89)\nplot(89.*[0.8123 0.6825 0.6262 "
+"0.5535 ]+160/2-0.43*89,89.*[0.5649 0.4901 0.6069 0.7144 ]+0.3*89)\nplot(89.*["
+"0.5300 0.6027 0.6577 0.6825 ]+160/2-0.43*89,89.*[0.6989 0.5930 0.4775 0.4901 "
+"]+0.3*89)\nplot(89.*[0.6577 0.6291 0.5758 0.5061 ]+160/2-0.43*89,89.*[0.4775 "
+"0.4658 0.5779 0.6800 ]+0.3*89)\nplot(89.*[0.4700 0.5317 0.5510 0.6018 0.6291 "
+"]+160/2-0.43*89,89.*[0.6426 0.5523 0.5632 0.4578 0.4658 ]+0.3*89)\nplot(89.*["
+"0.6018 0.5792 0.5317 0.5099 0.4544 0.3902 0.3213 ]+160/2-0.43*89,89.*[0.4578 "
+"0.4536 0.5523 0.5397 0.6203 0.6884 0.7388 ]+0.3*89)\nplot(89.*[0.3255 0.3889 "
+"0.3965 0.4515 0.4481 0.4994 0.5099 0.5523 0.5792 ]+160/2-0.43*89,89.*[0.7165 "
+"0.6703 0.6602 0.6018 0.6077 0.5334 0.5397 0.4511 0.4536 ]+0.3*89)\nplot(89.*["
+"0.6018 0.6333 0.6627 0.6926 0.7178 0.8475 0.8652 0.8711 0.8375 ]+160/2-0.43*8"
+"9,89.*[0.4578 0.3503 0.3524 0.3599 0.3713 0.4460 0.4595 0.4729 0.5863 ]+0.3*8"
+"9)\nplot(89.*[0.8303 0.8652 ]+160/2-0.43*89,89.*[0.5766 0.4595 ]+0.3*89)\nplo"
+"t(89.*[0.8711 0.8828 0.8711 0.8652 0.8475 0.7178 0.6825 0.6577 0.6027 0.5758 "
+"0.5061 0.4851 0.4078 0.3986 0.3902 0.3213 0.2520 0.1873 0.1718 0.1655 0.0995 "
+"0.0987 0.1688 0.1655 0.2428 0.2440 0.2520 0.2617 0.3255 0.3373 ]+160/2-0.43*8"
+"9,89.*[0.4729 0.3654 0.2713 0.2503 0.2348 0.1596 0.0815 0.0739 0.0223 0.0269 "
+"0.0050 0.0210 0.0290 0.0533 0.0928 0.1222 0.1726 0.2402 0.2184 0.2058 0.3028 "
+"0.3020 0.1999 0.2058 0.1243 0.1424 0.1726 0.1957 0.1491 0.1768 ]+0.3*89)\nplo"
+"t(89.*[0.3255 0.3213 0.3213 0.3255 0.4078 0.4246 0.5061 0.5300 0.6027 0.6262 "
+"0.6825 0.8123 0.8475 0.8597 0.8475 0.8123 ]+160/2-0.43*89,89.*[0.1491 0.1222 "
+"0.0861 0.0643 0.0290 0.0130 0.0050 0.0000 0.0223 0.0294 0.0815 0.1562 0.2348 "
+"0.3335 0.4460 0.5649 ]+0.3*89)\nplot(89.*[0.8652 0.8769 0.8652 0.8303 0.8123 "
+"0.7560 0.6262 0.5535 0.5300 0.4456 0.4246 0.3373 0.3255 0.2428 0.2499 0.3373 "
+"]+160/2-0.43*89,89.*[0.4595 0.3482 0.2503 0.1735 0.1562 0.1046 0.0294 0.0067 "
+"0.0000 0.0084 0.0130 0.0504 0.0643 0.1243 0.1138 0.0504 ]+0.3*89)\nplot(89.*["
+"0.0487 0.0168 0.0059 ]+160/2-0.43*89,89.*[0.4082 0.5157 0.6174 ]+0.3*89)\nplo"
+"t(89.*[0.0231 0.0332 0.0626 0.1100 0.1718 0.2440 ]+160/2-0.43*89,89.*[0.6027 "
+"0.6858 0.7518 0.7959 0.8148 0.8076 ]+0.3*89)\nplot(89.*[0.3373 0.3965 ]+160/2"
+"-0.43*89,89.*[0.7031 0.6602 ]+0.3*89)\nplot(89.*[0.4515 0.4985 0.4994 0.5380 "
+"0.5523 0.5792 0.6090 0.6333 0.6443 ]+160/2-0.43*89,89.*[0.6018 0.5330 0.5334 "
+"0.4519 0.4511 0.3612 0.3532 0.3503 0.2486 ]+0.3*89)\nplot(89.*[0.6745 0.6627 "
+"0.6291 ]+160/2-0.43*89,89.*[0.2453 0.3524 0.4658 ]+0.3*89)\nplot(89.*[0.6577 "
+"0.6926 0.7043 ]+160/2-0.43*89,89.*[0.4775 0.3599 0.2486 ]+0.3*89)\nplot(89.*["
+"0.7299 0.7178 0.6825 ]+160/2-0.43*89,89.*[0.2583 0.3713 0.4901 ]+0.3*89)\nplo"
+"t(89.*[0.5792 0.6090 0.6195 ]+160/2-0.43*89,89.*[0.4536 0.3532 0.2583 ]+0.3*8"
+"9)\nplot(89.*[0.5884 0.5792 0.5628 0.5380 0.5346 0.5573 0.5628 0.5712 ]+160/2"
+"-0.43*89,89.*[0.2764 0.3612 0.3692 0.4519 0.4578 0.3809 0.3692 0.2911 ]+0.3*8"
+"9)\nplot(89.*[0.5653 0.5573 ]+160/2-0.43*89,89.*[0.3083 0.3809 ]+0.3*89)\nplo"
+"t(89.*[0.5346 0.4985 ]+160/2-0.43*89,89.*[0.4578 0.5330 ]+0.3*89)\nplot(89.*["
+"0.1470 0.1684 0.1936 ]+160/2-0.43*89,89.*[0.5061 0.4334 0.4460 ]+0.3*89)\nplo"
+"t(89.*[0.1684 0.1399 0.1172 0.1096 0.0794 0.0878 0.1126 0.1399 ]+160/2-0.43*8"
+"9,89.*[0.4334 0.4221 0.4990 0.5716 0.5745 0.4964 0.4141 0.4221 ]+0.3*89)\nplo"
+"t(89.*[0.1126 0.0899 0.0626 0.0332 0.0231 ]+160/2-0.43*89,89.*[0.4141 0.4099 "
+"0.4074 0.5078 0.6027 ]+0.3*89)\nplot(89.*[0.0113 0.0454 0.0487 0.0626 ]+160/2"
+"-0.43*89,89.*[0.5271 0.4137 0.4082 0.4074 ]+0.3*89)\nplot(89.*[0.0454 0.0987 "
+"]+160/2-0.43*89,89.*[0.4137 0.3020 ]+0.3*89)"
+	  MaskSelfModifiable	  on
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  off
+	  MaskIconRotate	  "none"
+	  MaskIconUnits		  "pixels"
+	  MaskValueString	  "1||(1xxx) left|(xx0x) steady-state|(xxx0) n"
+"one|1e8|off"
+	  MaskTabNameString	  ",,,,,,"
+	  System {
+	    Name		    "CPI tyre"
+	    Location		    [63, 52, 594, 838]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "A4"
+	    PaperUnits		    "centimeters"
+	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Omega"
+	      Position		      [55, 58, 85, 72]
+	      IconDisplay	      "Port number"
+	      OutDataType	      "fixdt(1,16,0)"
+	      OutScaling	      "[]"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Vx"
+	      Position		      [55, 113, 85, 127]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "fixdt(1,16,0)"
+	      OutScaling	      "[]"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Vsy"
+	      Position		      [55, 168, 85, 182]
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "fixdt(1,16,0)"
+	      OutScaling	      "[]"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Camber"
+	      Position		      [55, 223, 85, 237]
+	      Port		      "4"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "fixdt(1,16,0)"
+	      OutScaling	      "[]"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Psidot"
+	      Position		      [55, 278, 85, 292]
+	      Port		      "5"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "fixdt(1,16,0)"
+	      OutScaling	      "[]"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Fz"
+	      Position		      [55, 333, 85, 347]
+	      Port		      "6"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "fixdt(1,16,0)"
+	      OutScaling	      "[]"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "scaling"
+	      Position		      [55, 388, 85, 402]
+	      Port		      "7"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "fixdt(1,16,0)"
+	      OutScaling	      "[]"
+	    }
+	    Block {
+	      BlockType		      Integrator
+	      Name		      "Integrator"
+	      Ports		      [1, 1]
+	      Position		      [185, 497, 220, 533]
+	      Orientation	      "left"
+	      InitialCondition	      "zeros(1,17)"
+	      IgnoreLimit	      off
+	    }
+	    Block {
+	      BlockType		      "S-Function"
+	      Name		      "S-Function"
+	      Ports		      [8, 8]
+	      Position		      [155, 37, 255, 478]
+	      BackgroundColor	      "cyan"
+	      FunctionName	      "s_delfttyre_cpi"
+	      Parameters	      "iswtch idtyre tpfname"
+	    }
+	    Block {
+	      BlockType		      SubSystem
+	      Name		      "add signal names"
+	      Ports		      [1, 1]
+	      Position		      [290, 378, 370, 412]
+	      MinAlgLoopOccurrences   off
+	      RTWSystemCode	      "Auto"
+	      FunctionWithSeparateData off
+	      MaskHideContents	      off
+	      Port {
+		PortNumber		1
+		Name			"varinf"
+		PropagatedSignals	"varinf"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      System {
+		Name			"add signal names"
+		Location		[90, 52, 495, 1094]
+		Open			off
+		ModelBrowserVisibility	off
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"A4"
+		PaperUnits		"centimeters"
+		TiledPaperMargins	"[1.270000, 1.270000, 1.270000, 1.2700"
+"00]"
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"100"
+		Block {
+		  BlockType		  Inport
+		  Name			  "In1"
+		  Position		  [25, 433, 55, 447]
+		  IconDisplay		  "Port number"
+		  OutDataType		  "fixdt(1,16,0)"
+		  OutScaling		  "[]"
+		}
+		Block {
+		  BlockType		  Terminator
+		  Name			  "Added for future extension"
+		  Position		  [165, 808, 180, 822]
+		}
+		Block {
+		  BlockType		  BusCreator
+		  Name			  "Bus\nCreator"
+		  Ports			  [30, 1]
+		  Position		  [210, 57, 215, 798]
+		  ShowName		  off
+		  Inputs		  "30"
+		  DisplayOption		  "bar"
+		  Port {
+		    PortNumber		    1
+		    Name		    "varinf"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		}
+		Block {
+		  BlockType		  Demux
+		  Name			  "Demux1"
+		  Ports			  [1, 31]
+		  Position		  [90, 51, 95, 829]
+		  BackgroundColor	  "black"
+		  ShowName		  off
+		  Outputs		  "[ones(1,30) -1]"
+		  Port {
+		    PortNumber		    1
+		    Name		    "Fx"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    2
+		    Name		    "Fy"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    3
+		    Name		    "Fz"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    4
+		    Name		    "Mx"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    5
+		    Name		    "My"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    6
+		    Name		    "Mz"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    7
+		    Name		    "longitudinal_slip"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    8
+		    Name		    "side_slip_angle"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    9
+		    Name		    "inclination_angle"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    10
+		    Name		    "turn_slip"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    11
+		    Name		    "Vx"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    12
+		    Name		    "_e12"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    13
+		    Name		    "effective_rolling_radius"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    14
+		    Name		    "vertical_deflection"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    15
+		    Name		    "contact_length"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    16
+		    Name		    "pneumatic_trail"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    17
+		    Name		    "mu_x"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    18
+		    Name		    "mu_y"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    19
+		    Name		    "relaxation_length_x"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    20
+		    Name		    "relaxation_length_y"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    21
+		    Name		    "Vsx"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    22
+		    Name		    "Vsy"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    23
+		    Name		    "Vz"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    24
+		    Name		    "psidot"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    25
+		    Name		    "_e25"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    26
+		    Name		    "_e26"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    27
+		    Name		    "_e27"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    28
+		    Name		    "travelled_distance"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    29
+		    Name		    "_e29"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    30
+		    Name		    "_e30"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "Out1"
+		  Position		  [270, 423, 300, 437]
+		  IconDisplay		  "Port number"
+		  BusOutputAsStruct	  off
+		  OutDataType		  "fixdt(1,16,0)"
+		  OutScaling		  "[]"
+		}
+		Line {
+		  SrcBlock		  "In1"
+		  SrcPort		  1
+		  DstBlock		  "Demux1"
+		  DstPort		  1
+		}
+		Line {
+		  Name			  "Fx"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  1
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  1
+		}
+		Line {
+		  Name			  "Fy"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  2
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  2
+		}
+		Line {
+		  Name			  "Fz"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  3
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  3
+		}
+		Line {
+		  Name			  "Mx"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  4
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  4
+		}
+		Line {
+		  Name			  "My"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  5
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  5
+		}
+		Line {
+		  Name			  "Mz"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  6
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  6
+		}
+		Line {
+		  Name			  "longitudinal_slip"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  7
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  7
+		}
+		Line {
+		  Name			  "side_slip_angle"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  8
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  8
+		}
+		Line {
+		  Name			  "inclination_angle"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  9
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  9
+		}
+		Line {
+		  Name			  "turn_slip"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  10
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  10
+		}
+		Line {
+		  Name			  "Vx"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  11
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  11
+		}
+		Line {
+		  Name			  "_e12"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  12
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  12
+		}
+		Line {
+		  Name			  "effective_rolling_radius"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  13
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  13
+		}
+		Line {
+		  Name			  "vertical_deflection"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  14
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  14
+		}
+		Line {
+		  Name			  "contact_length"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  15
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  15
+		}
+		Line {
+		  Name			  "pneumatic_trail"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  16
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  16
+		}
+		Line {
+		  Name			  "mu_x"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  17
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  17
+		}
+		Line {
+		  Name			  "mu_y"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  18
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  18
+		}
+		Line {
+		  Name			  "relaxation_length_x"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  19
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  19
+		}
+		Line {
+		  Name			  "relaxation_length_y"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  20
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  20
+		}
+		Line {
+		  Name			  "Vsx"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  21
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  21
+		}
+		Line {
+		  Name			  "Vsy"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  22
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  22
+		}
+		Line {
+		  Name			  "Vz"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  23
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  23
+		}
+		Line {
+		  Name			  "psidot"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  24
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  24
+		}
+		Line {
+		  Name			  "_e25"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  25
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  25
+		}
+		Line {
+		  Name			  "_e26"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  26
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  26
+		}
+		Line {
+		  Name			  "_e27"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  27
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  27
+		}
+		Line {
+		  Name			  "travelled_distance"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  28
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  28
+		}
+		Line {
+		  Name			  "_e29"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  29
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  29
+		}
+		Line {
+		  Name			  "_e30"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  30
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  30
+		}
+		Line {
+		  Name			  "varinf"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Bus\nCreator"
+		  SrcPort		  1
+		  DstBlock		  "Out1"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux1"
+		  SrcPort		  31
+		  DstBlock		  "Added for future extension"
+		  DstPort		  1
+		}
+	      }
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "My_wheel"
+	      Position		      [315, 58, 345, 72]
+	      IconDisplay	      "Port number"
+	      BusOutputAsStruct	      off
+	      OutDataType	      "fixdt(1,16,0)"
+	      OutScaling	      "[]"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Fx"
+	      Position		      [315, 113, 345, 127]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	      BusOutputAsStruct	      off
+	      OutDataType	      "fixdt(1,16,0)"
+	      OutScaling	      "[]"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Fy"
+	      Position		      [315, 168, 345, 182]
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	      BusOutputAsStruct	      off
+	      OutDataType	      "fixdt(1,16,0)"
+	      OutScaling	      "[]"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Mx"
+	      Position		      [315, 223, 345, 237]
+	      Port		      "4"
+	      IconDisplay	      "Port number"
+	      BusOutputAsStruct	      off
+	      OutDataType	      "fixdt(1,16,0)"
+	      OutScaling	      "[]"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "My"
+	      Position		      [315, 278, 345, 292]
+	      Port		      "5"
+	      IconDisplay	      "Port number"
+	      BusOutputAsStruct	      off
+	      OutDataType	      "fixdt(1,16,0)"
+	      OutScaling	      "[]"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Mz"
+	      Position		      [315, 333, 345, 347]
+	      Port		      "6"
+	      IconDisplay	      "Port number"
+	      BusOutputAsStruct	      off
+	      OutDataType	      "fixdt(1,16,0)"
+	      OutScaling	      "[]"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "varinf"
+	      Position		      [415, 388, 445, 402]
+	      Port		      "7"
+	      IconDisplay	      "Port number"
+	      BusOutputAsStruct	      off
+	      OutDataType	      "fixdt(1,16,0)"
+	      OutScaling	      "[]"
+	    }
+	    Line {
+	      Name		      "varinf"
+	      Labels		      [0, 0]
+	      SrcBlock		      "add signal names"
+	      SrcPort		      1
+	      DstBlock		      "varinf"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "S-Function"
+	      SrcPort		      7
+	      DstBlock		      "add signal names"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "scaling"
+	      SrcPort		      1
+	      DstBlock		      "S-Function"
+	      DstPort		      7
+	    }
+	    Line {
+	      SrcBlock		      "Integrator"
+	      SrcPort		      1
+	      Points		      [-50, 0; 0, -65]
+	      DstBlock		      "S-Function"
+	      DstPort		      8
+	    }
+	    Line {
+	      SrcBlock		      "S-Function"
+	      SrcPort		      8
+	      Points		      [20, 0; 0, 65]
+	      DstBlock		      "Integrator"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Omega"
+	      SrcPort		      1
+	      DstBlock		      "S-Function"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Vx"
+	      SrcPort		      1
+	      DstBlock		      "S-Function"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Vsy"
+	      SrcPort		      1
+	      DstBlock		      "S-Function"
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "Camber"
+	      SrcPort		      1
+	      DstBlock		      "S-Function"
+	      DstPort		      4
+	    }
+	    Line {
+	      SrcBlock		      "Psidot"
+	      SrcPort		      1
+	      DstBlock		      "S-Function"
+	      DstPort		      5
+	    }
+	    Line {
+	      SrcBlock		      "Fz"
+	      SrcPort		      1
+	      DstBlock		      "S-Function"
+	      DstPort		      6
+	    }
+	    Line {
+	      SrcBlock		      "S-Function"
+	      SrcPort		      1
+	      DstBlock		      "My_wheel"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "S-Function"
+	      SrcPort		      2
+	      DstBlock		      "Fx"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "S-Function"
+	      SrcPort		      3
+	      DstBlock		      "Fy"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "S-Function"
+	      SrcPort		      4
+	      DstBlock		      "Mx"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "S-Function"
+	      SrcPort		      5
+	      DstBlock		      "My"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "S-Function"
+	      SrcPort		      6
+	      DstBlock		      "Mz"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Non-moving road"
+	  Tag			  "Non-moving road"
+	  Ports			  [0, 1]
+	  Position		  [485, 121, 565, 139]
+	  SourceBlock		  "Delft_Tyre_sm1glib/SimMechanics 1G/Non-movi"
+"ng road"
+	  SourceType		  ""
+	  ShowPortLabels	  on
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  dummy			  off
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "STI tyre"
+	  Tag			  "STI tyre"
+	  Ports			  [8, 3]
+	  Position		  [265, 21, 425, 199]
+	  BackgroundColor	  "lightBlue"
+	  FontName		  "Arial"
+	  MinAlgLoopOccurrences	  off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  MaskHideContents	  off
+	  MaskType		  "STI_tyre"
+	  MaskDescription	  "Tyre model using the standard tyre interfac"
+"e (STI), as developed by the TYDEX workgroup. Inputs to the tyre model are th"
+"e motions at the wheel centre. The outputs force and torque should also be ap"
+"plied to the wheel centre.\n\nTyre model version: MF-Tyre/MF-Swift 6.2\n© 199"
+"6-2013 TNO, Helmond, The Netherlands"
+	  MaskHelp		  "eval('DTOpenHelp(505)')"
+	  MaskPromptString	  "Tyre ID [integer]|Tyre properties [string o"
+"r struct]|Road data file (may be empty) [string]|Tyre side            :|Conta"
+"ct method :|Dynamics           :|Slip forces          :|Optional: use mode (o"
+"verrides pop-up) [integer]|Display debug messages"
+	  MaskStyleString	  "edit,edit,edit,popup((1xxx) left|(2xxx) rig"
+"ht|(3xxx) symmetric),popup((x1xx) smooth road|(x2xx) smooth road (motorcycle:"
+" circular cross section)|(x3xx) moving road|(x4xx) 2D short wavelength road c"
+"ontact|(x5xx) 3D short wavelength road contact),popup((xx0x) steady-state|(xx"
+"1x) relaxation behaviour|(xx2x) relaxation behaviour - non-linear|(xx3x) rigi"
+"d ring|(xx4x) rigid ring + initial statics),popup((xxx0) none|(xxx1) longitud"
+"inal|(xxx2) lateral|(xxx3) uncombined|(xxx4) combined|(xxx5) combined+turnsli"
+"p),edit,checkbox"
+	  MaskTunableValueString  "on,on,on,on,on,on,on,on,on"
+	  MaskCallbackString	  "|||promtstr = get_param(gcb,'MaskPromptStri"
+"ng'); \nindex = find(double(promtstr)==124);\nmaskval = get_param(gcb,'MaskVa"
+"lues');\nnew_mode = [maskval{4}(2) maskval{5}(3) maskval{6}(4) maskval{7}(5)]"
+";\nnewpromtstr = [promtstr(1:index(7)) ['Optional: use mode (overrides pop-up"
+") [current selection: ' new_mode ']'] promtstr(index(8):end)];\nset_param(gcb"
+",'MaskPromptString',newpromtstr);|promtstr = get_param(gcb,'MaskPromptString'"
+"); \nindex = find(double(promtstr)==124);\nmaskval = get_param(gcb,'MaskValue"
+"s');\nnew_mode = [maskval{4}(2) maskval{5}(3) maskval{6}(4) maskval{7}(5)];\n"
+"newpromtstr = [promtstr(1:index(7)) ['Optional: use mode (overrides pop-up) ["
+"current selection: ' new_mode ']'] promtstr(index(8):end)];\nset_param(gcb,'M"
+"askPromptString',newpromtstr);|promtstr = get_param(gcb,'MaskPromptString'); "
+"\nindex = find(double(promtstr)==124);\nmaskval = get_param(gcb,'MaskValues')"
+";\nnew_mode = [maskval{4}(2) maskval{5}(3) maskval{6}(4) maskval{7}(5)];\nnew"
+"promtstr = [promtstr(1:index(7)) ['Optional: use mode (overrides pop-up) [cur"
+"rent selection: ' new_mode ']'] promtstr(index(8):end)];\nset_param(gcb,'Mask"
+"PromptString',newpromtstr);|promtstr = get_param(gcb,'MaskPromptString'); \ni"
+"ndex = find(double(promtstr)==124);\nmaskval = get_param(gcb,'MaskValues');\n"
+"new_mode = [maskval{4}(2) maskval{5}(3) maskval{6}(4) maskval{7}(5)];\nnewpro"
+"mtstr = [promtstr(1:index(7)) ['Optional: use mode (overrides pop-up) [curren"
+"t selection: ' new_mode ']'] promtstr(index(8):end)];\nset_param(gcb,'MaskPro"
+"mptString',newpromtstr);||"
+	  MaskEnableString	  "on,on,on,on,on,on,on,on,on"
+	  MaskVisibilityString	  "on,on,on,on,on,on,on,on,on"
+	  MaskToolTipString	  "on,on,on,on,on,on,on,on,on"
+	  MaskVarAliasString	  ",,,,,,,,"
+	  MaskVariables		  "idtyre=@1;tpfname=@2;rdfname=@3;side_mode=@"
+"4;cnt_mode=@5;dyn_mode=@6;mf_mode=@7;use_mode=@8;disp_debug=@9;"
+	  MaskInitialization	  "idroad=1;\nif (abs(use_mode) > 4535 )\n  is"
+"wtch=1000*side_mode+100*cnt_mode+10*(dyn_mode-1)+(mf_mode-1);\n  if (disp_deb"
+"ug) disp(['Delft-Tyre ' num2str(idtyre) ' -> use_mode=' num2str(iswtch) ]); e"
+"nd\nelse\n  iswtch=use_mode;\nend\n\n% switch between tpf file or struct\nif "
+"ischar(tpfname)\n    typarr=zeros(300,1);\n    tpfname_dummy=tpfname;\nelseif"
+" isstruct(tpfname)\n    typarr=tno_tpf_struct2array(tpfname,idtyre);\n    tpf"
+"name_dummy='';\nelse\n    typarr=zeros(300,1);\n    tpfname_dummy='';\n    er"
+"ror(['Mask parameter ''Tyre property file'' should be supplied as string or s"
+"tructure for tyre ' num2str(idtyre)])\nend"
+	  MaskDisplay		  "text(0.3*160,0.7*178,'TNO Delft-Tyre')\nplo"
+"t(89.*[0.8828 0.8769 0.8597 0.7299 0.7043 0.6745 0.6443 0.6195 0.5884 0.5712 "
+"0.5653 0.5573 0.5346 0.4985 0.4515 0.3965 0.3373 ]+160/2-0.43*89,89.*[0.3654 "
+"0.3482 0.3335 0.2583 0.2486 0.2453 0.2486 0.2583 0.2764 0.2911 0.3083 0.2449 "
+"0.1945 0.1609 0.1462 0.1520 0.1768 ]+0.3*89)\nplot(89.*[0.3255 0.3889 0.3965 "
+"0.4112 0.4313 0.3767 ]+160/2-0.43*89,89.*[0.1491 0.1222 0.1520 0.1777 0.1949 "
+"0.2184 ]+0.3*89)\nplot(89.*[0.3553 0.4112 0.4633 0.4826 0.5464 ]+160/2-0.43*8"
+"9,89.*[0.2012 0.1777 0.1722 0.1898 0.2268 ]+0.3*89)\nplot(89.*[0.5426 0.5262 "
+"0.4826 0.4313 0.5603 0.5603 0.5065 ]+160/2-0.43*89,89.*[0.2184 0.2037 0.1898 "
+"0.1949 0.2692 0.2701 0.2932 ]+0.3*89)\nplot(89.*[0.5279 0.5460 0.4868 ]+160/2"
+"-0.43*89,89.*[0.3007 0.2969 0.3402 ]+0.3*89)\nplot(89.*[0.5279 0.5624 ]+160/2"
+"-0.43*89,89.*[0.3007 0.2856 ]+0.3*89)\nplot(89.*[0.5628 0.5460 ]+160/2-0.43*8"
+"9,89.*[0.2898 0.2969 ]+0.3*89)\nplot(89.*[0.5712 0.5628 0.5573 ]+160/2-0.43*8"
+"9,89.*[0.2911 0.2222 0.2449 ]+0.3*89)\nplot(89.*[0.5586 0.5422 0.5082 0.4633 "
+"0.4515 0.4481 0.3889 0.3902 0.4544 0.5099 0.5523 0.5792 0.5884 ]+160/2-0.43*8"
+"9,89.*[0.2541 0.2180 0.1861 0.1722 0.1462 0.1163 0.1222 0.0928 0.0865 0.1033 "
+"0.1428 0.2016 0.2764 ]+0.3*89)\nplot(89.*[0.6195 0.6090 0.5792 0.5628 0.5380 "
+"0.5346 0.5422 ]+160/2-0.43*89,89.*[0.2583 0.1751 0.2016 0.2222 0.1680 0.1945 "
+"0.2180 ]+0.3*89)\nplot(89.*[0.5262 0.5082 0.4985 0.4994 0.5380 0.5523 0.5792 "
+"0.6090 0.6333 0.6443 ]+160/2-0.43*89,89.*[0.2037 0.1861 0.1609 0.1319 0.1680 "
+"0.1428 0.1092 0.1751 0.1596 0.2486 ]+0.3*89)\nplot(89.*[0.6745 0.6627 0.6333 "
+"0.6018 0.5792 0.5317 0.5099 0.4994 0.4481 0.4544 0.4700 0.5317 0.5510 0.6018 "
+"0.6291 0.6627 0.6926 0.7043 ]+160/2-0.43*89,89.*[0.2453 0.1508 0.1596 0.0890 "
+"0.1092 0.0655 0.1033 0.1319 0.1163 0.0865 0.0462 0.0655 0.0416 0.0890 0.0764 "
+"0.1508 0.1508 0.2486 ]+0.3*89)\nplot(89.*[0.7299 0.7178 0.6926 0.6577 0.6291 "
+"0.5758 0.5510 0.4851 0.4700 0.3986 0.3213 0.2440 0.1718 0.1100 0.0626 ]+160/2"
+"-0.43*89,89.*[0.2583 0.1596 0.1508 0.0739 0.0764 0.0269 0.0416 0.0210 0.0462 "
+"0.0533 0.0861 0.1424 0.2184 0.3087 0.4074 ]+0.3*89)\nplot(89.*[0.0487 0.0995 "
+"0.1100 0.1323 0.1516 0.1760 0.1399 ]+160/2-0.43*89,89.*[0.4082 0.3028 0.3087 "
+"0.3213 0.3326 0.3469 0.4221 ]+0.3*89)\nplot(89.*[0.1126 0.1516 0.2024 0.2234 "
+"0.2474 0.2709 0.4011 0.4200 0.4322 0.3847 0.3486 0.3255 ]+160/2-0.43*89,89.*["
+"0.4141 0.3326 0.2579 0.2776 0.2969 0.3121 0.3872 0.3965 0.3982 0.4670 0.5426 "
+"0.6191 ]+0.3*89)\nplot(89.*[0.3486 0.3410 0.3755 0.3847 ]+160/2-0.43*89,89.*["
+"0.5426 0.5330 0.4616 0.4670 ]+0.3*89)\nplot(89.*[0.3755 0.3570 0.3234 ]+160/2"
+"-0.43*89,89.*[0.4616 0.4511 0.5212 ]+0.3*89)\nplot(89.*[0.3570 0.2272 0.1936 "
+"]+160/2-0.43*89,89.*[0.4511 0.3759 0.4460 ]+0.3*89)\nplot(89.*[0.1684 0.2029 "
+"0.2272 0.2709 0.3217 0.4519 0.4721 0.4868 0.4322 ]+160/2-0.43*89,89.*[0.4334 "
+"0.3625 0.3759 0.3121 0.2583 0.3331 0.3415 0.3402 0.3982 ]+0.3*89)\nplot(89.*["
+"0.4200 0.3755 ]+160/2-0.43*89,89.*[0.3965 0.4616 ]+0.3*89)\nplot(89.*[0.3570 "
+"0.4011 0.4519 0.5065 0.5279 0.4721 0.4200 ]+160/2-0.43*89,89.*[0.4511 0.3872 "
+"0.3331 0.2932 0.3007 0.3415 0.3965 ]+0.3*89)\nplot(89.*[0.5065 0.3767 0.3217 "
+"0.2995 0.2474 0.2029 0.1760 0.2234 0.2785 0.2995 0.3553 0.3767 ]+160/2-0.43*8"
+"9,89.*[0.2932 0.2184 0.2583 0.2419 0.2969 0.3625 0.3469 0.2776 0.2197 0.2419 "
+"0.2012 0.2184 ]+0.3*89)\nplot(89.*[0.3553 0.3373 0.2785 0.2617 0.2024 0.1873 "
+"0.1323 0.0899 0.0630 0.0542 0.0231 0.0059 0.0000 0.0113 0.0168 0.0332 0.0630 "
+"0.0878 0.1172 0.1470 0.1722 0.3024 0.3192 0.3255 0.3179 0.3121 0.2948 0.1651 "
+"0.1394 0.1470 0.1172 0.0878 0.0630 0.0332 0.0168 0.0113 0.0000 ]+160/2-0.43*8"
+"9,89.*[0.2012 0.1768 0.2197 0.1957 0.2579 0.2402 0.3213 0.4099 0.4994 0.5846 "
+"0.6027 0.6174 0.6346 0.5271 0.5157 0.5078 0.4994 0.4964 0.4990 0.5061 0.5174 "
+"0.5922 0.6056 0.6191 0.6917 0.6745 0.6598 0.5846 0.5745 0.6350 0.6350 0.6434 "
+"0.6594 0.6858 0.7064 0.7291 0.6346 ]+0.3*89)\nplot(89.*[0.0059 0.0168 ]+160/2"
+"-0.43*89,89.*[0.6174 0.7064 ]+0.3*89)\nplot(89.*[0.0113 0.0454 0.0529 0.0181 "
+"0.0113 ]+160/2-0.43*89,89.*[0.7291 0.8034 0.8270 0.7497 0.7291 ]+0.3*89)\nplo"
+"t(89.*[0.0168 0.0487 0.0454 ]+160/2-0.43*89,89.*[0.7064 0.7770 0.8034 ]+0.3*8"
+"9)\nplot(89.*[0.0487 0.0626 0.0899 0.0630 0.0542 0.0794 0.0878 0.1126 0.0899 "
+"]+160/2-0.43*89,89.*[0.7770 0.7518 0.7182 0.6594 0.5846 0.5745 0.6434 0.6976 "
+"0.7182 ]+0.3*89)\nplot(89.*[0.1126 0.1399 0.1684 0.1936 0.2570 ]+160/2-0.43*8"
+"9,89.*[0.6976 0.6854 0.6829 0.6905 0.7274 ]+0.3*89)\nplot(89.*[0.3011 0.1722 "
+"0.1936 ]+160/2-0.43*89,89.*[0.7182 0.6438 0.6905 ]+0.3*89)\nplot(89.*[0.1684 "
+"0.1470 0.1722 0.1651 0.1722 0.1936 0.3234 0.3410 0.3192 0.3121 0.3163 ]+160/2"
+"-0.43*89,89.*[0.6829 0.6350 0.6438 0.5846 0.5174 0.4460 0.5212 0.5330 0.6056 "
+"0.6745 0.7119 ]+0.3*89)\nplot(89.*[0.3200 0.3179 ]+160/2-0.43*89,89.*[0.7102 "
+"0.6917 ]+0.3*89)\nplot(89.*[0.3020 0.2948 0.3024 0.3234 ]+160/2-0.43*89,89.*["
+"0.7178 0.6598 0.5922 0.5212 ]+0.3*89)\nplot(89.*[0.1470 0.1394 0.1096 0.1172 "
+"0.1399 0.1760 0.1516 0.1323 0.1100 0.0995 0.0987 0.1688 0.1806 0.1999 0.3297 "
+"0.2566 0.1264 0.0701 0.0529 0.1084 0.1264 0.1999 ]+160/2-0.43*89,89.*[0.5061 "
+"0.5745 0.5716 0.6350 0.6854 0.7190 0.7341 0.7577 0.7959 0.8240 0.8530 0.8748 "
+"0.9005 0.9185 0.9933 0.9706 0.8958 0.8438 0.8270 0.8782 0.8958 0.9185 ]+0.3*8"
+"9)\nplot(89.*[0.1806 0.1084 0.0987 0.0454 ]+160/2-0.43*89,89.*[0.9005 0.8782 "
+"0.8530 0.8034 ]+0.3*89)\nplot(89.*[0.0487 0.0995 0.1655 0.1688 ]+160/2-0.43*8"
+"9,89.*[0.7770 0.8240 0.8446 0.8748 ]+0.3*89)\nplot(89.*[0.1655 0.1718 0.1873 "
+"0.2024 0.2234 0.2474 0.2029 0.1760 0.2234 ]+160/2-0.43*89,89.*[0.8446 0.8148 "
+"0.7745 0.7497 0.7333 0.7283 0.7144 0.7190 0.7333 ]+0.3*89)\nplot(89.*[0.2272 "
+"0.2478 ]+160/2-0.43*89,89.*[0.7215 0.7278 ]+0.3*89)\nplot(89.*[0.2272 0.2029 "
+"0.1684 ]+160/2-0.43*89,89.*[0.7215 0.7144 0.6829 ]+0.3*89)\nplot(89.*[0.1936 "
+"0.2272 ]+160/2-0.43*89,89.*[0.6905 0.7215 ]+0.3*89)\nplot(89.*[0.2024 0.1516 "
+"0.1126 ]+160/2-0.43*89,89.*[0.7497 0.7341 0.6976 ]+0.3*89)\nplot(89.*[0.0899 "
+"0.1323 0.1873 0.2520 0.2440 0.2428 0.2499 0.2650 0.2852 0.4150 0.4372 0.3528 "
+"0.3297 0.4150 0.5065 0.5279 0.5460 0.4586 0.4372 0.5279 ]+160/2-0.43*89,89.*["
+"0.7182 0.7577 0.7745 0.7686 0.8076 0.8370 0.8669 0.8925 0.9097 0.9849 0.9920 "
+"1.0000 0.9933 0.9849 0.9458 0.9534 0.9500 0.9870 0.9920 0.9534 ]+0.3*89)\nplo"
+"t(89.*[0.5065 0.3767 0.2852 0.1999 ]+160/2-0.43*89,89.*[0.9458 0.8711 0.9097 "
+"0.9185 ]+0.3*89)\nplot(89.*[0.1806 0.2650 0.3553 0.3767 ]+160/2-0.43*89,89.*["
+"0.9005 0.8925 0.8538 0.8711 ]+0.3*89)\nplot(89.*[0.3553 0.3373 0.2499 0.1688 "
+"]+160/2-0.43*89,89.*[0.8538 0.8295 0.8669 0.8748 ]+0.3*89)\nplot(89.*[0.1655 "
+"0.2428 0.3255 0.3373 ]+160/2-0.43*89,89.*[0.8446 0.8370 0.8018 0.8295 ]+0.3*8"
+"9)\nplot(89.*[0.3255 0.3213 0.3213 0.3255 0.3373 0.2785 0.2617 0.3255 ]+160/2"
+"-0.43*89,89.*[0.8018 0.7749 0.7388 0.7165 0.7031 0.7278 0.7438 0.7165 ]+0.3*8"
+"9)\nplot(89.*[0.3213 0.2520 0.2617 0.2024 ]+160/2-0.43*89,89.*[0.7388 0.7686 "
+"0.7438 0.7497 ]+0.3*89)\nplot(89.*[0.2234 0.2785 ]+160/2-0.43*89,89.*[0.7333 "
+"0.7278 ]+0.3*89)\nplot(89.*[0.2869 0.2474 ]+160/2-0.43*89,89.*[0.7241 0.7283 "
+"]+0.3*89)\nplot(89.*[0.2440 0.3213 0.3986 0.4078 0.4246 0.4456 0.4683 0.5981 "
+"0.6182 0.6329 0.5460 ]+160/2-0.43*89,89.*[0.8076 0.7749 0.7186 0.7417 0.7661 "
+"0.7879 0.8043 0.8790 0.8874 0.8862 0.9500 ]+0.3*89)\nplot(89.*[0.5279 0.6182 "
+"0.7022 0.7140 0.6329 ]+160/2-0.43*89,89.*[0.9534 0.8874 0.7984 0.8001 0.8862 "
+"]+0.3*89)\nplot(89.*[0.5981 0.5065 ]+160/2-0.43*89,89.*[0.8790 0.9458 ]+0.3*8"
+"9)\nplot(89.*[0.5981 0.6829 0.7022 ]+160/2-0.43*89,89.*[0.8790 0.7892 0.7984 "
+"]+0.3*89)\nplot(89.*[0.6829 0.5535 0.4683 0.3767 ]+160/2-0.43*89,89.*[0.7892 "
+"0.7144 0.8043 0.8711 ]+0.3*89)\nplot(89.*[0.3553 0.4456 0.5300 0.5535 ]+160/2"
+"-0.43*89,89.*[0.8538 0.7879 0.6989 0.7144 ]+0.3*89)\nplot(89.*[0.5300 0.5061 "
+"0.4246 0.3373 ]+160/2-0.43*89,89.*[0.6989 0.6800 0.7661 0.8295 ]+0.3*89)\nplo"
+"t(89.*[0.3255 0.4078 0.4851 0.5061 ]+160/2-0.43*89,89.*[0.8018 0.7417 0.6602 "
+"0.6800 ]+0.3*89)\nplot(89.*[0.4851 0.4700 0.3986 0.3902 0.3889 0.4481 0.4544 "
+"0.4700 ]+160/2-0.43*89,89.*[0.6602 0.6426 0.7186 0.6884 0.6703 0.6077 0.6203 "
+"0.6426 ]+0.3*89)\nplot(89.*[0.4851 0.5510 0.5758 0.6027 0.6262 0.7560 0.7745 "
+"0.7841 0.7140 ]+160/2-0.43*89,89.*[0.6602 0.5632 0.5779 0.5930 0.6069 0.6816 "
+"0.6926 0.6980 0.8001 ]+0.3*89)\nplot(89.*[0.7022 0.7745 ]+160/2-0.43*89,89.*["
+"0.7984 0.6926 ]+0.3*89)\nplot(89.*[0.7841 0.8375 0.8303 0.7745 ]+160/2-0.43*8"
+"9,89.*[0.6980 0.5863 0.5766 0.6926 ]+0.3*89)\nplot(89.*[0.7560 0.6829 ]+160/2"
+"-0.43*89,89.*[0.6816 0.7892 ]+0.3*89)\nplot(89.*[0.7560 0.8123 0.8303 ]+160/2"
+"-0.43*89,89.*[0.6816 0.5649 0.5766 ]+0.3*89)\nplot(89.*[0.8123 0.6825 0.6262 "
+"0.5535 ]+160/2-0.43*89,89.*[0.5649 0.4901 0.6069 0.7144 ]+0.3*89)\nplot(89.*["
+"0.5300 0.6027 0.6577 0.6825 ]+160/2-0.43*89,89.*[0.6989 0.5930 0.4775 0.4901 "
+"]+0.3*89)\nplot(89.*[0.6577 0.6291 0.5758 0.5061 ]+160/2-0.43*89,89.*[0.4775 "
+"0.4658 0.5779 0.6800 ]+0.3*89)\nplot(89.*[0.4700 0.5317 0.5510 0.6018 0.6291 "
+"]+160/2-0.43*89,89.*[0.6426 0.5523 0.5632 0.4578 0.4658 ]+0.3*89)\nplot(89.*["
+"0.6018 0.5792 0.5317 0.5099 0.4544 0.3902 0.3213 ]+160/2-0.43*89,89.*[0.4578 "
+"0.4536 0.5523 0.5397 0.6203 0.6884 0.7388 ]+0.3*89)\nplot(89.*[0.3255 0.3889 "
+"0.3965 0.4515 0.4481 0.4994 0.5099 0.5523 0.5792 ]+160/2-0.43*89,89.*[0.7165 "
+"0.6703 0.6602 0.6018 0.6077 0.5334 0.5397 0.4511 0.4536 ]+0.3*89)\nplot(89.*["
+"0.6018 0.6333 0.6627 0.6926 0.7178 0.8475 0.8652 0.8711 0.8375 ]+160/2-0.43*8"
+"9,89.*[0.4578 0.3503 0.3524 0.3599 0.3713 0.4460 0.4595 0.4729 0.5863 ]+0.3*8"
+"9)\nplot(89.*[0.8303 0.8652 ]+160/2-0.43*89,89.*[0.5766 0.4595 ]+0.3*89)\nplo"
+"t(89.*[0.8711 0.8828 0.8711 0.8652 0.8475 0.7178 0.6825 0.6577 0.6027 0.5758 "
+"0.5061 0.4851 0.4078 0.3986 0.3902 0.3213 0.2520 0.1873 0.1718 0.1655 0.0995 "
+"0.0987 0.1688 0.1655 0.2428 0.2440 0.2520 0.2617 0.3255 0.3373 ]+160/2-0.43*8"
+"9,89.*[0.4729 0.3654 0.2713 0.2503 0.2348 0.1596 0.0815 0.0739 0.0223 0.0269 "
+"0.0050 0.0210 0.0290 0.0533 0.0928 0.1222 0.1726 0.2402 0.2184 0.2058 0.3028 "
+"0.3020 0.1999 0.2058 0.1243 0.1424 0.1726 0.1957 0.1491 0.1768 ]+0.3*89)\nplo"
+"t(89.*[0.3255 0.3213 0.3213 0.3255 0.4078 0.4246 0.5061 0.5300 0.6027 0.6262 "
+"0.6825 0.8123 0.8475 0.8597 0.8475 0.8123 ]+160/2-0.43*89,89.*[0.1491 0.1222 "
+"0.0861 0.0643 0.0290 0.0130 0.0050 0.0000 0.0223 0.0294 0.0815 0.1562 0.2348 "
+"0.3335 0.4460 0.5649 ]+0.3*89)\nplot(89.*[0.8652 0.8769 0.8652 0.8303 0.8123 "
+"0.7560 0.6262 0.5535 0.5300 0.4456 0.4246 0.3373 0.3255 0.2428 0.2499 0.3373 "
+"]+160/2-0.43*89,89.*[0.4595 0.3482 0.2503 0.1735 0.1562 0.1046 0.0294 0.0067 "
+"0.0000 0.0084 0.0130 0.0504 0.0643 0.1243 0.1138 0.0504 ]+0.3*89)\nplot(89.*["
+"0.0487 0.0168 0.0059 ]+160/2-0.43*89,89.*[0.4082 0.5157 0.6174 ]+0.3*89)\nplo"
+"t(89.*[0.0231 0.0332 0.0626 0.1100 0.1718 0.2440 ]+160/2-0.43*89,89.*[0.6027 "
+"0.6858 0.7518 0.7959 0.8148 0.8076 ]+0.3*89)\nplot(89.*[0.3373 0.3965 ]+160/2"
+"-0.43*89,89.*[0.7031 0.6602 ]+0.3*89)\nplot(89.*[0.4515 0.4985 0.4994 0.5380 "
+"0.5523 0.5792 0.6090 0.6333 0.6443 ]+160/2-0.43*89,89.*[0.6018 0.5330 0.5334 "
+"0.4519 0.4511 0.3612 0.3532 0.3503 0.2486 ]+0.3*89)\nplot(89.*[0.6745 0.6627 "
+"0.6291 ]+160/2-0.43*89,89.*[0.2453 0.3524 0.4658 ]+0.3*89)\nplot(89.*[0.6577 "
+"0.6926 0.7043 ]+160/2-0.43*89,89.*[0.4775 0.3599 0.2486 ]+0.3*89)\nplot(89.*["
+"0.7299 0.7178 0.6825 ]+160/2-0.43*89,89.*[0.2583 0.3713 0.4901 ]+0.3*89)\nplo"
+"t(89.*[0.5792 0.6090 0.6195 ]+160/2-0.43*89,89.*[0.4536 0.3532 0.2583 ]+0.3*8"
+"9)\nplot(89.*[0.5884 0.5792 0.5628 0.5380 0.5346 0.5573 0.5628 0.5712 ]+160/2"
+"-0.43*89,89.*[0.2764 0.3612 0.3692 0.4519 0.4578 0.3809 0.3692 0.2911 ]+0.3*8"
+"9)\nplot(89.*[0.5653 0.5573 ]+160/2-0.43*89,89.*[0.3083 0.3809 ]+0.3*89)\nplo"
+"t(89.*[0.5346 0.4985 ]+160/2-0.43*89,89.*[0.4578 0.5330 ]+0.3*89)\nplot(89.*["
+"0.1470 0.1684 0.1936 ]+160/2-0.43*89,89.*[0.5061 0.4334 0.4460 ]+0.3*89)\nplo"
+"t(89.*[0.1684 0.1399 0.1172 0.1096 0.0794 0.0878 0.1126 0.1399 ]+160/2-0.43*8"
+"9,89.*[0.4334 0.4221 0.4990 0.5716 0.5745 0.4964 0.4141 0.4221 ]+0.3*89)\nplo"
+"t(89.*[0.1126 0.0899 0.0626 0.0332 0.0231 ]+160/2-0.43*89,89.*[0.4141 0.4099 "
+"0.4074 0.5078 0.6027 ]+0.3*89)\nplot(89.*[0.0113 0.0454 0.0487 0.0626 ]+160/2"
+"-0.43*89,89.*[0.5271 0.4137 0.4082 0.4074 ]+0.3*89)\nplot(89.*[0.0454 0.0987 "
+"]+160/2-0.43*89,89.*[0.4137 0.3020 ]+0.3*89)"
+	  MaskSelfModifiable	  on
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  off
+	  MaskIconRotate	  "none"
+	  MaskIconUnits		  "pixels"
+	  MaskValueString	  "1||''|(1xxx) left|(x1xx) smooth road|(xx0x)"
+" steady-state|(xxx0) none|1e8|off"
+	  MaskTabNameString	  ",,,,,,,,"
+	  System {
+	    Name		    "STI tyre"
+	    Location		    [464, 52, 966, 780]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "A4"
+	    PaperUnits		    "centimeters"
+	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "dis"
+	      Position		      [25, 28, 55, 42]
+	      IconDisplay	      "Port number"
+	      OutDataType	      "fixdt(1,16,0)"
+	      OutScaling	      "[]"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "tramat"
+	      Position		      [25, 78, 55, 92]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "fixdt(1,16,0)"
+	      OutScaling	      "[]"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "angtwc"
+	      Position		      [25, 128, 55, 142]
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "fixdt(1,16,0)"
+	      OutScaling	      "[]"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "vel"
+	      Position		      [25, 178, 55, 192]
+	      Port		      "4"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "fixdt(1,16,0)"
+	      OutScaling	      "[]"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "omega"
+	      Position		      [25, 228, 55, 242]
+	      Port		      "5"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "fixdt(1,16,0)"
+	      OutScaling	      "[]"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "omegar"
+	      Position		      [25, 278, 55, 292]
+	      Port		      "6"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "fixdt(1,16,0)"
+	      OutScaling	      "[]"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "road"
+	      Position		      [25, 328, 55, 342]
+	      Port		      "7"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "fixdt(1,16,0)"
+	      OutScaling	      "[]"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "scaling"
+	      Position		      [25, 378, 55, 392]
+	      Port		      "8"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "fixdt(1,16,0)"
+	      OutScaling	      "[]"
+	    }
+	    Block {
+	      BlockType		      Integrator
+	      Name		      "Integrator"
+	      Ports		      [1, 1]
+	      Position		      [155, 477, 190, 513]
+	      Orientation	      "left"
+	      InitialCondition	      "zeros(1,40)"
+	      IgnoreLimit	      off
+	    }
+	    Block {
+	      BlockType		      "S-Function"
+	      Name		      "S-Function"
+	      Ports		      [9, 4]
+	      Position		      [125, 15, 225, 455]
+	      BackgroundColor	      "cyan"
+	      FunctionName	      "s_delfttyre_sti"
+	      Parameters	      "iswtch idtyre idroad tpfname_dummy rdfn"
+"ame typarr"
+	    }
+	    Block {
+	      BlockType		      SubSystem
+	      Name		      "add signal names"
+	      Ports		      [1, 1]
+	      Position		      [260, 273, 340, 307]
+	      MinAlgLoopOccurrences   off
+	      RTWSystemCode	      "Auto"
+	      FunctionWithSeparateData off
+	      MaskHideContents	      off
+	      Port {
+		PortNumber		1
+		Name			"varinf"
+		PropagatedSignals	"varinf"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      System {
+		Name			"add signal names"
+		Location		[78, 52, 494, 1106]
+		Open			off
+		ModelBrowserVisibility	off
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"A4"
+		PaperUnits		"centimeters"
+		TiledPaperMargins	"[1.270000, 1.270000, 1.270000, 1.2700"
+"00]"
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"100"
+		Block {
+		  BlockType		  Inport
+		  Name			  "In1"
+		  Position		  [25, 438, 55, 452]
+		  IconDisplay		  "Port number"
+		  OutDataType		  "fixdt(1,16,0)"
+		  OutScaling		  "[]"
+		}
+		Block {
+		  BlockType		  Terminator
+		  Name			  "Added for future extension"
+		  Position		  [185, 836, 205, 854]
+		}
+		Block {
+		  BlockType		  BusCreator
+		  Name			  "Bus\nCreator"
+		  Ports			  [40, 1]
+		  Position		  [225, 26, 230, 844]
+		  ShowName		  off
+		  Inputs		  "40"
+		  DisplayOption		  "bar"
+		  Port {
+		    PortNumber		    1
+		    Name		    "varinf"
+		    PropagatedSignals	    "Fx, Fy, Fz, Mx, My, Mz, longitudi"
+"nal_slip, side_slip_angle, inclination_angle, turn_slip, Vx, _e12, effective_"
+"rolling_radius, vertical_deflection, contact_length, pneumatic_trail, mu_x, m"
+"u_y, relaxation_length_x, relaxation_length_y, Vsx, Vsy, Vz, psidot, _e25, _e"
+"26, _e27, travelled_distance, _e29, _e30, xcp, ycp, zcp, nx, ny, nz, eff_plan"
+"e_height, eff_plane_angle, eff_plane_curvature, eff_plane_banking"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		}
+		Block {
+		  BlockType		  Demux
+		  Name			  "Demux1"
+		  Ports			  [1, 41]
+		  Position		  [85, 36, 90, 854]
+		  BackgroundColor	  "black"
+		  ShowName		  off
+		  Outputs		  "[ones(1,40) -1]"
+		  Port {
+		    PortNumber		    1
+		    Name		    "Fx"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    2
+		    Name		    "Fy"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    3
+		    Name		    "Fz"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    4
+		    Name		    "Mx"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    5
+		    Name		    "My"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    6
+		    Name		    "Mz"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    7
+		    Name		    "longitudinal_slip"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    8
+		    Name		    "side_slip_angle"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    9
+		    Name		    "inclination_angle"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    10
+		    Name		    "turn_slip"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    11
+		    Name		    "Vx"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    12
+		    Name		    "_e12"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    13
+		    Name		    "effective_rolling_radius"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    14
+		    Name		    "vertical_deflection"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    15
+		    Name		    "contact_length"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    16
+		    Name		    "pneumatic_trail"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    17
+		    Name		    "mu_x"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    18
+		    Name		    "mu_y"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    19
+		    Name		    "relaxation_length_x"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    20
+		    Name		    "relaxation_length_y"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    21
+		    Name		    "Vsx"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    22
+		    Name		    "Vsy"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    23
+		    Name		    "Vz"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    24
+		    Name		    "psidot"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    25
+		    Name		    "_e25"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    26
+		    Name		    "_e26"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    27
+		    Name		    "_e27"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    28
+		    Name		    "travelled_distance"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    29
+		    Name		    "_e29"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    30
+		    Name		    "_e30"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    31
+		    Name		    "xcp"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    32
+		    Name		    "ycp"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    33
+		    Name		    "zcp"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    34
+		    Name		    "nx"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    35
+		    Name		    "ny"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    36
+		    Name		    "nz"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    37
+		    Name		    "eff_plane_height"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    38
+		    Name		    "eff_plane_angle"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    39
+		    Name		    "eff_plane_curvature"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    40
+		    Name		    "eff_plane_banking"
+		    PropagatedSignals	    "eff_plane_banking"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "Out1"
+		  Position		  [285, 428, 315, 442]
+		  IconDisplay		  "Port number"
+		  BusOutputAsStruct	  off
+		  OutDataType		  "fixdt(1,16,0)"
+		  OutScaling		  "[]"
+		}
+		Line {
+		  SrcBlock		  "In1"
+		  SrcPort		  1
+		  DstBlock		  "Demux1"
+		  DstPort		  1
+		}
+		Line {
+		  Name			  "varinf"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Bus\nCreator"
+		  SrcPort		  1
+		  DstBlock		  "Out1"
+		  DstPort		  1
+		}
+		Line {
+		  Name			  "Fx"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  1
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  1
+		}
+		Line {
+		  Name			  "Fy"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  2
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  2
+		}
+		Line {
+		  Name			  "Fz"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  3
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  3
+		}
+		Line {
+		  Name			  "Mx"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  4
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  4
+		}
+		Line {
+		  Name			  "My"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  5
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  5
+		}
+		Line {
+		  Name			  "Mz"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  6
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  6
+		}
+		Line {
+		  Name			  "longitudinal_slip"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  7
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  7
+		}
+		Line {
+		  Name			  "side_slip_angle"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  8
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  8
+		}
+		Line {
+		  Name			  "inclination_angle"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  9
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  9
+		}
+		Line {
+		  Name			  "turn_slip"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  10
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  10
+		}
+		Line {
+		  Name			  "Vx"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  11
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  11
+		}
+		Line {
+		  Name			  "_e12"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  12
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  12
+		}
+		Line {
+		  Name			  "effective_rolling_radius"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  13
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  13
+		}
+		Line {
+		  Name			  "vertical_deflection"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  14
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  14
+		}
+		Line {
+		  Name			  "contact_length"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  15
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  15
+		}
+		Line {
+		  Name			  "pneumatic_trail"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  16
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  16
+		}
+		Line {
+		  Name			  "mu_x"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  17
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  17
+		}
+		Line {
+		  Name			  "mu_y"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  18
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  18
+		}
+		Line {
+		  Name			  "relaxation_length_x"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  19
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  19
+		}
+		Line {
+		  Name			  "relaxation_length_y"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  20
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  20
+		}
+		Line {
+		  Name			  "Vsx"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  21
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  21
+		}
+		Line {
+		  Name			  "Vsy"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  22
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  22
+		}
+		Line {
+		  Name			  "Vz"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  23
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  23
+		}
+		Line {
+		  Name			  "psidot"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  24
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  24
+		}
+		Line {
+		  Name			  "_e25"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  25
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  25
+		}
+		Line {
+		  Name			  "_e26"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  26
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  26
+		}
+		Line {
+		  Name			  "_e27"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  27
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  27
+		}
+		Line {
+		  Name			  "travelled_distance"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  28
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  28
+		}
+		Line {
+		  Name			  "_e29"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  29
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  29
+		}
+		Line {
+		  Name			  "_e30"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  30
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  30
+		}
+		Line {
+		  Name			  "xcp"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  31
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  31
+		}
+		Line {
+		  Name			  "ycp"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  32
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  32
+		}
+		Line {
+		  Name			  "zcp"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  33
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  33
+		}
+		Line {
+		  Name			  "nx"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  34
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  34
+		}
+		Line {
+		  Name			  "ny"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  35
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  35
+		}
+		Line {
+		  Name			  "nz"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  36
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  36
+		}
+		Line {
+		  Name			  "eff_plane_height"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  37
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  37
+		}
+		Line {
+		  Name			  "eff_plane_angle"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  38
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  38
+		}
+		Line {
+		  Name			  "eff_plane_curvature"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  39
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  39
+		}
+		Line {
+		  Name			  "eff_plane_banking"
+		  Labels		  [0, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  40
+		  DstBlock		  "Bus\nCreator"
+		  DstPort		  40
+		}
+		Line {
+		  SrcBlock		  "Demux1"
+		  SrcPort		  41
+		  DstBlock		  "Added for future extension"
+		  DstPort		  1
+		}
+	      }
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "force"
+	      Position		      [285, 63, 315, 77]
+	      IconDisplay	      "Port number"
+	      BusOutputAsStruct	      off
+	      OutDataType	      "fixdt(1,16,0)"
+	      OutScaling	      "[]"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "torque"
+	      Position		      [285, 173, 315, 187]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	      BusOutputAsStruct	      off
+	      OutDataType	      "fixdt(1,16,0)"
+	      OutScaling	      "[]"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "varinf"
+	      Position		      [390, 283, 420, 297]
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	      BusOutputAsStruct	      off
+	      OutDataType	      "fixdt(1,16,0)"
+	      OutScaling	      "[]"
+	    }
+	    Line {
+	      SrcBlock		      "tramat"
+	      SrcPort		      1
+	      DstBlock		      "S-Function"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "angtwc"
+	      SrcPort		      1
+	      DstBlock		      "S-Function"
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "vel"
+	      SrcPort		      1
+	      DstBlock		      "S-Function"
+	      DstPort		      4
+	    }
+	    Line {
+	      SrcBlock		      "omega"
+	      SrcPort		      1
+	      DstBlock		      "S-Function"
+	      DstPort		      5
+	    }
+	    Line {
+	      SrcBlock		      "omegar"
+	      SrcPort		      1
+	      DstBlock		      "S-Function"
+	      DstPort		      6
+	    }
+	    Line {
+	      SrcBlock		      "road"
+	      SrcPort		      1
+	      DstBlock		      "S-Function"
+	      DstPort		      7
+	    }
+	    Line {
+	      SrcBlock		      "dis"
+	      SrcPort		      1
+	      DstBlock		      "S-Function"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "S-Function"
+	      SrcPort		      2
+	      DstBlock		      "torque"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "S-Function"
+	      SrcPort		      1
+	      DstBlock		      "force"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "S-Function"
+	      SrcPort		      4
+	      Points		      [25, 0; 0, 95]
+	      DstBlock		      "Integrator"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Integrator"
+	      SrcPort		      1
+	      Points		      [-60, 0; 0, -60]
+	      DstBlock		      "S-Function"
+	      DstPort		      9
+	    }
+	    Line {
+	      SrcBlock		      "scaling"
+	      SrcPort		      1
+	      DstBlock		      "S-Function"
+	      DstPort		      8
+	    }
+	    Line {
+	      SrcBlock		      "S-Function"
+	      SrcPort		      3
+	      DstBlock		      "add signal names"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "varinf"
+	      Labels		      [0, 0]
+	      SrcBlock		      "add signal names"
+	      SrcPort		      1
+	      DstBlock		      "varinf"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Scaling factors"
+	  Tag			  "Scaling factors"
+	  Ports			  [0, 1]
+	  Position		  [485, 166, 565, 184]
+	  SourceBlock		  "Delft_Tyre_sm1glib/SimMechanics 1G/Scaling "
+"factors"
+	  SourceType		  ""
+	  ShowPortLabels	  on
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  LMUX			  "1"
+	  LKX			  "1"
+	  LMUY			  "1"
+	  LKY			  "1"
+	  LKYC			  "1"
+	  LTR			  "1"
+	  LKZC			  "1"
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "local2global"
+	  Tag			  "local2global"
+	  Ports			  [2, 2]
+	  Position		  [475, 37, 570, 93]
+	  FontName		  "Arial"
+	  MinAlgLoopOccurrences	  off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  MaskHideContents	  off
+	  MaskType		  "local2global"
+	  MaskDescription	  "Transformation block to transform local (an"
+"gular) velocities into a global position and orientation.\n© 1996-2013 TNO, H"
+"elmond, The Netherlands"
+	  MaskHelp		  "<!doctype html public \"-//w3c//dtd html 4."
+"0 transitional//en\">\n<html>\n<head>\n   <meta http-equiv=\"Content-Type\" c"
+"ontent=\"text/html; charset=iso-8859-1\">\n   <meta name=\"GENERATOR\" conten"
+"t=\"Mozilla/4.72 [en] (X11; I; SunOS 5.7 sun4u) [Netscape]\">\n</head>\n<body"
+">\n<font size=+1><b>Position and orientation</b>: </font><font size=\"4\">Cal"
+"culation \nof transformation matrix and global position from local HUB veloci"
+"ties</font>\n<p><font size=\"4\">Transforms the local translational and angul"
+"ar velocity of \nthe wheel center to the global position and transformation m"
+"atrix for use with \nthe Standard \nTyre Interface (STI)</font></p>\n<p>This "
+"block is supplied as addition for the possible \nconversion needed to run loc"
+"alized input with MF-Tyre and SWIFT-Tyre implementing \nthe Standard Tyre Int"
+"erface.<br>\n<hr WIDTH=\"100%\">\n<br><font size=+1>Inputs:</font>\n<ul>\n<li"
+">\n<b>vel, &nbsp;local(3)</b>: local velocity of the wheel center expressed i"
+"n the carrier\nframe: x, y and z component</li>\n\n<li>\n<b>omega, local (3)<"
+"/b>: local  angular velocity of the wheel carrier expressed\nin the carrier f"
+"rame: x, y and z component</li>\n\n</ul>\n\n<hr WIDTH=\"100%\">\n<br><font si"
+"ze=+1>Outputs:</font>\n<ul>\n<li>\n<b>dis(3)</b>: location of the wheel cente"
+"r in the global frame: x, y and z \ncoordinate</li>\n\n    <li><b>tramat(9)</"
+"b>: transformation matrix from wheel carrier to the global frame \n<BR>tramat"
+"(1..3): representation of the unit x-vector of the carrier axis in the \nglob"
+"al frame <BR>tramat(4..6): representation of the unit y-vector of the \ncarri"
+"er axis in the global frame <BR>tramat(7..9): representation of the unit \nz-"
+"vector of the carrier axis in the global frame </li>\n</ul>\n\n<hr WIDTH=\"10"
+"0%\">\n<br><font size=+1>Parameters:</font>\n<ul>\n    <li>init_pos: Initial "
+"wheel center position (global x, y and z \ncoordinate)</li>\n    <li>init_ang"
+"le: Initial wheel center orientation (global, Bryant angles, rotation \n    s"
+"eq. ZXY). Angle input order [X Y Z]. </li>\n</ul>\n<hr WIDTH=\"100%\">\n<br><"
+"font size=+1>General notes:</font>\n<ul>\n<li>\nAll calculations are made usi"
+"ng SI-units (m, rad, N, kg, s)<br>&nbsp;</li>\n\n</ul>\n©1996-2011 TNO Automo"
+"tive, The Netherlands\n</body>\n</html>\n"
+	  MaskPromptString	  "Wheel center position (global)|Wheel center"
+" orientation (global, Bryant angles, rotation seq. ZXY). Angle input order [X"
+" Y Z]. "
+	  MaskStyleString	  "edit,edit"
+	  MaskTunableValueString  "on,on"
+	  MaskCallbackString	  "|"
+	  MaskEnableString	  "on,on"
+	  MaskVisibilityString	  "on,on"
+	  MaskToolTipString	  "on,on"
+	  MaskVarAliasString	  ","
+	  MaskVariables		  "init_pos=@1;init_angle=@2;"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  off
+	  MaskIconRotate	  "none"
+	  MaskIconUnits		  "pixels"
+	  MaskValueString	  "[0 0 0.29]|[0 0 0]"
+	  MaskTabNameString	  ","
+	  System {
+	    Name		    "local2global"
+	    Location		    [128, 402, 948, 980]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "A4"
+	    PaperUnits		    "centimeters"
+	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "vel,local"
+	      Position		      [60, 68, 90, 82]
+	      IconDisplay	      "Port number"
+	      OutDataType	      "fixdt(1,16,0)"
+	      OutScaling	      "[]"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "omega,local"
+	      Position		      [60, 128, 90, 142]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "fixdt(1,16,0)"
+	      OutScaling	      "[]"
+	    }
+	    Block {
+	      BlockType		      Integrator
+	      Name		      "Integrator1"
+	      Ports		      [2, 1]
+	      Position		      [545, 65, 580, 100]
+	      InitialConditionSource  "external"
+	      IgnoreLimit	      off
+	    }
+	    Block {
+	      BlockType		      Integrator
+	      Name		      "Integrator2"
+	      Ports		      [2, 1]
+	      Position		      [280, 260, 315, 295]
+	      Orientation	      "left"
+	      InitialConditionSource  "external"
+	      IgnoreLimit	      off
+	    }
+	    Block {
+	      BlockType		      "S-Function"
+	      Name		      "S-Function"
+	      Ports		      [3, 3]
+	      Position		      [150, 42, 385, 228]
+	      BackgroundColor	      "cyan"
+	      FunctionName	      "s_local2global"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "omega1"
+	      Position		      [425, 80, 495, 100]
+	      ShowName		      off
+	      Value		      "init_pos"
+	      VectorParams1D	      on
+	      SamplingMode	      "Sample based"
+	      OutDataTypeMode	      "Inherit from 'Constant value'"
+	      OutDataType	      "fixdt(1,16,0)"
+	      ConRadixGroup	      "Use specified scaling"
+	      OutScaling	      "[]"
+	      SampleTime	      "inf"
+	      FramePeriod	      "inf"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "omega2"
+	      Position		      [425, 275, 495, 295]
+	      Orientation	      "left"
+	      NamePlacement	      "alternate"
+	      ShowName		      off
+	      Value		      "init_angle"
+	      VectorParams1D	      on
+	      SamplingMode	      "Sample based"
+	      OutDataTypeMode	      "Inherit from 'Constant value'"
+	      OutDataType	      "fixdt(1,16,0)"
+	      ConRadixGroup	      "Use specified scaling"
+	      OutScaling	      "[]"
+	      SampleTime	      "inf"
+	      FramePeriod	      "inf"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "dis"
+	      Position		      [615, 78, 645, 92]
+	      IconDisplay	      "Port number"
+	      BusOutputAsStruct	      off
+	      OutDataType	      "fixdt(1,16,0)"
+	      OutScaling	      "[]"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "tramat"
+	      Position		      [615, 128, 645, 142]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	      BusOutputAsStruct	      off
+	      OutDataType	      "fixdt(1,16,0)"
+	      OutScaling	      "[]"
+	    }
+	    Line {
+	      SrcBlock		      "vel,local"
+	      SrcPort		      1
+	      DstBlock		      "S-Function"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "omega,local"
+	      SrcPort		      1
+	      DstBlock		      "S-Function"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Integrator1"
+	      SrcPort		      1
+	      DstBlock		      "dis"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "omega1"
+	      SrcPort		      1
+	      DstBlock		      "Integrator1"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "omega2"
+	      SrcPort		      1
+	      DstBlock		      "Integrator2"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Integrator2"
+	      SrcPort		      1
+	      Points		      [-205, 0; 0, -85]
+	      DstBlock		      "S-Function"
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "S-Function"
+	      SrcPort		      2
+	      DstBlock		      "tramat"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "S-Function"
+	      SrcPort		      1
+	      DstBlock		      "Integrator1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "S-Function"
+	      SrcPort		      3
+	      Points		      [10, 0; 0, 75]
+	      DstBlock		      "Integrator2"
+	      DstPort		      1
+	    }
+	  }
+	}
+      }
+    }
+    Annotation {
+      Name		      "Delft-Tyre library for Simulink\n(MATLAB versio"
+"n 2008a and up)"
+      Position		      [206, 43]
+      UseDisplayTextAsClickCallback off
+      FontName		      "Arial"
+      FontSize		      18
+    }
+    Annotation {
+      Position		      [466, 221]
+      UseDisplayTextAsClickCallback off
+    }
+  }
+}
